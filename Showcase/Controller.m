@@ -32,7 +32,7 @@
 {
     [self createStatusItem];
     [button setBezelStyle:1001];
-    [button setFont:[NSFont fontWithName:@"Lucida Grande Bold" size:14]];
+    [button setFont:[NSFont fontWithName:@"LucidaGrande-Bold" size:14]];
     [button setTitle:@"Launch Manually"];
     [button sizeToFit];
     [button setFrameSize:NSMakeSize([button frame].size.width + 8, 24)];

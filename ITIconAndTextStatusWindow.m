@@ -183,7 +183,7 @@
         divisor = MINI_DIVISOR;
     }
 
-    font = [NSFont fontWithName:@"Lucida Grande Bold" size:(baseFontSize / divisor)];
+    font = [NSFont fontWithName:@"LucidaGrande-Bold" size:(baseFontSize / divisor)];
     attr = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     
 //      Iterate over each line to get text width and height
