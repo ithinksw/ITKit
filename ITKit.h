@@ -26,7 +26,6 @@
 #import <ITKit/ITBevelView.h>
 #import <ITKit/ITTextField.h>
 #import <ITKit/ITTransientStatusWindow.h>
-#import <ITKit/ITLED.h>
 
 #import <ITKit/ITCategory-NSView.h>
 #import <ITKit/ITCategory-NSMenu.h>

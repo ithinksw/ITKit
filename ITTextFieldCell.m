@@ -1,5 +1,5 @@
 #import "ITTextFieldCell.h"
-#import <CoreGraphics/CoreGraphics.h>
+#import <ApplicationServices/ApplicationServices.h>
 #import "ITCoreGraphicsHacks.h"
 
 

@@ -1,6 +1,6 @@
 #import "ITTransientStatusWindow.h"
 #import "ITWindowEffect.h"
-#import <CoreGraphics/CoreGraphics.h>
+#import <ApplicationServices/ApplicationServices.h>
 #import "ITCoreGraphicsHacks.h"
 #import "ITTextField.h"
 #import "ITGrayRoundedView.h"
