@@ -3,7 +3,7 @@
 #import <ApplicationServices/ApplicationServices.h>
 #import "ITCoreGraphicsHacks.h"
 #import "ITTextField.h"
-#import "ITGrayRoundedView.h"
+#import "ITTSWBackgroundView.h"
 
 #define EFFECT_FPS 30.0
 
@@ -322,7 +322,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 - (void)rebuildWindow;
 {
     if ( _backgroundType == ITTransientStatusWindowRounded ) {
-        ITGrayRoundedView *roundedView = [[[ITGrayRoundedView alloc] initWithFrame:[self frame]] autorelease];
+        ITTSWBackgroundView *roundedView = [[[ITTSWBackgroundView alloc] initWithFrame:[self frame]] autorelease];
 
         [self setBackgroundColor:[NSColor clearColor]];
         [self setHasShadow:NO];

@@ -1,6 +1,6 @@
 /*
  *	ITKit
- *  ITGrayRoundedView
+ *  ITTSWBackgroundView
  *    NSView subclass which draws a translucent background with rounded corners.
  *
  *  Original Author : Matt Judy <mjudy@ithinksw.com>
@@ -14,7 +14,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface ITGrayRoundedView : NSView {
+@interface ITTSWBackgroundView : NSView {
     NSBezierPath *_path;
 }
 

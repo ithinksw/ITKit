@@ -1,7 +1,7 @@
-#import "ITGrayRoundedView.h"
+#import "ITTSWBackgroundView.h"
 
 
-@implementation ITGrayRoundedView
+@implementation ITTSWBackgroundView
 
 - (id)initWithFrame:(NSRect)frameRect
 {
@@ -44,28 +44,28 @@
     [_path autorelease];
     _path = [[NSBezierPath bezierPath] retain];
 
-    [path moveToPoint:pointA];                         //  first point
-    [path appendBezierPathWithArcWithCenter:ctrAB      //  bottom-left curve
-                                     radius:24.0
-                                 startAngle:90.0
-                                   endAngle:180.0];
-    [path lineToPoint:pointC];                         //  left line
-    [path appendBezierPathWithArcWithCenter:ctrCD      //  top-left curve
-                                     radius:24.0
-                                 startAngle:180.0
-                                   endAngle:270.0];
-    [path lineToPoint:pointE];                         //  top line
-    [path appendBezierPathWithArcWithCenter:ctrEF      //  top-right curve
-                                     radius:24.0
-                                 startAngle:270.0
-                                   endAngle:0.0];
-    [path lineToPoint:pointG];                         //  right line
-    [path appendBezierPathWithArcWithCenter:ctrGH      //  bottom-right curve
-                                     radius:24.0
-                                 startAngle:0.0
-                                   endAngle:90.0];
-    [path lineToPoint:pointA];                         //  right line
-
+    [_path moveToPoint:pointA];                         //  first point
+    [_path appendBezierPathWithArcWithCenter:ctrAB      //  bottom-left curve
+                                      radius:24.0
+                                  startAngle:90.0
+                                    endAngle:180.0];
+    [_path lineToPoint:pointC];                         //  left line
+    [_path appendBezierPathWithArcWithCenter:ctrCD      //  top-left curve
+                                      radius:24.0
+                                  startAngle:180.0
+                                    endAngle:270.0];
+    [_path lineToPoint:pointE];                         //  top line
+    [_path appendBezierPathWithArcWithCenter:ctrEF      //  top-right curve
+                                      radius:24.0
+                                  startAngle:270.0
+                                    endAngle:0.0];
+    [_path lineToPoint:pointG];                         //  right line
+    [_path appendBezierPathWithArcWithCenter:ctrGH      //  bottom-right curve
+                                      radius:24.0
+                                  startAngle:0.0
+                                    endAngle:90.0];
+    [_path lineToPoint:pointA];                         //  right line
+    
     [[NSColor colorWithCalibratedWhite:0.0 alpha:0.15] set];
     [_path fill];
 }
