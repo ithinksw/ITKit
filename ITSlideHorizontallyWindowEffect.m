@@ -158,12 +158,10 @@
 {
     CGAffineTransform transform;
     if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
-        NSLog(@"%f", (distance - (32.0 + [[_window screen] visibleFrame].origin.x)));
         transform = CGAffineTransformMakeTranslation((distance - (32.0 + [[_window screen] visibleFrame].origin.x)),
                                                     -( [[_window screen] frame].size.height - ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y) ) );
     } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
-        NSLog(@"%f", [[_window screen] visibleFrame].size.width - ([_window frame].size.width - distance));
-        transform = CGAffineTransformMakeTranslation((32.0 - (([[_window screen] visibleFrame].size.width / 2) + distance)),
+        transform = CGAffineTransformMakeTranslation(-((([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) + distance) - 32.0 - [_window frame].size.width),
                                                     -( [[_window screen] frame].size.height - ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y) ) );
     }
 
