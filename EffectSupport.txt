@@ -1,0 +1,35 @@
+POSITIONS:
+
++-------------------+
+| A       B       C |
+|                   |
+| D       E       F |
+|                   |
+| G       H       I |
++-------------------+
+
+
+EFFECTS:
+
+0-) None
+1-) Dissolve
+2-) Slide Vertically
+3-) Slide Horizontally
+4-) Pivot
+
+
+MATCHES
+
+Pos. | Possible Effects      + = Maybe (Future)
+-----+--------------------   - = Not Supported
+  A  | 0   1   2   3   4
+  B  | 0   1   2   -   +
+  C  | 0   1   2   3   4
+  D  | 0   1   -   3   +
+  E  | 0   1   -   -   -
+  F  | 0   1   -   3   +
+  G  | 0   1   2   3   4
+  H  | 0   1   2   -   +
+  I  | 0   1   2   3   4
+
+

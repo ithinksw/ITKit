@@ -76,7 +76,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 {
     NSRect contentRect;
     
-    // If no Content View was provided, use a generic NSView with the app icon.
+    // If no Content View was provided, use a generic view.
     if ( ! (contentView) ) {
         contentView = [[[NSView alloc] initWithFrame:
             NSMakeRect(100.0, 100.0, 200.0, 200.0)] autorelease];
@@ -96,8 +96,8 @@ static ITTransientStatusWindow *staticWindow = nil;
         _backgroundType      = backgroundType;
         _verticalPosition    = ITTransientStatusWindowPositionBottom;
         _horizontalPosition  = ITTransientStatusWindowPositionLeft;
-//      _entryEffect         = ITTransientStatusWindowEffectNone;
-        _entryEffect         = ITTransientStatusWindowEffectPivot;
+        _screenPadding       = 32.0;
+        _entryEffect         = ITTransientStatusWindowEffectNone;
         _exitEffect          = ITTransientStatusWindowEffectDissolve;
         _effectTime          = DEFAULT_EFFECT_TIME;
         _effectProgress      = 0.00;
@@ -105,11 +105,11 @@ static ITTransientStatusWindow *staticWindow = nil;
         _delayTimer          = nil;
         _effectTimer         = nil;
 
-//        if ( _backgroundType == ITTransientStatusWindowRounded ) {
-//            _contentSubView = contentView;
-//        } else {
-//            [self setContentView:contentView];
-//        }
+//      if ( _backgroundType == ITTransientStatusWindowRounded ) {
+//          _contentSubView = contentView;
+//      } else {
+//          [self setContentView:contentView];
+//      }
 
         [self setIgnoresMouseEvents:YES];
         [self setLevel:NSScreenSaverWindowLevel];
@@ -271,24 +271,26 @@ static ITTransientStatusWindow *staticWindow = nil;
     _horizontalPosition = newPosition;
 }
 
-- (ITTransientStatusWindowEffect)entryEffect
+- (ITWindowEffect *)entryEffect
 {
     return _entryEffect;
 }
 
-- (void)setEntryEffect:(ITTransientStatusWindowEffect)newEffect;
+- (void)setEntryEffect:(ITWindowEffect *)newEffect
 {
-    _entryEffect = newEffect;
+    [_entryEffect autorelease];
+    _entryEffect = [newEffect retain];
 }
 
-- (ITTransientStatusWindowEffect)exitEffect;
+- (ITWindowEffect *)exitEffect
 {
     return _exitEffect;
 }
 
-- (void)setExitEffect:(ITTransientStatusWindowEffect)newEffect;
+- (void)setExitEffect:(ITWindowEffect *)newEffect
 {
-    _exitEffect = newEffect;
+    [_exitEffect autorelease];
+    _exitEffect = [newEffect retain];
 }
 
 
@@ -421,8 +423,11 @@ static ITTransientStatusWindow *staticWindow = nil;
 {
     float degAngle = (angle * (pi / 180));
     CGAffineTransform transform = CGAffineTransformMakeRotation(degAngle);
+    
+ // Set pivot point
     transform.tx = -32.0;
     transform.ty = [self frame].size.height + 32.0;
+    
     CGSSetWindowTransform([NSApp contextID],
                           (CGSWindowID)[self windowNumber],
                           CGAffineTransformTranslate(transform,

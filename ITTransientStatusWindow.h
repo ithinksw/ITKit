@@ -24,6 +24,7 @@
 
 @class ITTextField;
 @class ITGrayRoundedView;
+@class ITWindowEffect;
 
 
 typedef enum {
@@ -57,27 +58,19 @@ typedef enum {
     ITTransientStatusWindowOther
 } ITTransientStatusWindowPosition;
 
-typedef enum {                                      // Note: Entry effects described here.  Exit does the reverse.
-    ITTransientStatusWindowEffectNone,              // No effect, window just appears.
-    ITTransientStatusWindowEffectDissolve,          // Fades in.
-    ITTransientStatusWindowEffectSlideVertically,   // Slides vertically onto the screen from the nearest edge
-    ITTransientStatusWindowEffectSlideHorizontally, // Slides horizontally onto the screen from the nearest edge
-    ITTransientStatusWindowEffectPivot              // Rotate into place from perpendicular edge
-} ITTransientStatusWindowEffect;
-
-
 @interface ITTransientStatusWindow : NSWindow {
 
     ITTransientStatusWindowVisibilityState _visibilityState;
     ITTransientStatusWindowExitMode        _exitMode;
     float                                  _exitDelay;
     ITTransientStatusWindowBackgroundType  _backgroundType;
-    ITTransientStatusWindowEffect          _entryEffect;
-    ITTransientStatusWindowEffect          _exitEffect;
+    ITWindowEffect                        *_entryEffect;
+    ITWindowEffect                        *_exitEffect;
     float                                  _effectTime;
     double                                 _effectProgress;
     ITTransientStatusWindowPosition        _verticalPosition;
     ITTransientStatusWindowPosition        _horizontalPosition;
+    int                                    _screenPadding;
 
     BOOL _reallyIgnoresEvents;
     
@@ -110,11 +103,11 @@ typedef enum {                                      // Note: Entry effects descr
 - (ITTransientStatusWindowPosition)horizontalPosition;
 - (void)setHorizontalPosition:(ITTransientStatusWindowPosition)newPosition;
 
-- (ITTransientStatusWindowEffect)entryEffect;
-- (void)setEntryEffect:(ITTransientStatusWindowEffect)newEffect;
+- (ITWindowEffect *)entryEffect;
+- (void)setEntryEffect:(ITWindowEffect *)newEffect;
 
-- (ITTransientStatusWindowEffect)exitEffect;
-- (void)setExitEffect:(ITTransientStatusWindowEffect)newEffect;
+- (ITWindowEffect *)exitEffect;
+- (void)setExitEffect:(ITWindowEffect *)newEffect;
 
 
 @end
