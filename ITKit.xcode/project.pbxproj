@@ -537,6 +537,34 @@
 			settings = {
 			};
 		};
+		37B3906906923D1200E828B9 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ITSpinWindowEffect.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		37B3906A06923D1200E828B9 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ITSpinWindowEffect.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		37B3906B06923D1200E828B9 = {
+			fileRef = 37B3906906923D1200E828B9;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		37B3906C06923D1200E828B9 = {
+			fileRef = 37B3906A06923D1200E828B9;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 //370
 //371
 //372
@@ -1837,6 +1865,8 @@
 				7C992DE8054F5179000B93EA,
 				372C5813068FE72F00CEF54A,
 				372C5812068FE72F00CEF54A,
+				37B3906906923D1200E828B9,
+				37B3906A06923D1200E828B9,
 			);
 			isa = PBXGroup;
 			name = Effects;
@@ -2192,6 +2222,7 @@
 				3710912805C0825900ED0F36,
 				7C4BBADC05F98C9900734027,
 				372C5815068FE72F00CEF54A,
+				37B3906B06923D1200E828B9,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2253,6 +2284,7 @@
 				3710912305C0821000ED0F36,
 				7C4BBADD05F98C9900734027,
 				372C5814068FE72F00CEF54A,
+				37B3906C06923D1200E828B9,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
