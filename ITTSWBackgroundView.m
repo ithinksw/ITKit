@@ -1,35 +1,47 @@
 #import "ITTSWBackgroundView.h"
 
 
+#define RADIUS 24.0
+
+
+@interface ITTSWBackgroundView (Private)
+@end
+
+
 @implementation ITTSWBackgroundView
+
 
 - (id)initWithFrame:(NSRect)frameRect
 {
     if ( (self = [super initWithFrame:frameRect]) ) {
-        _path = [[NSBezierPath bezierPath] retain];
+        _path  = [[NSBezierPath bezierPath] retain];
+        _color = [[NSColor blueColor] retain];
+        _mode  = ITTSWBackgroundApple;
     }
     
     return self;
 }
 
-- (void)drawRect:(NSRect)theRect
+- (void)drawRect:(NSRect)rect
 {
-    float vh = NSHeight(theRect);
-    float vw = NSWidth(theRect);
+    float vh     = NSHeight(rect);
+    float vw     = NSWidth(rect);
+    float indent = 0.0;
     
-    NSPoint pointA = NSMakePoint( 24.0        , 0.0         );
-//  NSPoint pointB = NSMakePoint( 0.0         , 24.0        );  reference
-    NSPoint pointC = NSMakePoint( 0.0         , (vh - 24.0) );
-//  NSPoint pointD = NSMakePoint( 24.0        , vh          );  reference
-    NSPoint pointE = NSMakePoint( (vw - 24.0) , vh          );
-//  NSPoint pointF = NSMakePoint( vw          , (vh - 24.0) );  reference
-    NSPoint pointG = NSMakePoint( vw          , 24.0        );
-//  NSPoint pointH = NSMakePoint( (vw - 24.0) , 0.0         );  reference
-
-    NSPoint ctrAB  = NSMakePoint( 24.0        , 24.0        );
-    NSPoint ctrCD  = NSMakePoint( 24.0        , (vh - 24.0) );
-    NSPoint ctrEF  = NSMakePoint( (vw - 24.0) , (vh - 24.0) );
-    NSPoint ctrGH  = NSMakePoint( (vw - 24.0) , 24.0        );
+    if ( (_mode == ITTSWBackgroundReadable) || (_mode == ITTSWBackgroundColored) ) {
+        indent = 2.0;
+    }
+    
+    NSPoint pointA = NSMakePoint( ((vw - RADIUS) - indent) , (vh - indent)            );
+    NSPoint pointB = NSMakePoint( (RADIUS + indent)        , (vh - indent)            );
+    NSPoint pointD = NSMakePoint( indent                   , (RADIUS + indent)        );
+    NSPoint pointF = NSMakePoint( ((vw - RADIUS) - indent) , indent                   );
+    NSPoint pointH = NSMakePoint( (vw - indent)            , ((vh - RADIUS) - indent) );
+    
+    NSPoint ctrBC  = NSMakePoint( (RADIUS + indent)        , ((vh - RADIUS) - indent) );
+    NSPoint ctrDE  = NSMakePoint( (RADIUS + indent)        , (RADIUS + indent)        );
+    NSPoint ctrFG  = NSMakePoint( ((vw - RADIUS) - indent) , (RADIUS + indent)        );
+    NSPoint ctrHA  = NSMakePoint( ((vw - RADIUS) - indent) , ((vh - RADIUS) - indent) );
     
     /*
      *        D                    E
@@ -41,38 +53,74 @@
      *        A                    H
      */
     
-    [_path autorelease];
-    _path = [[NSBezierPath bezierPath] retain];
-
+    [_path removeAllPoints];
+    
     [_path moveToPoint:pointA];                         //  first point
-    [_path appendBezierPathWithArcWithCenter:ctrAB      //  bottom-left curve
-                                      radius:24.0
+    [_path lineToPoint:pointB];                         //  top line
+    [_path appendBezierPathWithArcWithCenter:ctrBC      //  top-left curve
+                                      radius:RADIUS
                                   startAngle:90.0
                                     endAngle:180.0];
-    [_path lineToPoint:pointC];                         //  left line
-    [_path appendBezierPathWithArcWithCenter:ctrCD      //  top-left curve
-                                      radius:24.0
+    [_path lineToPoint:pointD];                         //  left line
+    [_path appendBezierPathWithArcWithCenter:ctrDE      //  bottom-left curve
+                                      radius:RADIUS
                                   startAngle:180.0
                                     endAngle:270.0];
-    [_path lineToPoint:pointE];                         //  top line
-    [_path appendBezierPathWithArcWithCenter:ctrEF      //  top-right curve
-                                      radius:24.0
+    [_path lineToPoint:pointF];                         //  top line
+    [_path appendBezierPathWithArcWithCenter:ctrFG      //  top-right curve
+                                      radius:RADIUS
                                   startAngle:270.0
                                     endAngle:0.0];
-    [_path lineToPoint:pointG];                         //  right line
-    [_path appendBezierPathWithArcWithCenter:ctrGH      //  bottom-right curve
-                                      radius:24.0
+    [_path lineToPoint:pointH];                         //  right line
+    [_path appendBezierPathWithArcWithCenter:ctrHA      //  bottom-right curve
+                                      radius:RADIUS
                                   startAngle:0.0
                                     endAngle:90.0];
-    [_path lineToPoint:pointA];                         //  right line
+                                    
+    if ( _mode == ITTSWBackgroundApple ) {
+        [[NSColor colorWithCalibratedWhite:0.0 alpha:0.15] set];
+    } else if ( _mode == ITTSWBackgroundReadable ) {
+        [[NSColor colorWithCalibratedWhite:0.15 alpha:0.70] set];
+    } else if ( _mode == ITTSWBackgroundColored ) {
+        [_color set];
+    }
     
-    [[NSColor colorWithCalibratedWhite:0.0 alpha:0.15] set];
     [_path fill];
+
+    if ( (_mode == ITTSWBackgroundReadable) || (_mode == ITTSWBackgroundColored) ) {
+        [[NSColor colorWithCalibratedWhite:0.90 alpha:1.00] set];
+        [_path setLineWidth:3.0];
+        [_path stroke];
+    }
 }
 
 - (BOOL)isOpaque
 {
     return NO;
 }
+
+- (ITTSWBackgroundMode)backgroundMode
+{
+    return _mode;
+}
+
+- (void)setBackgroundMode:(ITTSWBackgroundMode)newMode
+{
+    _mode = newMode;
+    [self setNeedsDisplay:YES];
+}
+
+- (NSColor *)backgroundColor
+{
+    return _color;
+}
+
+- (void)setBackgroundColor:(NSColor *)newColor
+{
+    [_color autorelease];
+    _color = [newColor copy];
+    [self setNeedsDisplay:YES];
+}
+
 
 @end

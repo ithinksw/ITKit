@@ -33,7 +33,8 @@
     IBOutlet NSPopUpButton  *swDefinedPositionPopup;
     IBOutlet NSTextField    *swVanishDelay;
     IBOutlet NSTextField    *swShadowSaturation;
-    IBOutlet NSSlider       *swSpeedSlider;
+    IBOutlet NSSlider       *swEntrySpeedSlider;
+    IBOutlet NSSlider       *swExitSpeedSlider;
 }
 
 // ITStatusItem Support

@@ -28,9 +28,10 @@
                 statusItemMenu = NSMenu; 
                 swBackgroundTypePopup = NSPopUpButton; 
                 swDefinedPositionPopup = NSPopUpButton; 
+                swEntrySpeedSlider = NSSlider; 
+                swExitSpeedSlider = NSSlider; 
                 swSampleTextView = NSTextView; 
                 swShadowSaturation = NSTextField; 
-                swSpeedSlider = NSSlider; 
                 swVanishDelay = NSTextField; 
                 swVanishModePopup = NSPopUpButton; 
                 tabView = ITTabView; 
@@ -44,9 +45,8 @@
         {CLASS = ITBevelView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
         {CLASS = ITButton; LANGUAGE = ObjC; SUPERCLASS = NSButton; }, 
         {CLASS = ITButtonCell; LANGUAGE = ObjC; SUPERCLASS = NSButtonCell; }, 
-        {CLASS = ITGrayRoundedView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
-        {CLASS = ITLED; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
         {CLASS = ITLEDCell; LANGUAGE = ObjC; SUPERCLASS = NSActionCell; }, 
+        {CLASS = ITTSWBackgroundView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
         {CLASS = ITTabView; LANGUAGE = ObjC; SUPERCLASS = NSTabView; }, 
         {CLASS = ITTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }, 
         {CLASS = ITTextFieldCell; LANGUAGE = ObjC; SUPERCLASS = NSTextFieldCell; }

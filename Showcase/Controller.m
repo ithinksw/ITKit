@@ -1,5 +1,6 @@
 #import "Controller.h"
 #import "ITTransientStatusWindow.h"
+#import "ITTSWBackgroundView.h"
 #import "ITTextField.h"
 #import "ITBevelView.h"
 #import "ITCutWindowEffect.h"
@@ -38,10 +39,10 @@
     statusWindow = [ITTransientStatusWindow sharedWindow];
     [statusWindow setEntryEffect:[[ITCutWindowEffect alloc] initWithWindow:statusWindow]];
     [statusWindow setExitEffect:[[ITDissolveWindowEffect alloc] initWithWindow:statusWindow]];
-    [[statusWindow entryEffect] setEffectTime:[swSpeedSlider floatValue]];
-    [[statusWindow exitEffect]  setEffectTime:[swSpeedSlider floatValue]];
+    [[statusWindow entryEffect] setEffectTime:[swEntrySpeedSlider floatValue]];
+    [[statusWindow exitEffect]  setEffectTime:[swExitSpeedSlider floatValue]];
 //  [tabView setAllowsDragging:YES];
-    
+    [[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
 }
 
 /*************************************************************************/
@@ -218,7 +219,6 @@
     [textField setTextColor:[NSColor whiteColor]];
     [textField setCastsShadow:YES];
     [textField setStringValue:text];
-    [textField setShadowSaturation:[swShadowSaturation floatValue]];
     [[statusWindow contentView] addSubview:textField];
 
     [[statusWindow contentView] setNeedsDisplay:YES];
@@ -255,6 +255,7 @@
         [statusWindow setHorizontalPosition:[sender indexOfSelectedItem]];
     } else if ( [sender tag] == 3060 ) {
         [[statusWindow entryEffect] setEffectTime:[sender floatValue]];
+    } else if ( [sender tag] == 3061 ) {
         [[statusWindow exitEffect]  setEffectTime:[sender floatValue]];
     } else if ( [sender tag] == 3070 ) {
     
@@ -270,7 +271,7 @@
             [statusWindow setEntryEffect:[[[ITPivotWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
         }
 
-        [[statusWindow entryEffect] setEffectTime:[swSpeedSlider floatValue]];
+        [[statusWindow entryEffect] setEffectTime:[swEntrySpeedSlider floatValue]];
         
     } else if ( [sender tag] == 3080 ) {
 
@@ -286,8 +287,20 @@
             [statusWindow setExitEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
         }
 
-        [[statusWindow exitEffect] setEffectTime:[swSpeedSlider floatValue]];
+        [[statusWindow exitEffect] setEffectTime:[swExitSpeedSlider floatValue]];
 
+    } else if ( [sender tag] == 3090 ) {
+    
+        if ( [sender indexOfSelectedItem] == 0 ) {
+            [(ITTSWBackgroundView *)[statusWindow contentView] setBackgroundMode:ITTSWBackgroundApple];
+        } else if ( [sender indexOfSelectedItem] == 1 ) {
+            [(ITTSWBackgroundView *)[statusWindow contentView] setBackgroundMode:ITTSWBackgroundReadable];
+        } else if ( [sender indexOfSelectedItem] == 2 ) {
+            [(ITTSWBackgroundView *)[statusWindow contentView] setBackgroundMode:ITTSWBackgroundColored];
+        }
+        
+    } else if ( [sender tag] == 3100 ) {
+        [(ITTSWBackgroundView *)[statusWindow contentView] setBackgroundColor:[sender color]];
     }
 }
 
