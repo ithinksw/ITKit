@@ -32,6 +32,7 @@
     IBOutlet NSPopUpButton  *swBackgroundTypePopup;
     IBOutlet NSPopUpButton  *swDefinedPositionPopup;
     IBOutlet NSTextField    *swVanishDelay;
+    IBOutlet NSTextField    *swShadowSaturation;
     IBOutlet NSSlider       *swSpeedSlider;
 }
 

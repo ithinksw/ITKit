@@ -51,6 +51,7 @@
     if ( _subStyle == ITGrayRoundedBezelStyle ) {
         [self drawGrayRoundedBezelWithFrame:rect inView:controlView];
         [super drawInteriorWithFrame:rect inView:controlView];
+        [[controlView superview] setNeedsDisplay:YES];
     } else {
         [super drawWithFrame:rect inView:controlView];
     }

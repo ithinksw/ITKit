@@ -24,7 +24,7 @@
         shadowAmbient    = 0.15;
         shadowHeight     = 1.00;
         shadowRadius     = 4.00;
-        shadowSaturation = 1.0;
+        shadowSaturation = 1.2;
     }
 
     return self;

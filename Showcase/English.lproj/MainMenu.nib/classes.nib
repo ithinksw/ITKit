@@ -29,6 +29,7 @@
                 swBackgroundTypePopup = NSPopUpButton; 
                 swDefinedPositionPopup = NSPopUpButton; 
                 swSampleTextView = NSTextView; 
+                swShadowSaturation = NSTextField; 
                 swSpeedSlider = NSSlider; 
                 swVanishDelay = NSTextField; 
                 swVanishModePopup = NSPopUpButton; 
@@ -43,6 +44,7 @@
         {CLASS = ITBevelView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
         {CLASS = ITButton; LANGUAGE = ObjC; SUPERCLASS = NSButton; }, 
         {CLASS = ITButtonCell; LANGUAGE = ObjC; SUPERCLASS = NSButtonCell; }, 
+        {CLASS = ITGrayRoundedView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
         {CLASS = ITLED; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
         {CLASS = ITLEDCell; LANGUAGE = ObjC; SUPERCLASS = NSActionCell; }, 
         {CLASS = ITTabView; LANGUAGE = ObjC; SUPERCLASS = NSTabView; }, 

@@ -30,7 +30,6 @@
     [button setBezelStyle:1001];
     [button setFont:[NSFont fontWithName:@"Lucida Grande Bold" size:14]];
     [button setTitle:@"Launch Manually"];
-    [button setButtonType:NSMomentaryLight];
     [button sizeToFit];
     [button setFrameSize:NSMakeSize([button frame].size.width + 8, 24)];
     [testTextField setCastsShadow:YES];
@@ -186,7 +185,7 @@
     
     // Add 4.0 to the final textHeight to accomodate the shadow.
     textHeight += 4.0;
-    
+    NSLog(@"%f", textHeight);
     // Set the content height to the greater of the text and image heights.
     contentHeight = ( ( imageHeight > textHeight ) ? imageHeight : textHeight );
     
@@ -219,6 +218,7 @@
     [textField setTextColor:[NSColor whiteColor]];
     [textField setCastsShadow:YES];
     [textField setStringValue:text];
+    [textField setShadowSaturation:[swShadowSaturation floatValue]];
     [[statusWindow contentView] addSubview:textField];
 
     [[statusWindow contentView] setNeedsDisplay:YES];

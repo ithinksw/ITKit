@@ -15,7 +15,7 @@
 
 
 @interface ITGrayRoundedView : NSView {
-
+    NSBezierPath *_path;
 }
 
 @end

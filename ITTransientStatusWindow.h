@@ -61,7 +61,7 @@ typedef enum {
     
     NSTimer *_exitTimer;
 
-//  NSView *_contentSubView;		
+    NSView *_contentSubView;		
 }
 
 + (id)sharedWindow;
