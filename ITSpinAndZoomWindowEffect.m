@@ -1,25 +1,25 @@
-#import "ITSpinWindowEffect.h"
+#import "ITSpinAndZoomWindowEffect.h"
 #import "ITCoreGraphicsHacks.h"
 #import "ITTransientStatusWindow.h"
 
 
-@interface ITSpinWindowEffect (Private)
+@interface ITSpinAndZoomWindowEffect (Private)
 - (void)performAppearFromProgress:(float)progress effectTime:(float)time;
 - (void)appearStep;
 - (void)appearFinish;
 - (void)performVanishFromProgress:(float)progress effectTime:(float)time;
 - (void)vanishStep;
 - (void)vanishFinish;
-- (void)setSpin:(float)progress;
+- (void)setScale:(float)scale angle:(float)angle;
 @end
 
 
-@implementation ITSpinWindowEffect
+@implementation ITSpinAndZoomWindowEffect
 
 
 + (NSString *)effectName
 {
-    return @"Spin";
+    return @"Spin & Zoom";
 }
 
 + (NSDictionary *)supportedPositions
@@ -65,7 +65,7 @@
     _effectSpeed = (1.0 / (EFFECT_FPS * time));
     
     if ( progress == 0.0 ) {
-        [self setSpin:0.0];
+        [self setScale:0.0 angle:0.0];
         [_window setAlphaValue:0.0];
     }
     
@@ -82,8 +82,8 @@
     float interSpin = 0.0;
     [_window setEffectProgress:([_window effectProgress] + _effectSpeed)];
     [_window setEffectProgress:( ([_window effectProgress] < 1.0) ? [_window effectProgress] : 1.0)];
-    interSpin = (( sin(([_window effectProgress] * pi) - (pi / 2)) + 1 ) / 2);
-    [self setSpin:-interSpin];
+    interSpin = (( sin((([_window effectProgress]) * pi) - (pi / 2)) + 1 ) / 2);
+    [self setScale:interSpin angle:-interSpin];
     [_window setAlphaValue:interSpin];
 
     if ( [_window effectProgress] >= 1.0 ) {
@@ -133,7 +133,7 @@
     [_window setEffectProgress:progress];
     _effectSpeed = (1.0 / (EFFECT_FPS * time));
     if ( progress == 1.0 ) {
-        [self setSpin:0.0];
+        [self setScale:1.0 angle:0.0];
         [_window setAlphaValue:1.0];
     }
 
@@ -151,7 +151,7 @@
     [_window setEffectProgress:([_window effectProgress] - _effectSpeed)];
     [_window setEffectProgress:( ([_window effectProgress] > 0.0) ? [_window effectProgress] : 0.0)];
     interSpin = (( sin(([_window effectProgress] * pi) - (pi / 2)) + 1 ) / 2);
-    [self setSpin:interSpin];
+    [self setScale:interSpin angle:interSpin];
     [_window setAlphaValue:interSpin];
 
     if ( [_window effectProgress] <= 0.0 ) {
@@ -165,7 +165,7 @@
     _effectTimer = nil;
     [_window orderOut:self];
     [_window setAlphaValue:1.0];
-    [self setSpin:0.0];
+    [self setScale:0.0 angle:0.0];
     [self setWindowVisibility:ITWindowHiddenState];
     
     __idle = YES;
@@ -191,10 +191,10 @@
 #pragma mark PRIVATE METHOD IMPLEMENTATIONS
 /*************************************************************************/
 
-- (void)setSpin:(float)progress
+- (void)setScale:(float)scale angle:(float)angle
 {
     int hPos = [_window horizontalPosition];
-    float radAngle = (progress * 4 * pi);
+    float radAngle = (angle * 4 * pi);
     CGAffineTransform transform;
     NSPoint translation;
     NSRect screenFrame = [[_window screen] frame];
@@ -202,6 +202,7 @@
     translation.x = screenFrame.origin.x + ([_window frame].size.width / 2.0);
     translation.y = screenFrame.origin.y + ([_window frame].size.height / 2.0);
     transform = CGAffineTransformMakeTranslation(translation.x, translation.y);
+    transform = CGAffineTransformScale(transform, 1.0 / scale, 1.0 / scale);
     transform = CGAffineTransformRotate(transform, radAngle);
     transform = CGAffineTransformTranslate(transform, -translation.x, -translation.y);
     

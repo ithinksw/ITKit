@@ -14,6 +14,7 @@
         NSClassFromString(@"ITPivotWindowEffect"),
         NSClassFromString(@"ITZoomWindowEffect"),
         NSClassFromString(@"ITSpinWindowEffect"),
+        NSClassFromString(@"ITSpinAndZoomWindowEffect"),
         nil];
         
     return classes;
