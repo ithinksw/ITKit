@@ -18,11 +18,11 @@ extern MenuRef _NSGetCarbonMenu( NSMenu *menu);
 @implementation NSMenu (ITCategory)
 
 - (void)indentItem:(NSMenuItem *)item {
-    [self indentItem:item toLevel:2];
+    [self indentItem:item toLevel:1];
 }
 
 - (void)indentItemAtIndex:(int)index {
-    [self indentItemAtIndex:index toLevel:2];
+    [self indentItemAtIndex:index toLevel:1];
 }
 
 - (void)indentItem:(NSMenuItem *)item toLevel:(int)indentLevel {
