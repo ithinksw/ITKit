@@ -1,16 +1,21 @@
 #import "ITPivotWindowEffect.h"
 #import "ITCoreGraphicsHacks.h"
+#import "ITTransientStatusWindow.h"
+
 
 @interface ITPivotWindowEffect (Private)
 - (void)setPivot:(float)angle;
-- (void)pivotFinish;
+- (void)appearFinish;
+- (void)vanishFinish;
 @end
+
 
 @implementation ITPivotWindowEffect
 
-
 - (void)performAppear
 {
+      // Cast so the compiler won't gripe
+    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowAppearingState];
     [self setPivot:315.0];
     _effectProgress = 0.0;
     [_window setAlphaValue:0.0];
@@ -24,6 +29,8 @@
 
 - (void)performVanish
 {
+      // Cast so the compiler won't gripe
+    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowVanishingState];
     [self setPivot:0.0];
     _effectProgress = 1.0;
     [_window setAlphaValue:1.0];
@@ -37,19 +44,23 @@
 
 - (void)cancelAppear
 {
-    [self pivotFinish];
+    [self appearFinish];
     [_window orderOut:self];
     [self setPivot:0.0];
     [_window setAlphaValue:1.0];
+      // Cast so the compiler won't gripe
+    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowHiddenState];
 }
 
 - (void)cancelVanish
 {
-    [self pivotFinish];
+    [self vanishFinish];
     [self setPivot:0.0];
     [_window setAlphaValue:1.0];
     [_window orderFront:self];
     [_window display];
+      // Cast so the compiler won't gripe
+    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowVisibleState];
 }
 
 - (void)appearStep
@@ -62,7 +73,7 @@
     [_window setAlphaValue:interPivot];
 
     if ( _effectProgress >= 1.0 ) {
-        [self pivotFinish];
+        [self appearFinish];
     }
 }
 
@@ -76,16 +87,25 @@
     [_window setAlphaValue:interPivot];
 
     if ( _effectProgress <= 0.0 ) {
-        [self pivotFinish];
+        [self vanishFinish];
     }
 }
 
-- (void)pivotFinish
+- (void)appearFinish
 {
     [_effectTimer invalidate];
     _effectTimer = nil;
+      // Cast so the compiler won't gripe
+    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowVisibleState];
 }
 
+- (void)vanishFinish
+{
+    [_effectTimer invalidate];
+    _effectTimer = nil;
+      // Cast so the compiler won't gripe
+    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowHiddenState];
+}
 
 - (void)setPivot:(float)angle
 {

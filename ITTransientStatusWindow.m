@@ -152,38 +152,33 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 */
 
- - (IBAction)appear:(id)sender
- {
-    NSLog(@"%i", _visibilityState);
+- (IBAction)appear:(id)sender
+{
     if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
          // Window is hidden.  Appear as normal, and start the timer.
         if ( _entryEffect == nil ) {
             [self orderFront:self];
             _visibilityState = ITTransientStatusWindowVisibleState;
         } else {
-            _visibilityState = ITTransientStatusWindowAppearingState;
             [_entryEffect performAppear];
-            _visibilityState = ITTransientStatusWindowVisibleState;
         }
         [self startVanishTimer];
     } else if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
          // Window is completely visible.  Simply reset the timer.
         [self startVanishTimer];
     } else if ( _visibilityState == ITTransientStatusWindowAppearingState ) {
-         // Window is appearing.  Do nothing.
+         // Window is on its way in.  Do nothing.
     } else if ( _visibilityState == ITTransientStatusWindowVanishingState ) {
-        NSLog(@"%i", _visibilityState);
+        // Window is on its way out.  Cancel the vanish.
         if ( _exitEffect == nil ) {
             [self orderFront:self];
             _visibilityState = ITTransientStatusWindowVisibleState;
         } else {
-            _visibilityState = ITTransientStatusWindowAppearingState;
             [_exitEffect cancelVanish];
-            _visibilityState = ITTransientStatusWindowVisibleState;
         }
         [self startVanishTimer];
     }
- }
+}
 
 - (IBAction)vanish:(id)sender
 {
@@ -193,12 +188,7 @@ static ITTransientStatusWindow *staticWindow = nil;
             [self orderOut:self];
             _visibilityState = ITTransientStatusWindowHiddenState;
         } else {
-            _visibilityState = ITTransientStatusWindowVanishingState;
-            NSLog(@"%i", _visibilityState);
             [_exitEffect performVanish];
-            NSLog(@"%i", _visibilityState);
-            _visibilityState = ITTransientStatusWindowHiddenState;
-            NSLog(@"%i", _visibilityState);
         }
         [self startVanishTimer];
     } else if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
@@ -206,7 +196,6 @@ static ITTransientStatusWindow *staticWindow = nil;
     } else if ( _visibilityState == ITTransientStatusWindowAppearingState ) {
         // Window is on its way in.  Cancel appear.
         [_entryEffect cancelAppear];
-        _visibilityState = ITTransientStatusWindowHiddenState;
     } else if ( _visibilityState == ITTransientStatusWindowVanishingState ) {
         // Window is on its way out.  Do nothing.
     }
