@@ -1,22 +1,20 @@
 /*
  *	ITKit
- *  ITSpinWindowEffect
- *    Effect subclass which Spins (expands/shrinks) a window into position on the screen.
+ *	ITSpinWindowEffect.h
  *
- *  Original Author : Kent Sutherland <ksutherland@ithinksw.com>
- *   Responsibility : Kent Sutherland <ksutherland@ithinksw.com>
+ *	Effect subclass which spins a window into position on the screen.
  *
- *  Copyright (c) 2002 - 2004 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
-
 
 #import <Cocoa/Cocoa.h>
 #import "ITWindowEffect.h"
 
-
-@interface ITSpinWindowEffect : ITWindowEffect <ITWindowEffect> {
+@interface ITSpinWindowEffect : ITWindowEffect {
 
 }
 

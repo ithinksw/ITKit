@@ -1,24 +1,22 @@
 /*
  *	ITKit
- *	ITTableView
- *    NSTableView subclass with easy to use accessors for adding a menu
- *    (with optional image) to the corner view of the TableView.
+ *	ITTableCornerView.h
  *
- *	Original Author	: Joseph Spiros <joseph.spiros@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
- *	Responsibility	: Joseph Spiros <joseph.spiros@ithinksw.com>
+ *	NSTableView subclass that uses an ITTableCornerView as its default
+ *		cornerView and provides easy to use accessors to the features
+ *		provided by ITTableCornerView when it is being used.
  *
- *	Copyright (c) 2002-2003 iThink Software.
- *	All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
 
 #import <Cocoa/Cocoa.h>
 
-@class ITTableCornerView;
-
 @interface ITTableView : NSTableView {
-    ITTableCornerView *corner;
+
 }
 
 - (void)setCornerImage:(NSImage*)image;

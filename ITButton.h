@@ -1,20 +1,17 @@
 /*
  *	ITKit
- *  ITButton
- *    Stylized button for use in Status Windows.
+ *	ITButton.h
  *
- *  Original Author : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *	Custom NSButton subclass that uses ITButtonCell.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
 
-
 #import <Cocoa/Cocoa.h>
-
 
 @interface ITButton : NSButton {
 

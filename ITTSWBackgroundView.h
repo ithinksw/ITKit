@@ -1,18 +1,17 @@
 /*
  *	ITKit
- *  ITTSWBackgroundView
- *    NSView subclass which draws a translucent background with rounded corners.
+ *	ITTSWBackgroundView.h
  *
- *  Original Author : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
+ *	NSView subclass which draws a translucent background with rounded corners.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
 
 #import <Cocoa/Cocoa.h>
-
 
 typedef enum _ITTSWBackgroundMode {
     ITTSWBackgroundApple,
@@ -20,11 +19,10 @@ typedef enum _ITTSWBackgroundMode {
     ITTSWBackgroundColored
 } ITTSWBackgroundMode;
 
-
 @interface ITTSWBackgroundView : NSView {
-    NSBezierPath        *_path;
-    NSColor             *_color;
-    ITTSWBackgroundMode  _mode;
+    NSBezierPath *_path;
+    NSColor *_color;
+    ITTSWBackgroundMode _mode;
 }
 
 - (ITTSWBackgroundMode)backgroundMode;

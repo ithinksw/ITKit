@@ -1,22 +1,21 @@
 /*
  *	ITKit
- *  ITTableCornerView
- *    NSPopUpButton subclass for corner views in a table view.
+ *	ITTableCornerView.h
  *
- *  Original Author : Joseph Spiros <joseph.spiros@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *	NSPopUpButton subclass for use as a cornerView in NSTableView instances.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
-
 
 #import <Cocoa/Cocoa.h>
 
 @interface ITTableCornerView : NSPopUpButton {
-    NSTableHeaderCell *headerCell;
+	NSImage *image;
+	NSTableHeaderCell *headerCell;
 }
-@end
 
+@end

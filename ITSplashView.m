@@ -1,73 +1,48 @@
-//
-//  ITSplashView.m
-//  SplashScreen
-//
-//  Created by Kent Sutherland on 11/22/04.
-//  Copyright 2004 __MyCompanyName__. All rights reserved.
-//
-
 #import "ITSplashView.h"
 
 @implementation ITSplashView
 
-- (id)initWithFrame:(NSRect)frame
-{
-    if ( (self = [super initWithFrame:frame]) ) {
-    }
-    return self;
-}
-
-- (void)dealloc
-{
+- (void)dealloc {
 	[_image release];
 	[_progress release];
 	[_text release];
 	[super dealloc];
 }
 
-- (void)drawRect:(NSRect)rect
-{
+- (void)drawRect:(NSRect)rect {
 	[_image compositeToPoint:NSZeroPoint operation:NSCompositeSourceOver];
 }
 
-- (BOOL)isOpaque
-{
+- (BOOL)isOpaque {
 	return NO;
 }
 
-- (void)stopAnimation
-{
+- (void)stopAnimation {
 	[_progress stopAnimation:nil];
 }
 
-- (NSProgressIndicator *)progressIndicator
-{
+- (NSProgressIndicator *)progressIndicator {
 	return _progress;
 }
 
-- (NSImage *)image
-{
+- (NSImage *)image {
 	return _image;
 }
 
-- (NSString *)string
-{
+- (NSString *)string {
 	return [_text stringValue];
 }
 
-- (void)setImage:(NSImage *)image
-{
+- (void)setImage:(NSImage *)image {
 	[_image autorelease];
 	_image = [image retain];
 }
 
-- (void)setString:(NSString *)text
-{
+- (void)setString:(NSString *)text {
 	[_text setStringValue:text];
 }
 
-- (void)loadControlsFromPath:(NSString *)path
-{
+- (void)loadControlsFromPath:(NSString *)path {
 	[_progress removeFromSuperview];
 	[_progress release];
 	[_text removeFromSuperview];
@@ -79,14 +54,14 @@
 	switch (height) {
 		/*case NSProgressIndicatorPreferredSmallThickness:
 			size = NSMiniControlSize;
-		break;*/
+			break;*/
 		case NSProgressIndicatorPreferredAquaThickness:
 			size = NSSmallControlSize;
-		break;
+			break;
 		case NSProgressIndicatorPreferredThickness:
 		default:
 			size = NSRegularControlSize;
-		break;
+			break;
 	}
 	if ([[settings objectForKey:@"ProgressIndicator.style"] intValue] == 0) {
 		//We have a normal bar

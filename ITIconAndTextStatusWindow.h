@@ -1,14 +1,13 @@
 /*
  *	ITKit
- *  ITIconAndTextStatusWindow
- *    ITTransientStatusWindow subclass to show an icon and text.
+ *	ITIconAndTextStatusWindow.h
  *
- *  Original Author : Kent Sutherland <ksutherland@ithinksw.com>
- *   Responsibility : Kent Sutherland <mjudy@ithinksw.com>
- *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *	ITTransientStatusWindow subclass to show an icon and text.
  *
- *  Copyright (c) 2002 - 2004 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
 
@@ -16,7 +15,7 @@
 #import "ITTransientStatusWindow.h"
 
 @interface ITIconAndTextStatusWindow : ITTransientStatusWindow {
-        NSImage            *_image;
+	NSImage *_image;
 }
 
 - (void)setImage:(NSImage *)newImage;

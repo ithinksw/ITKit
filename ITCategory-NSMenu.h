@@ -1,21 +1,18 @@
 /*
  *	ITKit
- *  ITCategory-NSMenu.h
- *    Category which extends NSMenu
+ *	ITCategory-NSMenu.h
  *
- *  Original Author : Joseph Spiros <joseph.spiros@ithinksw.com>
- *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
  *
- *  Copyright (c) 2002 - 2004 iThink Software.
- *  All Rights Reserved
+ *	$Id$
  *
  */
-
 
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
 
-@interface NSMenu (ITCategory)
+@interface NSMenu (ITKitCategory)
 
 - (void)indentItem:(id <NSMenuItem>)item;
 - (void)indentItemAtIndex:(int)index;

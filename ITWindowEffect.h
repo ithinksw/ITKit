@@ -1,16 +1,15 @@
 /*
  *	ITKit
- *  ITWindowEffect
- *    Protocal and abstract superclass for performing effects on windows.
+ *	ITWindowEffect.h
  *
- *  Original Author : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
+ *	Protocol and abstract superclass for performing effects on windows.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
-
 
 #import <Cocoa/Cocoa.h>
 #import "ITWindowPositioning.h"
@@ -20,7 +19,6 @@
 #define EFFECT_FPS 30.0
 #define DEFAULT_EFFECT_TIME 0.75
 
-
 typedef enum {
     ITWindowHiddenState,
     ITWindowAppearingState,
@@ -28,8 +26,8 @@ typedef enum {
     ITWindowVanishingState
 } ITWindowVisibilityState;
 
-
 @protocol ITWindowEffect
+
 + (NSString *)effectName;
 + (NSDictionary *)supportedPositions;
 + (unsigned int)listOrder;
@@ -37,27 +35,27 @@ typedef enum {
 - (void)performVanish;
 - (void)cancelAppear;
 - (void)cancelVanish;
+
 @end
 
-
 @protocol ITWindowMotility
+
 - (ITWindowVisibilityState)visibilityState;
 - (void)setVisibilityState:(ITWindowVisibilityState)newState;
 - (float)effectProgress;
 - (void)setEffectProgress:(float)newProgress;
+
 @end
 
-
-@interface ITWindowEffect : NSObject <ITWindowEffect>
-{
-    ITTransientStatusWindow    *_window;
-    float                       _effectTime;
-    float                       _effectSpeed;
-    ITVerticalWindowPosition    _verticalPosition;
-    ITHorizontalWindowPosition  _horizontalPosition;
-    NSTimer                    *_effectTimer;
-    BOOL					   __idle;
-    BOOL                       __shouldReleaseWhenIdle;
+@interface ITWindowEffect : NSObject <ITWindowEffect> {
+    NSWindow <ITWindowPositioning, ITWindowMotility> *_window;
+    float _effectTime;
+    float _effectSpeed;
+    ITVerticalWindowPosition _verticalPosition;
+    ITHorizontalWindowPosition _horizontalPosition;
+    NSTimer *_effectTimer;
+    BOOL __idle;
+    BOOL __shouldReleaseWhenIdle;
 }
 
 + (NSArray *)effectClasses;

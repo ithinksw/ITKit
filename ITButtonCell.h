@@ -1,31 +1,25 @@
 /*
  *	ITKit
- *  ITButtonCell
- *    Cell used by the ITButton control.
+ *	ITButtonCell.h
  *
- *  Original Author : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *	Custom NSButtonCell subclass that provides a stylized bezel style for use
+ *		with ITStatusWindows.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
 
-
 #import <Cocoa/Cocoa.h>
 
-
 typedef enum _ITBezelStyle {
-    ITGrayRoundedBezelStyle  = 1001
+	ITGrayRoundedBezelStyle = 1001
 } ITBezelStyle;
 
-
 @interface ITButtonCell : NSButtonCell {
-
-    ITBezelStyle _subStyle;
-
+	ITBezelStyle _subStyle;
 }
-
 
 @end

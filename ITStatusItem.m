@@ -1,98 +1,54 @@
 #import "ITStatusItem.h"
 
-/*************************************************************************/
-#pragma mark -
-#pragma mark EVIL HACKERY
-/*************************************************************************/
+@class NSStatusBarButton;
 
-// This stuff is actually implemented by the AppKit.
-// We declare it here to cancel out warnings.
-
-@interface NSStatusBarButton : NSButton
+@interface NSStatusItem (ITStatusItemHacks)
+- (id)_initInStatusBar:(NSStatusBar *)statusBar withLength:(float)length withPriority:(int)priority;
+- (NSStatusBarButton *)_button;
 @end
 
-@interface NSStatusItem (HACKHACKHACKHACK)
-- (id)_initInStatusBar:(NSStatusBar*)statusBar
-             withLength:(float)length
-           withPriority:(int)priority;
-- (NSStatusBarButton*)_button;
+@protocol _ITStatusItemNSStatusItemPantherCompatability
+- (void)setAlternateImage:(NSImage *)image;
+- (NSImage *)alternateImage;
 @end
-
-
-/*************************************************************************/
-#pragma mark -
-#pragma mark PRIVATE METHOD DECLARATIONS
-/*************************************************************************/
-
-@interface ITStatusItem (Private)
-- (void)setImage:(NSImage*)image;
-- (NSString*) title;
-- (void)setTitle:(NSString*)title;
-- (void)setSmallTitle:(NSString*)title;
-@end
-
 
 @implementation ITStatusItem
 
-/*************************************************************************/
-#pragma mark -
-#pragma mark INITIALIZATION METHODS
-/*************************************************************************/
+static BOOL _ITStatusItemShouldKillShadow = NO;
 
-- (id)initWithStatusBar:(NSStatusBar*)statusBar withLength:(float)length
-{
-    if ( ( self = [super _initInStatusBar:statusBar
-                               withLength:length
-                             withPriority:1000] ) ) {
-                             
-        //Eliminate the fucking shadow...
-        [[[self _button] cell] setType:NSNullCellType];
-        
-        //Be something other than a dumbshit about highlighting...
++ (void)initialize {
+	if ((floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_1) && (floor(NSAppKitVersionNumber) <= 663.6)) {
+		_ITStatusItemShouldKillShadow = YES;
+	}
+}
+
+- (id)initWithStatusBar:(NSStatusBar *)statusBar withLength:(float)length {
+	return [self _initInStatusBar:statusBar withLength:length withPriority:1000];
+}
+
+- (id)_initInStatusBar:(NSStatusBar *)statusBar withLength:(float)length withPriority:(int)priority {
+    if ((self = [super _initInStatusBar:statusBar withLength:length withPriority:priority])) {
+		if (_ITStatusItemShouldKillShadow) {
+			[[(NSButton *)[self _button] cell] setType:NSNullCellType];
+		}
         [self setHighlightMode:YES];
     }
     return self;
 }
 
-
-/*************************************************************************/
-#pragma mark -
-#pragma mark ACCESSOR METHODS
-/*************************************************************************/
-
-- (NSImage*)alternateImage {
-    return [[self _button] alternateImage];
+- (NSImage *)alternateImage {
+	if ([super respondsToSelector:@selector(alternateImage)]) {
+		return [(id <_ITStatusItemNSStatusItemPantherCompatability>)super alternateImage];
+	}
+	return [(NSButton *)[self _button] alternateImage];
 }
 
 - (void)setAlternateImage:(NSImage*)image {
-    [[self _button] setAlternateImage:image];
+	if ([super respondsToSelector:@selector(setAlternateImage:)]) {
+		[(id <_ITStatusItemNSStatusItemPantherCompatability>)super setAlternateImage:image];
+		return;
+	}
+    [(NSButton *)[self _button] setAlternateImage:image];
 }
-
-- (void)setImage:(NSImage*)image {
-    [super setImage:image];
-    if ( [self title] ) {
-        [self setTitle:[self title]];
-    } 
-}
-
-- (void)setTitle:(NSString*)title {
-    if ( [self image] && (title != nil) ) {
-        [self setSmallTitle:title];
-    } else {
-        [super setTitle:title];
-    }
-}
-
-
-/*************************************************************************/
-#pragma mark -
-#pragma mark PRIVATE METHODS
-/*************************************************************************/
-
-- (void)setSmallTitle:(NSString*)title {
-    NSAttributedString *attrTitle = [[[NSAttributedString alloc] initWithString:title attributes:[NSDictionary dictionaryWithObject:[NSFont fontWithName:@"LucidaGrande" size:12.0] forKey:NSFontAttributeName]] autorelease];
-    [self setAttributedTitle:attrTitle];
-}
-
 
 @end

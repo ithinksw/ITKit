@@ -1,39 +1,30 @@
 /*
  *	ITKit
- *  ITTabView
- *    NSTabView subclass which includes convenience features
+ *	ITTabView.h
  *
- *  Original Author : Kent Sutherland <kent.sutherland@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Kent Sutherland <kent.sutherland@ithinksw.com>
+ *	NSTabView subclass which allows dragging (reordering) of tab view items.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
-
-/*
- *	This subclass enables drag-and-drop for tab view items.
- */
-
 
 #import <Cocoa/Cocoa.h>
 
-
-@interface ITTabView : NSTabView
-{
-    NSTabViewItem *_draggedTab;
-    bool _allowsDragging;
-    unsigned int _requiredModifiers;
+@interface ITTabView : NSTabView {
+	NSTabViewItem *_draggedTab;
+	BOOL _allowsDragging;
+	unsigned int _requiredModifiers;
 }
 
-- (void)setAllowsDragging:(bool)flag;
-- (bool)allowsDragging;
+- (void)setAllowsDragging:(BOOL)flag;
+- (BOOL)allowsDragging;
 
 - (void)setRequiredModifiers:(unsigned int)modifiers;
 - (unsigned int)requiredModifiers;
 
 - (void)moveTab:(NSTabViewItem *)tab toIndex:(int)index;
-
 
 @end

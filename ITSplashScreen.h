@@ -1,15 +1,24 @@
-/* ITSplashScreen */
+/*
+ *	ITKit
+ *	ITSplashScreen.h
+ *
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
+ *
+ */
 
 #import <Cocoa/Cocoa.h>
 
 @class ITSplashWindow, ITSplashView;
 
-@interface ITSplashScreen : NSObject
-{
+@interface ITSplashScreen : NSObject {
 	NSTimer *_fadeTimer;
 	ITSplashWindow *_window;
 	ITSplashView *_view;
 }
+
 + (ITSplashScreen *)sharedController;
 
 - (double)progressValue;
@@ -22,4 +31,5 @@
 
 - (void)showSplashWindow;
 - (void)closeSplashWindow;
+
 @end

@@ -82,7 +82,6 @@
 				7C992F8B054F539B000B93EA,
 				08FB77AEFE84172EC02AAC07,
 				7C992F90054F53D9000B93EA,
-				7C992FA1054F54C3000B93EA,
 				32C88DFF0371C24200C91783,
 				089C1665FE841158C02AAC07,
 				7C99307F054F6982000B93EA,
@@ -154,7 +153,6 @@
 		};
 		08FB77AEFE84172EC02AAC07 = {
 			children = (
-				7C01A1B7059B4A86003A4662,
 				7C992F93054F53F2000B93EA,
 				7C992F96054F53F7000B93EA,
 				7C992F9B054F547C000B93EA,
@@ -698,86 +696,6 @@
 //7C2
 //7C3
 //7C4
-		7C01A1B7059B4A86003A4662 = {
-			children = (
-				7C01A1BA059B4A8B003A4662,
-			);
-			isa = PBXGroup;
-			name = Carbon;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C01A1BA059B4A8B003A4662 = {
-			children = (
-				7C01A1BF059B4AA1003A4662,
-				7C01A1C0059B4AA1003A4662,
-				7C01A1C5059B4AAC003A4662,
-				7C01A1C6059B4AAC003A4662,
-				7C23B320059BA4C000E08741,
-			);
-			isa = PBXGroup;
-			name = Resources;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C01A1BF059B4AA1003A4662 = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			path = ITMacResourceFile.h;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C01A1C0059B4AA1003A4662 = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.objc;
-			path = ITMacResourceFile.m;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C01A1C5059B4AAC003A4662 = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			path = ITMacResource.h;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C01A1C6059B4AAC003A4662 = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.objc;
-			path = ITMacResource.m;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C23B316059BA4AA00E08741 = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			path = ITStringMacResource.h;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C23B317059BA4AA00E08741 = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.objc;
-			path = ITStringMacResource.m;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C23B320059BA4C000E08741 = {
-			children = (
-				7C23B316059BA4AA00E08741,
-				7C23B317059BA4AA00E08741,
-			);
-			isa = PBXGroup;
-			name = "Custom Types";
-			refType = 4;
-			sourceTree = "<group>";
-		};
 		7C4BBADA05F98C9900734027 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -1604,7 +1522,6 @@
 		7C992E3E054F5246000B93EA = {
 			children = (
 				7C992E3F054F5246000B93EA,
-				7C992E43054F5246000B93EA,
 			);
 			isa = PBXGroup;
 			path = Graphics;
@@ -1618,21 +1535,8 @@
 			refType = 4;
 			sourceTree = "<group>";
 		};
-		7C992E43054F5246000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			path = URLTextViewHand.tiff;
-			refType = 4;
-			sourceTree = "<group>";
-		};
 		7C992E44054F5246000B93EA = {
 			fileRef = 7C992E3F054F5246000B93EA;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		7C992E48054F5246000B93EA = {
-			fileRef = 7C992E43054F5246000B93EA;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1827,134 +1731,6 @@
 			name = "Hot Keys";
 			refType = 4;
 			sourceTree = "<group>";
-		};
-		7C992FA1054F54C3000B93EA = {
-			children = (
-				7C993015054F54F0000B93EA,
-				7C993016054F54F0000B93EA,
-				7C99301F054F5509000B93EA,
-			);
-			isa = PBXGroup;
-			name = Deprecated;
-			path = "";
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C993015054F54F0000B93EA = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = ITChasingArrowsView.h;
-			path = Deprecated/ITChasingArrowsView.h;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C993016054F54F0000B93EA = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.objc;
-			name = ITChasingArrowsView.m;
-			path = Deprecated/ITChasingArrowsView.m;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C99301F054F5509000B93EA = {
-			children = (
-				7C993035054F6524000B93EA,
-				7C993036054F6524000B93EA,
-				7C993037054F6524000B93EA,
-				7C993038054F6524000B93EA,
-				7C993039054F6524000B93EA,
-				7C99303A054F6524000B93EA,
-				7C99303B054F6524000B93EA,
-				7C99303C054F6524000B93EA,
-				7C99303D054F6524000B93EA,
-				7C99303E054F6524000B93EA,
-			);
-			isa = PBXGroup;
-			path = Graphics;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C993035054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow1.tiff;
-			path = Deprecated/ITChasingArrow1.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C993036054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow2.tiff;
-			path = Deprecated/ITChasingArrow2.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C993037054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow3.tiff;
-			path = Deprecated/ITChasingArrow3.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C993038054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow4.tiff;
-			path = Deprecated/ITChasingArrow4.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C993039054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow5.tiff;
-			path = Deprecated/ITChasingArrow5.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C99303A054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow6.tiff;
-			path = Deprecated/ITChasingArrow6.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C99303B054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow7.tiff;
-			path = Deprecated/ITChasingArrow7.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C99303C054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow8.tiff;
-			path = Deprecated/ITChasingArrow8.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C99303D054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow9.tiff;
-			path = Deprecated/ITChasingArrow9.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
-		};
-		7C99303E054F6524000B93EA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.tiff;
-			name = ITChasingArrow10.tiff;
-			path = Deprecated/ITChasingArrow10.tiff;
-			refType = 2;
-			sourceTree = SOURCE_ROOT;
 		};
 		7C993057054F6832000B93EA = {
 			children = (
@@ -2367,7 +2143,6 @@
 			files = (
 				8DC2EF530486A6940098B216,
 				7C992E44054F5246000B93EA,
-				7C992E48054F5246000B93EA,
 				2A30D88F056B3AD90087AE54,
 				2A30D8A3056B3BE30087AE54,
 				2A30D8BE056B3C5D0087AE54,

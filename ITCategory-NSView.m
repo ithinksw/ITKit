@@ -1,7 +1,6 @@
 #import "ITCategory-NSView.h"
 
-
-@implementation NSView (ITCategory)
+@implementation NSView (ITKitCategory)
 
 - (void)removeAllSubviews {
     [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];

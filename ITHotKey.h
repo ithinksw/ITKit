@@ -1,40 +1,36 @@
 /*
  *	ITKit
- *  ITHotKey
+ *	ITHotKey.h
  *
- *  Original Author : Quentin Carnicelli <...>
- *   Responsibility : Kent Sutherland <kent.sutherland@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	$Id$
  *
  */
 
+#import <Cocoa/Cocoa.h>
 
-#import <Foundation/Foundation.h>
-#import "ITKeyCombo.h"
+@class ITKeyCombo;
 
-
-@interface ITHotKey : NSObject
-{
-	NSString*		mName;
-	ITKeyCombo*		mKeyCombo;
-	id				mTarget;
-	SEL				mAction;
+@interface ITHotKey : NSObject {
+	NSString *mName;
+	ITKeyCombo *mKeyCombo;
+	id mTarget;
+	SEL mAction;
 }
 
 - (id)init;
 
-- (void)setName: (NSString*)name;
-- (NSString*)name;
+- (void)setName:(NSString *)name;
+- (NSString *)name;
 
-- (void)setKeyCombo: (ITKeyCombo*)combo;
-- (ITKeyCombo*)keyCombo;
+- (void)setKeyCombo:(ITKeyCombo *)combo;
+- (ITKeyCombo *)keyCombo;
 
-- (void)setTarget: (id)target;
+- (void)setTarget:(id)target;
 - (id)target;
-- (void)setAction: (SEL)action;
+- (void)setAction:(SEL)action;
 - (SEL)action;
 
 - (void)invoke;

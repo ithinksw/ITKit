@@ -1,28 +1,22 @@
 /*
  *	ITKit
- *  ITHotKeyCenter
+ *	ITHotKeyCenter.h
  *
- *  Original Author : Quentin Carnicelli <...>
- *   Responsibility : Kent Sutherland <kent.sutherland@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	$Id$
  *
  */
 
-
-#import <AppKit/AppKit.h>
-
+#import <Cocoa/Cocoa.h>
 
 @class ITHotKey;
 
-
-@interface ITHotKeyCenter : NSObject
-{
-	NSMutableDictionary*	mHotKeys; //Keys are NSValue of EventHotKeyRef
-	BOOL			mEventHandlerInstalled;
-	BOOL			_enabled;
+@interface ITHotKeyCenter : NSObject {
+	NSMutableDictionary *mHotKeys; //Keys are NSValue of EventHotKeyRef
+	BOOL mEventHandlerInstalled;
+	BOOL _enabled;
 }
 
 + (id)sharedCenter;
@@ -30,12 +24,11 @@
 - (BOOL)isEnabled;
 - (void)setEnabled:(BOOL)flag;
 
-- (BOOL)registerHotKey: (ITHotKey*)hotKey;
-- (void)unregisterHotKey: (ITHotKey*)hotKey;
+- (BOOL)registerHotKey:(ITHotKey *)hotKey;
+- (void)unregisterHotKey:(ITHotKey *)hotKey;
 
-- (NSArray*)allHotKeys;
+- (NSArray *)allHotKeys;
 
-- (void)sendEvent: (NSEvent*)event;
-
+- (void)sendEvent:(NSEvent *)event;
 
 @end

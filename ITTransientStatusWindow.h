@@ -1,37 +1,30 @@
 /*
  *	ITKit
- *  ITTransientStatusWindow
- *    NSWindow subclass for quick display of status information.
- *    Similar to volume/brightness/eject bezel key windows.
+ *	ITTransientStatusWindow.h
  *
- *  Original Author : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
- *      Contributor : Kent Sutherland <kent.sutherland@ithinksw.com>
+ *	NSWindow subclass for quick display of status information, similar to
+ *		volume/brightness/eject bezel key windows.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
-
 
 #import <Cocoa/Cocoa.h>
 #import "ITWindowPositioning.h"
 #import "ITWindowEffect.h"
 
-#define DEFAULT_EXIT_DELAY  3.0
-
+#define DEFAULT_EXIT_DELAY 3.0
 
 @class ITTextField;
 @class ITGrayRoundedView;
-@class ITWindowEffect;
-
 
 typedef enum {
     ITTransientStatusWindowExitOnCommand,
-    ITTransientStatusWindowExitAfterDelay,
+    ITTransientStatusWindowExitAfterDelay
 } ITTransientStatusWindowExitMode;
-
 
 typedef enum {
     ITTransientStatusWindowNoBackground,
@@ -48,39 +41,30 @@ typedef enum {
     ITTransientStatusWindowMini
 } ITTransientStatusWindowSizing;
 
-@interface ITTransientStatusWindow : NSWindow <ITWindowPositioning , ITWindowMotility> {
-
-    ITWindowVisibilityState                _visibilityState;
-    ITTransientStatusWindowExitMode        _exitMode;
-    float                                  _exitDelay;
-    ITTransientStatusWindowBackgroundType  _backgroundType;
-    ITWindowEffect                        *_entryEffect;
-    ITWindowEffect                        *_exitEffect;
-    double                                 _effectProgress;
-    ITVerticalWindowPosition               _verticalPosition;
-    ITHorizontalWindowPosition             _horizontalPosition;
-    ITTransientStatusWindowSizing          _sizing;
-    float                                  _screenPadding;
-//    int                                    _screenNumber;
+@interface ITTransientStatusWindow : NSWindow <ITWindowPositioning, ITWindowMotility> {
+	ITWindowVisibilityState _visibilityState;
+    ITTransientStatusWindowExitMode _exitMode;
+    float _exitDelay;
+    ITTransientStatusWindowBackgroundType _backgroundType;
+    ITWindowEffect *_entryEffect;
+    ITWindowEffect *_exitEffect;
+    double _effectProgress;
+    ITVerticalWindowPosition _verticalPosition;
+    ITHorizontalWindowPosition _horizontalPosition;
+    ITTransientStatusWindowSizing _sizing;
+    float _screenPadding;
 	NSScreen *_screen;
-
-    BOOL _reallyIgnoresEvents;
-    
-    NSTimer *_exitTimer;
-
-    NSView *_contentSubView;		
+	BOOL _reallyIgnoresEvents;
+	NSTimer *_exitTimer;
+	NSView *_contentSubView;		
 }
 
 + (id)sharedWindow;
 
-- (id)initWithContentView:(NSView *)contentView
-                 exitMode:(ITTransientStatusWindowExitMode)exitMode
-           backgroundType:(ITTransientStatusWindowBackgroundType)backgroundType;
+- (id)initWithContentView:(NSView *)contentView exitMode:(ITTransientStatusWindowExitMode)exitMode backgroundType:(ITTransientStatusWindowBackgroundType)backgroundType;
 
 - (void)appear:(id)sender;
 - (void)vanish:(id)sender;
-
-- (void)setScreen:(NSScreen *)newScreen;
 
 - (void)setSizing:(ITTransientStatusWindowSizing)newSizing;
 - (ITTransientStatusWindowSizing)sizing;
@@ -97,12 +81,6 @@ typedef enum {
 - (ITTransientStatusWindowBackgroundType)backgroundType;
 - (void)setBackgroundType:(ITTransientStatusWindowBackgroundType)newType;
 
-- (ITVerticalWindowPosition)verticalPosition;
-- (void)setVerticalPosition:(ITVerticalWindowPosition)newPosition;
-
-- (ITHorizontalWindowPosition)horizontalPosition;
-- (void)setHorizontalPosition:(ITHorizontalWindowPosition)newPosition;
-
 - (float)effectProgress;
 - (void)setEffectProgress:(float)newProgress;
 
@@ -111,6 +89,5 @@ typedef enum {
 
 - (ITWindowEffect *)exitEffect;
 - (void)setExitEffect:(ITWindowEffect *)newEffect;
-
 
 @end

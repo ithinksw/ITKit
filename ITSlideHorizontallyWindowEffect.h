@@ -1,22 +1,20 @@
 /*
  *	ITKit
- *  ITSlideHorizontallyWindowEffect
- *    Effect subclass which slides a window in from the right or left side of the screen.
+ *	ITSlideHorizontallyWindowEffect.h
  *
- *  Original Author : Matthew Judy <mjudy@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
+ *	Effect subclass which slides a window in from the right or left side of the screen.
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
- *  All Rights Reserved
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
  *
  */
-
 
 #import <Cocoa/Cocoa.h>
 #import "ITWindowEffect.h"
 
-
-@interface ITSlideHorizontallyWindowEffect : ITWindowEffect <ITWindowEffect> {
+@interface ITSlideHorizontallyWindowEffect : ITWindowEffect {
 
 }
 
