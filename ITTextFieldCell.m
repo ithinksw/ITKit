@@ -15,7 +15,7 @@
 #pragma mark INITIALIZATION METHODS
 /*************************************************************************/
 
-- (id)initTextCell:(NSString *)string;
+- (id)initTextCell:(NSString *)string
 {
     if ( ( self = [super initTextCell:string] ) ) {
         castsShadow      = NO;

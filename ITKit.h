@@ -21,6 +21,7 @@
 #import <ITKit/ITButton.h>
 #import <ITKit/ITButtonCell.h>
 #import <ITKit/ITStatusItem.h>
+#import <ITKit/ITImageView.h>
 #import <ITKit/ITTableView.h>
 #import <ITKit/ITTabView.h>
 #import <ITKit/ITBevelView.h>

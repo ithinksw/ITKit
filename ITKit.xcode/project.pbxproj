@@ -432,6 +432,68 @@
 			target = 8DC2EF4F0486A6940098B216;
 			targetProxy = 2AC8297F056C451900A7D7E2;
 		};
+		2AC8313F056D00F700A7D7E2 = {
+			expectedFileType = sourcecode.c.h;
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = ITImageView.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2AC83140056D00F700A7D7E2 = {
+			expectedFileType = sourcecode.c.objc;
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = ITImageView.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2AC83141056D00F700A7D7E2 = {
+			fileRef = 2AC8313F056D00F700A7D7E2;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					Public,
+				);
+			};
+		};
+		2AC83142056D00F700A7D7E2 = {
+			fileRef = 2AC83140056D00F700A7D7E2;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		2AC8319B056D037700A7D7E2 = {
+			expectedFileType = sourcecode.c.h;
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = ITImageCell.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2AC8319C056D037700A7D7E2 = {
+			expectedFileType = sourcecode.c.objc;
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			path = ITImageCell.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		2AC8319D056D037700A7D7E2 = {
+			fileRef = 2AC8319B056D037700A7D7E2;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					Public,
+				);
+			};
+		};
+		2AC8319E056D037700A7D7E2 = {
+			fileRef = 2AC8319C056D037700A7D7E2;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 //2A0
 //2A1
 //2A2
@@ -998,6 +1060,9 @@
 			fileRef = 7C992DD8054F5179000B93EA;
 			isa = PBXBuildFile;
 			settings = {
+				ATTRIBUTES = (
+					Private,
+				);
 			};
 		};
 		7C992E0E054F5179000B93EA = {
@@ -1446,6 +1511,8 @@
 				7C992DCC054F5179000B93EA,
 				7C992DF5054F5179000B93EA,
 				7C992DF6054F5179000B93EA,
+				2AC8313F056D00F700A7D7E2,
+				2AC83140056D00F700A7D7E2,
 			);
 			isa = PBXGroup;
 			name = Controls;
@@ -1458,6 +1525,8 @@
 				7C992DCE054F5179000B93EA,
 				7C992DF7054F5179000B93EA,
 				7C992DF8054F5179000B93EA,
+				2AC8319B056D037700A7D7E2,
+				2AC8319C056D037700A7D7E2,
 			);
 			isa = PBXGroup;
 			name = Cells;
@@ -1988,6 +2057,8 @@
 				7C992E2E054F5179000B93EA,
 				7C992E30054F5179000B93EA,
 				7C992E32054F5179000B93EA,
+				2AC83141056D00F700A7D7E2,
+				2AC8319D056D037700A7D7E2,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2044,6 +2115,8 @@
 				7C992E2D054F5179000B93EA,
 				7C992E2F054F5179000B93EA,
 				7C992E31054F5179000B93EA,
+				2AC83142056D00F700A7D7E2,
+				2AC8319E056D037700A7D7E2,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
