@@ -23,15 +23,15 @@
 }
 
 - (void)displayIfNeeded {
-    [self displayIfNeededIgnoringOpacity];
+    [super displayIfNeededIgnoringOpacity];
 }
 
 - (void)displayIfNeededInRect:(NSRect)aRect {
-    [self displayIfNeededInRectIgnoringOpacity:aRect];
+    [super displayIfNeededInRectIgnoringOpacity:aRect];
 }
 
 - (void)displayRect:(NSRect)aRect {
-    [self displayRectIgnoringOpacity:aRect];
+    [super displayRectIgnoringOpacity:aRect];
 }
 
 - (id)initWithCoder:(NSCoder *)coder

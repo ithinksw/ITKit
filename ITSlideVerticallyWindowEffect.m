@@ -156,8 +156,8 @@
 
 - (void)setSlide:(float)distance
 {
-    CGAffineTransform transform = CGAffineTransformMakeTranslation( -32.0,
-                                                                   -( [[_window screen] frame].size.height - ( distance + 32.0) ) );
+    CGAffineTransform transform = CGAffineTransformMakeTranslation( -( 32.0 + [[_window screen] visibleFrame].origin.x ),
+                                                                   -( [[_window screen] frame].size.height - ( distance + 32.0 + [[_window screen] visibleFrame].origin.y ) ) );
     
     CGSSetWindowTransform([NSApp contextID],
                           (CGSWindowID)[_window windowNumber],

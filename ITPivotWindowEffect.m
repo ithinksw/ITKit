@@ -169,14 +169,14 @@
     CGAffineTransform transform = CGAffineTransformMakeRotation(degAngle);
     
  // Set pivot rotation point
-    transform.tx = -32.0;
-    transform.ty = [_window frame].size.height + 32.0;
+    transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x );
+    transform.ty = ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y );
 
     CGSSetWindowTransform([NSApp contextID],
                           (CGSWindowID)[_window windowNumber],
-                          CGAffineTransformTranslate(transform,
-                                                     (([_window frame].origin.x - 32.0) * -1),
-                                                     (([[_window screen] frame].size.height - ([_window frame].origin.y) + 32.0) * -1) ));
+                          CGAffineTransformTranslate( transform,
+                                                     -( [_window frame].origin.x - (32.0 + [[_window screen] visibleFrame].origin.x) ),
+                                                     -( [[_window screen] frame].size.height - ([_window frame].origin.y) + 32.0 + [[_window screen] visibleFrame].origin.y) ) );
 }
 
 

@@ -69,7 +69,7 @@
     NSPoint       pointD = NSMakePoint( (ch / 2)        , ch       );
     NSPoint       lCtr   = NSMakePoint( (ch / 2)        , (ch / 2) );
     NSPoint       rCtr   = NSMakePoint( (cw - (ch / 2)) , (ch / 2) );
-    float         alpha  = 0.35;
+    float         alpha  = 0.45;
     
     [path moveToPoint:pointA];
     [path lineToPoint:pointB];
@@ -84,10 +84,10 @@
                                    endAngle:270.0];
 
     if ( [self isHighlighted] ) {
-        alpha = 0.50;
+        alpha = 0.60;
     }
     
-    [[NSColor colorWithCalibratedWhite:0.0 alpha:alpha] set];
+    [[NSColor colorWithCalibratedWhite:0.15 alpha:alpha] set];
     [path fill];
 }
 
