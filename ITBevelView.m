@@ -54,7 +54,7 @@
 
 - (void)drawRect:(NSRect)aRect
 {
-    NSRect frameRect = [self frame];
+    NSRect frameRect = [self convertRect:[self frame] fromView:[self superview]];
     NSRect innerRect = NSMakeRect( (frameRect.origin.x + _bevelDepth),
                                    (frameRect.origin.y + _bevelDepth),
                                    (frameRect.size.width  - (_bevelDepth * 2)),
