@@ -89,8 +89,6 @@
 #pragma mark PRIVATE METHODS
 /*************************************************************************/
 
-
-
 - (void)setSmallTitle:(NSString*)title {
     NSAttributedString *attrTitle = [[[NSAttributedString alloc] initWithString:title attributes:[NSDictionary dictionaryWithObject:[NSFont fontWithName:@"Lucida Grande" size:12.0] forKey:NSFontAttributeName]] autorelease];
     [self setAttributedTitle:attrTitle];
