@@ -57,6 +57,8 @@ typedef enum {
     BOOL                       __shouldReleaseWhenIdle;
 }
 
++ (NSArray *)effectsInfo;
+
 // Designated initializer
 - (id)initWithWindow:(NSWindow *)window;
 
