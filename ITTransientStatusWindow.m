@@ -81,7 +81,7 @@ static ITTransientStatusWindow *staticWindow = nil;
         _verticalPosition    = ITWindowPositionBottom;
         _horizontalPosition  = ITWindowPositionLeft;
         _screenPadding       = 32.0;
-        _screenNumber        = 0;
+        //_screenNumber        = 0;
         _entryEffect         = nil;
         _exitEffect          = nil;
         _reallyIgnoresEvents = YES;
@@ -281,7 +281,7 @@ static ITTransientStatusWindow *staticWindow = nil;
     _screenPadding = newPadding;
 }
 
-- (int)screenNumber
+/*- (int)screenNumber
 {
     return _screenNumber;
 }
@@ -289,7 +289,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 - (void)setScreenNumber:(int)newNumber
 {
     _screenNumber = newNumber;
-}
+}*/
 
 - (ITWindowEffect *)entryEffect
 {

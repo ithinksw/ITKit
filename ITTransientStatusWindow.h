@@ -55,7 +55,7 @@ typedef enum {
     ITVerticalWindowPosition               _verticalPosition;
     ITHorizontalWindowPosition             _horizontalPosition;
     float                                  _screenPadding;
-    int                                    _screenNumber;
+//    int                                    _screenNumber;
 
     BOOL _reallyIgnoresEvents;
     

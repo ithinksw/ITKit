@@ -35,7 +35,7 @@ typedef enum {
 - (void)setHorizontalPosition:(ITHorizontalWindowPosition)newPosition;
 - (float)screenPadding;
 - (void)setScreenPadding:(float)newPadding;
-- (int)screenNumber;
-- (void)setScreenNumber:(int)newNumber;
+/*- (int)screenNumber;
+- (void)setScreenNumber:(int)newNumber;*/
 
 @end
