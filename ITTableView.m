@@ -1,6 +1,5 @@
-//  ITTableView.m
-
 #import "ITTableView.h"
+#import "ITTableCornerView.h"
 
 
 @implementation ITTableView

@@ -13,8 +13,9 @@
  *
  */
 
-#import <AppKit/AppKit.h>
-#import "ITTableCornerView.h"
+#import <Cocoa/Cocoa.h>
+
+@class ITTableCornerView;
 
 @interface ITTableView : NSTableView {
     ITTableCornerView *corner;

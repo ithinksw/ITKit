@@ -18,6 +18,10 @@
 #import <Cocoa/Cocoa.h>
 
 
+@class ITTextField;
+@class ITGrayRoundedView;
+
+
 #define DEFAULT_EXIT_DELAY 3.0
 
 

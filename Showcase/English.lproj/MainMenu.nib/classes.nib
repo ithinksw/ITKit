@@ -3,6 +3,7 @@
         {
             ACTIONS = {
                 buildStatusWindow = id; 
+                hideStatusWindow = id; 
                 showStatusWindow = id; 
                 toggleCastsShadow = id; 
                 toggleImage = id; 
@@ -22,7 +23,6 @@
                 swSampleTextView = NSTextView; 
                 swVanishDelay = NSTextField; 
                 swVanishModePopup = NSPopUpButton; 
-                swVanishOnClick = NSMatrix; 
                 tabView = ITTabView; 
                 testTextField = ITTextField; 
                 useInvertedCheckBox = NSButton; 

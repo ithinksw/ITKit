@@ -21,12 +21,11 @@
 
     // ITTransientStatusWindow Support
     ITTransientStatusWindow *statusWindow;
-    IBOutlet NSTextView   *swSampleTextView;
-    IBOutlet NSPopUpButton *swVanishModePopup;
-    IBOutlet NSPopUpButton *swBackgroundTypePopup;
-    IBOutlet NSPopUpButton *swDefinedPositionPopup;
-    IBOutlet NSTextField   *swVanishDelay;
-    IBOutlet NSMatrix      *swVanishOnClick;
+    IBOutlet NSTextView     *swSampleTextView;
+    IBOutlet NSPopUpButton  *swVanishModePopup;
+    IBOutlet NSPopUpButton  *swBackgroundTypePopup;
+    IBOutlet NSPopUpButton  *swDefinedPositionPopup;
+    IBOutlet NSTextField    *swVanishDelay;
 }
 
 // ITStatusItem Support
@@ -41,5 +40,6 @@
 // ITTransientStatusWindow Support
 - (IBAction)buildStatusWindow:(id)sender;
 - (IBAction)showStatusWindow:(id)sender;
+- (IBAction)hideStatusWindow:(id)sender;
 
 @end

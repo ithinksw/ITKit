@@ -4,6 +4,8 @@
 #import "ITTextField.h"
 #import "ITGrayRoundedView.h"
 
+@class ITTextField;
+@class ITGrayRoundedView;
 
 /*************************************************************************/
 #pragma mark -
@@ -129,7 +131,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 - (void)orderFront:(id)sender
 {
-    if ( _exitMode = ITTransientStatusWindowExitAfterDelay ) {
+    if ( _exitMode == ITTransientStatusWindowExitAfterDelay ) {
         // set the timer, and orderOut: when it lapses.
     }
 
@@ -142,7 +144,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 - (void)makeKeyAndOrderFront:(id)sender
 {
-    if ( _exitMode = ITTransientStatusWindowExitAfterDelay ) {
+    if ( _exitMode == ITTransientStatusWindowExitAfterDelay ) {
         // set the timer, and orderOut: when it lapses.
     }
 
@@ -194,7 +196,7 @@ static ITTransientStatusWindow *staticWindow = nil;
     return _visibilityState;
 }
 
-- (ITTransientStatusWindowExitMode)ExitMode
+- (ITTransientStatusWindowExitMode)exitMode
 {
     return _exitMode;
 }
@@ -297,35 +299,46 @@ static ITTransientStatusWindow *staticWindow = nil;
         if ( _entryEffect == ITTransientStatusWindowEffectDissolve ) {
             [self dissolveEffect:YES];
         } else if ( _entryEffect == ITTransientStatusWindowEffectSlideVertically ) {
-            [self slideEffect:YES];
+            [self slideVerticalEffect:YES];
         } else if ( _entryEffect == ITTransientStatusWindowEffectSlideHorizontally ) {
-            [self slideEffect:YES];
+            [self slideHorizontalEffect:YES];
         }
     } else if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
         if ( _exitEffect == ITTransientStatusWindowEffectDissolve ) {
             [self dissolveEffect:NO];
         } else if ( _exitEffect == ITTransientStatusWindowEffectSlideVertically ) {
-            [self slideEffect:NO];
+            [self slideVerticalEffect:NO];
         } else if ( _exitEffect == ITTransientStatusWindowEffectSlideHorizontally ) {
-            [self slideEffect:NO];
+            [self slideHorizontalEffect:NO];
         }
     }
 }
 
 - (void)dissolveEffect:(BOOL)entering
 {
-    
-    [super orderFront:self];
+    if ( entering ) {
+        [super orderFront:self];
+    } else {
+        [super orderOut:self];
+    }
 }
 
 - (void)slideVerticalEffect:(BOOL)entering
 {
-    [super orderFront:self];
+    if ( entering ) {
+        [super orderFront:self];
+    } else {
+        [super orderOut:self];
+    }
 }
 
 - (void)slideHorizontalEffect:(BOOL)entering
 {
-    [super orderFront:self];
+    if ( entering ) {
+        [super orderFront:self];
+    } else {
+        [super orderOut:self];
+    }
 }
 
 

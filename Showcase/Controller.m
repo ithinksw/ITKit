@@ -247,6 +247,10 @@
                    animate:YES];
 }
 
+- (IBAction)hideStatusWindow:(id)sender
+{
+    [statusWindow orderOut:self];
+}
 
 /*************************************************************************/
 #pragma mark -
