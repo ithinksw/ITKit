@@ -3,8 +3,8 @@
         {
             ACTIONS = {
                 buildStatusWindow = id; 
+                changeWindowSetting = id; 
                 hideStatusWindow = id; 
-                setRotation = id; 
                 showStatusWindow = id; 
                 toggleCastsShadow = id; 
                 toggleCommandDragging = id; 

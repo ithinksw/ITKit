@@ -61,4 +61,7 @@ typedef enum {
 
 - (void)setWindowVisibility:(ITWindowVisibilityState)visibilityState;
 
+- (float)effectTime;
+- (void)setEffectTime:(float)newTime;
+
 @end

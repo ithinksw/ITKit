@@ -207,22 +207,7 @@
 - (IBAction)showStatusWindow:(id)sender
 {
     [[statusWindow contentView] setNeedsDisplay:YES];
-/*
-    [statusWindow setFrame:NSMakeRect( (0.0 - NSWidth([statusWindow frame])),
-                                       SW_BORDER,
-                                       NSWidth([statusWindow frame]),
-                                       NSHeight([statusWindow frame]) )
-                   display:YES];
-*/
     [statusWindow appear:self];
-/*
-    [statusWindow setFrame:NSMakeRect( SW_BORDER,
-                                       SW_BORDER,
-                                       NSWidth([statusWindow frame]),
-                                       NSHeight([statusWindow frame]) )
-                   display:YES
-                   animate:YES];
-*/
 }
 
 - (IBAction)hideStatusWindow:(id)sender
@@ -230,10 +215,34 @@
     [statusWindow vanish:self];
 }
 
-- (IBAction)setRotation:(id)sender
+- (IBAction)changeWindowSetting:(id)sender
 {
-    NSLog(@"no longer supported");
+    switch ( [sender tag] )
+    {
+        case 3010:  // Not yet supported.
+            break;
+        case 3020:  // Not yet supported.
+            break;
+        case 3030:  // Change vanish delay
+            [statusWindow setExitDelay:[sender floatValue]];
+            break;
+        case 3040:  // Change vertical position
+            [statusWindow setVerticalPosition:[sender indexOfSelectedItem]];
+            break;
+        case 3050:  // Change horizontal position
+            [statusWindow setHorizontalPosition:[sender indexOfSelectedItem]];
+            break;
+        case 3060:  // Change effect speed
+            [[statusWindow entryEffect] setEffectTime:[sender floatValue]];
+            [[statusWindow exitEffect]  setEffectTime:[sender floatValue]];
+            break;
+        case 3070:  // Change entry effect
+            break;
+        case 3080:  // Change exit effect
+            break;
+    }
 }
+
 
 /*************************************************************************/
 #pragma mark -

@@ -14,8 +14,7 @@
 
 - (void)performAppear
 {
-      // Cast so the compiler won't gripe
-    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowAppearingState];
+    [self setWindowVisibility:ITTransientStatusWindowAppearingState];
     [self setPivot:315.0];
     _effectProgress = 0.0;
     [_window setAlphaValue:0.0];
@@ -29,8 +28,7 @@
 
 - (void)performVanish
 {
-      // Cast so the compiler won't gripe
-    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowVanishingState];
+    [self setWindowVisibility:ITTransientStatusWindowVanishingState];
     [self setPivot:0.0];
     _effectProgress = 1.0;
     [_window setAlphaValue:1.0];
@@ -48,8 +46,7 @@
     [_window orderOut:self];
     [self setPivot:0.0];
     [_window setAlphaValue:1.0];
-      // Cast so the compiler won't gripe
-    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowHiddenState];
+    [self setWindowVisibility:ITTransientStatusWindowHiddenState];
 }
 
 - (void)cancelVanish
@@ -59,8 +56,7 @@
     [_window setAlphaValue:1.0];
     [_window orderFront:self];
     [_window display];
-      // Cast so the compiler won't gripe
-    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowVisibleState];
+    [self setWindowVisibility:ITTransientStatusWindowVisibleState];
 }
 
 - (void)appearStep
@@ -95,16 +91,14 @@
 {
     [_effectTimer invalidate];
     _effectTimer = nil;
-      // Cast so the compiler won't gripe
-    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowVisibleState];
+    [self setWindowVisibility:ITTransientStatusWindowVisibleState];
 }
 
 - (void)vanishFinish
 {
     [_effectTimer invalidate];
     _effectTimer = nil;
-      // Cast so the compiler won't gripe
-    [(ITTransientStatusWindow *)_window setVisibilityState:ITTransientStatusWindowHiddenState];
+    [self setWindowVisibility:ITTransientStatusWindowHiddenState];
 }
 
 - (void)setPivot:(float)angle

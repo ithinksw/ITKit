@@ -48,6 +48,16 @@
     }
 }
 
+- (float)effectTime
+{
+    return _effectTime;
+}
+
+- (void)setEffectTime:(float)newTime
+{
+    _effectTime = newTime;
+}
+
 - (void)performAppear
 {
     NSLog(@"ITWindowEffect does not implement performAppear.");
