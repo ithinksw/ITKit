@@ -12,10 +12,10 @@
 @end
 
 @interface NSStatusItem (HACKHACKHACKHACK)
-- (id) _initInStatusBar:(NSStatusBar*)statusBar
+- (id)_initInStatusBar:(NSStatusBar*)statusBar
              withLength:(float)length
            withPriority:(int)priority;
-- (NSStatusBarButton*) _button;
+- (NSStatusBarButton*)_button;
 @end
 
 /*************************************************************************/
@@ -24,7 +24,10 @@
 /*************************************************************************/
 
 @interface ITStatusItem (Private)
-- (void) setSmallTitle:(NSString*)title;
+- (void)setImage:(NSImage*)image;
+- (NSString*) title;
+- (void)setTitle:(NSString*)title;
+- (void)setSmallTitle:(NSString*)title;
 @end
 
 @implementation ITStatusItem
@@ -55,45 +58,40 @@
 #pragma mark ACCESSOR METHODS
 /*************************************************************************/
 
-- (NSImage*) alternateImage {
+- (NSImage*)alternateImage {
     return [[self _button] alternateImage];
 }
 
-- (void) setAlternateImage:(NSImage*)image {
+- (void)setAlternateImage:(NSImage*)image {
     [[self _button] setAlternateImage:image];
 }
 
-- (void) setImage:(NSImage*)image {
+- (void)setImage:(NSImage*)image {
     [super setImage:image];
-    if ([self title]) {
-        [self setSmallTitle:[self title]];
-    }
+    if ( [self title] ) {
+        [self setTitle:[self title]];
+    } 
 }
 
-- (NSString*) title {
-    if ([self image]) {
-        return [[self attributedTitle] string];
+- (void)setTitle:(NSString*)title {
+    if ( [self image] && (title != nil) ) {
+        [self setSmallTitle:title];
     } else {
-        [super title];
+        [super setTitle:title];
     }
 }
 
-- (void) setTitle:(NSString*)title {
-    [super setTitle:title];
-    if ([self image]) {
-        [self setSmallTitle:[self title]];
-    }
-}
 
 /*************************************************************************/
 #pragma mark -
 #pragma mark PRIVATE METHODS
 /*************************************************************************/
 
-- (void) setSmallTitle:(NSString*)title {
-    NSAttributedString *attrTitle = [[NSAttributedString alloc] initWithString:title attributes:[NSDictionary dictionaryWithObject:[NSFont fontWithName:@"Lucida Grande" size:12.0] forKey:NSFontAttributeName]];
+
+
+- (void)setSmallTitle:(NSString*)title {
+    NSAttributedString *attrTitle = [[[NSAttributedString alloc] initWithString:title attributes:[NSDictionary dictionaryWithObject:[NSFont fontWithName:@"Lucida Grande" size:12.0] forKey:NSFontAttributeName]] autorelease];
     [self setAttributedTitle:attrTitle];
-    [attrTitle release];
 }
 
 @end

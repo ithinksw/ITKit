@@ -13,11 +13,13 @@
  */
 
 /*
- *	This subclass does 3 things:
+ *	This subclass does 4 things to approximate NSMenuExtra's functionality:
  *
  *  1. Makes the status item smarter about highlighting.
- *  2. Allows you to set an inverted (alternate) image.
+ *  2. Allows you to set an alternate (inverted) image.
  *  3. Eliminates the pre-Jaguar shadow behind a normal status item.
+ *  4. If you use an image AND title, the text will be made slightly smaller
+ *     to resemble the visual interface of an NSMenuExtra.
  *
  *  Note:  In order to have the shadow not overlap the bottom of the
  *  menubar, Apple moves the image up one pixel.  Since that shadow is
@@ -40,10 +42,5 @@
 // These allow you to use an alternate (selected) image for your status item.
 - (NSImage*) alternateImage;
 - (void) setAlternateImage:(NSImage*)image;
-
-// The following have been redefined as to supply compliance with Jaguar (10.2)'s MenuExtras that have both titles and images. Continue to use them as though you would on a NSStatusItem, everything will be done for you automatically.
-- (void) setImage:(NSImage*)image;
-- (NSString*) title;
-- (void) setTitle:(NSString*)title;
 
 @end
