@@ -18,6 +18,7 @@
 - (NSStatusBarButton*)_button;
 @end
 
+
 /*************************************************************************/
 #pragma mark -
 #pragma mark PRIVATE METHOD DECLARATIONS
@@ -29,6 +30,7 @@
 - (void)setTitle:(NSString*)title;
 - (void)setSmallTitle:(NSString*)title;
 @end
+
 
 @implementation ITStatusItem
 
