@@ -128,7 +128,6 @@ static ITTransientStatusWindow *staticWindow = nil;
                           CGAffineTransformTranslate(transform,
                                                      (([self frame].origin.x - 32.0) * -1),
                                                      (([[self screen] frame].size.height - ([self frame].origin.y) + 32.0) * -1) ));
-    NSLog(@"%f %f", ([self frame].origin.x * -1), ([self frame].origin.y * -1));
 }
 
 - (BOOL)ignoresMouseEvents
