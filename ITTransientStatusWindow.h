@@ -57,12 +57,12 @@ typedef enum {
     ITTransientStatusWindowOther
 } ITTransientStatusWindowPosition;
 
-typedef enum {                                     // Note: Entry effects described here.  Exit does the reverse.
-    ITTransientStatusWindowEffectNone,             // No effect, window just appears.
-    ITTransientStatusWindowEffectDissolve,         // Fades in.
-    ITTransientStatusWindowEffectSlideVertically,  // Slides vertically onto the screen from the nearest edge
-    ITTransientStatusWindowEffectSlideHorizontally // Slides horizontally onto the screen from the nearest edge
-    ITTransientStatusWindowEffectPivot             // Rotate into place from perpendicular edge
+typedef enum {                                      // Note: Entry effects described here.  Exit does the reverse.
+    ITTransientStatusWindowEffectNone,              // No effect, window just appears.
+    ITTransientStatusWindowEffectDissolve,          // Fades in.
+    ITTransientStatusWindowEffectSlideVertically,   // Slides vertically onto the screen from the nearest edge
+    ITTransientStatusWindowEffectSlideHorizontally, // Slides horizontally onto the screen from the nearest edge
+    ITTransientStatusWindowEffectPivot              // Rotate into place from perpendicular edge
 } ITTransientStatusWindowEffect;
 
 
