@@ -54,11 +54,11 @@
 
 - (void)drawRect:(NSRect)aRect
 {
-        // Draw special bezel, with a thickness of _bevelDepth.
-    NSRect innerRect = NSMakeRect( (aRect.origin.x + _bevelDepth),
-                                   (aRect.origin.y + _bevelDepth),
-                                   (aRect.size.width  - (_bevelDepth * 2)),
-                                   (aRect.size.height - (_bevelDepth * 2)) );
+    NSRect frameRect = [self frame];
+    NSRect innerRect = NSMakeRect( (frameRect.origin.x + _bevelDepth),
+                                   (frameRect.origin.y + _bevelDepth),
+                                   (frameRect.size.width  - (_bevelDepth * 2)),
+                                   (frameRect.size.height - (_bevelDepth * 2)) );
 
     NSBezierPath *leftEdge   = [NSBezierPath bezierPath];
     NSBezierPath *topEdge    = [NSBezierPath bezierPath];
@@ -66,26 +66,26 @@
     NSBezierPath *bottomEdge = [NSBezierPath bezierPath];
 
     [[[self subviews] objectAtIndex:0] setFrame:innerRect];
+    
+    [leftEdge moveToPoint:frameRect.origin];
+    [leftEdge lineToPoint:NSMakePoint(frameRect.origin.x, frameRect.size.height)];
+    [leftEdge lineToPoint:NSMakePoint( (frameRect.origin.x + _bevelDepth), (frameRect.size.height - _bevelDepth) )];
+    [leftEdge lineToPoint:NSMakePoint( (frameRect.origin.x + _bevelDepth), (frameRect.origin.y + _bevelDepth) )];
 
-    [leftEdge moveToPoint:aRect.origin];
-    [leftEdge lineToPoint:NSMakePoint(aRect.origin.x, aRect.size.height)];
-    [leftEdge lineToPoint:NSMakePoint( (aRect.origin.x + _bevelDepth), (aRect.size.height - _bevelDepth) )];
-    [leftEdge lineToPoint:NSMakePoint( (aRect.origin.x + _bevelDepth), (aRect.origin.y + _bevelDepth) )];
+    [topEdge moveToPoint:NSMakePoint(frameRect.origin.x, frameRect.size.height)];
+    [topEdge lineToPoint:NSMakePoint(frameRect.size.width, frameRect.size.height)];
+    [topEdge lineToPoint:NSMakePoint( (frameRect.size.width - _bevelDepth), (frameRect.size.height - _bevelDepth) )];
+    [topEdge lineToPoint:NSMakePoint( (frameRect.origin.x + _bevelDepth), (frameRect.size.height - _bevelDepth) )];
 
-    [topEdge moveToPoint:NSMakePoint(aRect.origin.x, aRect.size.height)];
-    [topEdge lineToPoint:NSMakePoint(aRect.size.width, aRect.size.height)];
-    [topEdge lineToPoint:NSMakePoint( (aRect.size.width - _bevelDepth), (aRect.size.height - _bevelDepth) )];
-    [topEdge lineToPoint:NSMakePoint( (aRect.origin.x + _bevelDepth), (aRect.size.height - _bevelDepth) )];
+    [rightEdge moveToPoint:NSMakePoint(frameRect.size.width, frameRect.origin.y)];
+    [rightEdge lineToPoint:NSMakePoint(frameRect.size.width, frameRect.size.height)];
+    [rightEdge lineToPoint:NSMakePoint( (frameRect.size.width - _bevelDepth), (frameRect.size.height - _bevelDepth) )];
+    [rightEdge lineToPoint:NSMakePoint( (frameRect.size.width - _bevelDepth), (_bevelDepth) )];
 
-    [rightEdge moveToPoint:NSMakePoint(aRect.size.width, aRect.origin.y)];
-    [rightEdge lineToPoint:NSMakePoint(aRect.size.width, aRect.size.height)];
-    [rightEdge lineToPoint:NSMakePoint( (aRect.size.width - _bevelDepth), (aRect.size.height - _bevelDepth) )];
-    [rightEdge lineToPoint:NSMakePoint( (aRect.size.width - _bevelDepth), (_bevelDepth) )];
-
-    [bottomEdge moveToPoint:aRect.origin];
-    [bottomEdge lineToPoint:NSMakePoint(aRect.size.width, aRect.origin.y)];
-    [bottomEdge lineToPoint:NSMakePoint( (aRect.size.width - _bevelDepth), (_bevelDepth) )];
-    [bottomEdge lineToPoint:NSMakePoint( (aRect.origin.x + _bevelDepth), (aRect.origin.y + _bevelDepth) )];
+    [bottomEdge moveToPoint:frameRect.origin];
+    [bottomEdge lineToPoint:NSMakePoint(frameRect.size.width, frameRect.origin.y)];
+    [bottomEdge lineToPoint:NSMakePoint( (frameRect.size.width - _bevelDepth), (_bevelDepth) )];
+    [bottomEdge lineToPoint:NSMakePoint( (frameRect.origin.x + _bevelDepth), (frameRect.origin.y + _bevelDepth) )];
 
     [[NSColor colorWithCalibratedWhite:0.5 alpha:0.5] set];
     [leftEdge fill];
@@ -95,6 +95,8 @@
     [rightEdge fill];
     [[NSColor colorWithCalibratedWhite:1.0 alpha:0.6] set];
     [bottomEdge fill];
+
+    [[[self subviews] objectAtIndex:0] setNeedsDisplay:YES];
 }
 
 
