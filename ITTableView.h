@@ -1,14 +1,14 @@
 /*
  *	ITKit
  *	ITTableView
- *
- *	An NSTableView subclass with easy to use accessors for adding a menu (with optional image)
- *	to the corner view of the TableView.
+ *    NSTableView subclass with easy to use accessors for adding a menu
+ *    (with optional image) to the corner view of the TableView.
  *
  *	Original Author	: Joseph Spiros <joseph.spiros@ithinksw.com>
+ *   Responsibility : Matt Judy <mjudy@ithinksw.com>
  *	Responsibility	: Joseph Spiros <joseph.spiros@ithinksw.com>
  *
- *	Copyright (c) 2002 iThink Software.
+ *	Copyright (c) 2002-2003 iThink Software.
  *	All Rights Reserved
  *
  */

@@ -4,6 +4,7 @@
  *    NSStatusItem subclass which reduces suckage
  *
  *  Original Author : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *  Original Author : Matt Judy <mjudy@ithinksw.com>
  *   Responsibility : Matt Judy <mjudy@ithinksw.com>
  *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
  *

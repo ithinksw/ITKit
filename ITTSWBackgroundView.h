@@ -1,10 +1,15 @@
-//
-//  ITGrayRoundedView.h
-//  ITKit
-//
-//  Created by Matt L. Judy on Wed Jan 22 2003.
-//  Copyright (c) 2003 NibFile.com. All rights reserved.
-//
+/*
+ *	ITKit
+ *  ITGrayRoundedView
+ *    NSView subclass which draws a translucent background with rounded corners.
+ *
+ *  Original Author : Matt Judy <mjudy@ithinksw.com>
+ *   Responsibility : Matt Judy <mjudy@ithinksw.com>
+ *
+ *  Copyright (c) 2002 - 2003 iThink Software.
+ *  All Rights Reserved
+ *
+ */
 
 #import <Cocoa/Cocoa.h>
 
