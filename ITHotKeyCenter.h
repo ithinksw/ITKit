@@ -22,9 +22,13 @@
 {
 	NSMutableDictionary*	mHotKeys; //Keys are NSValue of EventHotKeyRef
 	BOOL			mEventHandlerInstalled;
+	BOOL			_enabled;
 }
 
 + (id)sharedCenter;
+
+- (BOOL)isEnabled;
+- (void)setEnabled:(BOOL)flag;
 
 - (BOOL)registerHotKey: (ITHotKey*)hotKey;
 - (void)unregisterHotKey: (ITHotKey*)hotKey;

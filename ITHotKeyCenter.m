@@ -50,6 +50,7 @@ static id _sharedHotKeyCenter = nil;
 	if( self )
 	{
 		mHotKeys = [[NSMutableDictionary alloc] init];
+		_enabled = YES;
 	}
 	
 	return self;
@@ -62,6 +63,16 @@ static id _sharedHotKeyCenter = nil;
 }
 
 #pragma mark -
+
+- (BOOL)isEnabled
+{
+	return _enabled;
+}
+
+- (void)setEnabled:(BOOL)flag
+{
+	_enabled = flag;
+}
 
 - (BOOL)registerHotKey: (ITHotKey*)hotKey
 {
@@ -185,6 +196,10 @@ static id _sharedHotKeyCenter = nil;
 	long subType;
 	EventHotKeyRef carbonHotKey;
 	
+	if (!_enabled) {
+		return;
+	}
+	
 	//We only have to intercept sendEvent to do hot keys on old system versions
 	if( [self _hasCarbonEventSupport] )
 		return;
@@ -219,7 +234,11 @@ static id _sharedHotKeyCenter = nil;
 	OSStatus err;
 	EventHotKeyID hotKeyID;
 	ITHotKey* hotKey;
-
+	
+	if (!_enabled) {
+		return -1;
+	}
+	
 	NSAssert( [self _hasCarbonEventSupport], @"" );
 	NSAssert( GetEventClass( event ) == kEventClassKeyboard, @"Unknown event class" );
 

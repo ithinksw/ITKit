@@ -6,8 +6,6 @@
 	objectVersion = 39;
 	objects = {
 		014CEA440018CDF011CA2923 = {
-			buildRules = (
-			);
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
@@ -22,8 +20,6 @@
 			name = Development;
 		};
 		014CEA450018CDF011CA2923 = {
-			buildRules = (
-			);
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -65,7 +61,7 @@
 		0867D690FE84028FC02AAC07 = {
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				SDKROOT = /Developer/SDKs/MacOSX10.2.7.sdk;
+				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
 			};
 			buildStyles = (
 				014CEA440018CDF011CA2923,
@@ -109,8 +105,7 @@
 			sourceTree = "<group>";
 		};
 		0867D69BFE84028FC02AAC07 = {
-			fallbackIsa = PBXFileReference;
-			isa = PBXFrameworkReference;
+			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
 			name = Foundation.framework;
 			path = /System/Library/Frameworks/Foundation.framework;
@@ -118,8 +113,7 @@
 			sourceTree = "<absolute>";
 		};
 		0867D6A5FE840307C02AAC07 = {
-			fallbackIsa = PBXFileReference;
-			isa = PBXFrameworkReference;
+			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
 			name = AppKit.framework;
 			path = /System/Library/Frameworks/AppKit.framework;
@@ -196,8 +190,7 @@
 			sourceTree = "<group>";
 		};
 		1058C7B1FEA5585E11CA2CBB = {
-			fallbackIsa = PBXFileReference;
-			isa = PBXFrameworkReference;
+			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
 			name = Cocoa.framework;
 			path = /System/Library/Frameworks/Cocoa.framework;
