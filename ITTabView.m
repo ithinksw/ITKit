@@ -1,5 +1,15 @@
 #import "ITTabView.h"
 
+/*************************************************************************/
+#pragma mark -
+#pragma mark EVIL HACKERY
+/*************************************************************************/
+
+@interface NSTabViewItem (HACKHACKHACKHACK)
+- (NSRect)_tabRect;
+@end
+
+
 @implementation ITTabView
 
 - (id)initWithFrame:(NSRect)frame
