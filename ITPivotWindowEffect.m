@@ -219,11 +219,7 @@
                               (CGSWindowID)[_window windowNumber],
                               transform);
     } else {
-        
         float  degAngle;
-        NSRect screenFrame = [[_window screen] frame];
-        float  translateX = 0;
-        float  translateY = 0;
         CGAffineTransform transform;
         
         if ( vPos == ITWindowPositionBottom ) {
@@ -241,28 +237,24 @@
         }
         
         degAngle  = (angle * (pi / 180));
-        transform = CGAffineTransformMakeRotation(degAngle);
-        if ( vPos == ITWindowPositionBottom ) {
-            transform.ty = ( winFrame.size.height + winFrame.origin.y) + (screenFrame.size.height - [[NSScreen mainScreen] frame].size.height);
-            translateY   = -(screenFrame.size.height);
+		transform = CGAffineTransformMakeRotation(degAngle);
+		
+		if ( vPos == ITWindowPositionBottom ) {
+            transform.ty = winFrame.size.height;
         } else if ( vPos == ITWindowPositionTop ) {
-			transform.ty = winFrame.origin.y + winFrame.size.height - [[NSScreen mainScreen] frame].size.height;
-            translateY   = 0;
+			transform.ty = 0;
         }
         
         if ( hPos == ITWindowPositionLeft ) {
-            transform.tx = -( winFrame.origin.x );
-            translateX   = 0;
+            transform.tx = 0;
         } else if ( hPos == ITWindowPositionRight ) {
-            //transform.tx = ( screenFrame.size.width - winFrame.origin.x );
-			transform.tx = ( screenFrame.size.width - winFrame.origin.x );
-            translateX   = -(screenFrame.size.width);
+			transform.tx = winFrame.size.width;
         }
+		
+		transform = CGAffineTransformTranslate(transform, -winFrame.origin.x - transform.tx, winFrame.origin.y + winFrame.size.height - [[NSScreen mainScreen] frame].size.height - transform.ty);
         CGSSetWindowTransform([NSApp contextID],
                               (CGSWindowID)[_window windowNumber],
-                              CGAffineTransformTranslate( transform,
-                                                          translateX,
-                                                          translateY ) );
+							  transform );
     }
 }
 
