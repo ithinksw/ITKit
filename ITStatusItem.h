@@ -12,6 +12,20 @@
  *
  */
 
+/*
+ *	This subclass does 3 things:
+ *
+ *  1. Makes the status item smarter about highlighting.
+ *  2. Allows you to set an inverted (alternate) image.
+ *  3. Eliminates the ugly shadow behind a normal status item.
+ *
+ *  Note:  In order to have the shadow not suck, Apple moves the
+ *         image up one pixel.  We have chosen not to address this
+ *         here, so please adjust your images DOWN one pixel to
+ *         compensate for this.
+ *
+ */
+
 #import <Cocoa/Cocoa.h>
 
 
@@ -19,8 +33,12 @@
 {
 }
 
+// Use this to create a new retained status item.
+// It will appear in the system status bar, and
+// default to YES for its highlightMode.
 - (id)initWithStatusBar:(NSStatusBar*)statusBar withLength:(float)length;
 
+// These allow you to use an alternate (selected) image for your status item.
 - (NSImage*) alternateImage;
 - (void) setAlternateImage:(NSImage*)image;
 
