@@ -24,7 +24,9 @@
 
 - (void)performAppear
 {
-    [self setWindowVisibility:ITTransientStatusWindowAppearingState];
+    __idle = NO;
+    
+    [self setWindowVisibility:ITWindowAppearingState];
     [self performAppearFromProgress:0.0 effectTime:_effectTime];
 }
 
@@ -64,12 +66,18 @@
 {
     [_effectTimer invalidate];
     _effectTimer = nil;
-    [self setWindowVisibility:ITTransientStatusWindowVisibleState];
+    [self setWindowVisibility:ITWindowVisibleState];
+
+    __idle = YES;
+
+    if ( __shouldReleaseWhenIdle ) {
+        [self release];
+    }
 }
 
 - (void)cancelAppear
 {
-    [self setWindowVisibility:ITTransientStatusWindowVanishingState];
+    [self setWindowVisibility:ITWindowVanishingState];
 
     [_effectTimer invalidate];
     _effectTimer = nil;
@@ -85,7 +93,9 @@
 
 - (void)performVanish
 {
-    [self setWindowVisibility:ITTransientStatusWindowVanishingState];
+    __idle = NO;
+    
+    [self setWindowVisibility:ITWindowVanishingState];
     [self performVanishFromProgress:1.0 effectTime:_effectTime];
 }
 
@@ -126,12 +136,19 @@
     _effectTimer = nil;
     [_window orderOut:self];
     [_window setAlphaValue:1.0];
-    [self setWindowVisibility:ITTransientStatusWindowHiddenState];
+    [self setPivot:0.0];
+    [self setWindowVisibility:ITWindowHiddenState];
+
+    __idle = YES;
+
+    if ( __shouldReleaseWhenIdle ) {
+        [self release];
+    }
 }
 
 - (void)cancelVanish
 {
-    [self setWindowVisibility:ITTransientStatusWindowAppearingState];
+    [self setWindowVisibility:ITWindowAppearingState];
 
     [_effectTimer invalidate];
     _effectTimer = nil;

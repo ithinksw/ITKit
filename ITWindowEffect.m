@@ -9,9 +9,11 @@
 {
     if ( (self = [super init]) ) {
     
-        _window         = [window retain];
-        _effectTime     = DEFAULT_EFFECT_TIME;
-        _effectTimer    = nil;
+        _window                 = [window retain];
+        _effectTime             = DEFAULT_EFFECT_TIME;
+        _effectTimer            = nil;
+        __shouldReleaseWhenIdle = NO;
+        __idle                  = YES;
 
         if ( [window conformsToProtocol:@protocol(ITWindowPositioning)] ) {
                                                            // Casts so the compiler won't gripe
@@ -75,6 +77,15 @@
 - (void)cancelVanish
 {
     NSLog(@"ITWindowEffect does not implement cancelVanish.");
+}
+
+- (void)releaseWhenIdle;
+{
+    if ( __idle ) {
+        [self release];
+    } else {
+        __shouldReleaseWhenIdle = YES;
+    }
 }
 
 - (void)dealloc

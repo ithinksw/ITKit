@@ -26,6 +26,7 @@
     IBOutlet NSPopUpButton  *swBackgroundTypePopup;
     IBOutlet NSPopUpButton  *swDefinedPositionPopup;
     IBOutlet NSTextField    *swVanishDelay;
+    IBOutlet NSSlider       *swSpeedSlider;
 }
 
 // ITStatusItem Support

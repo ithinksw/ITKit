@@ -1,15 +1,19 @@
 #import "Controller.h"
 #import "ITTransientStatusWindow.h"
 #import "ITTextField.h"
-#import "ITPivotWindowEffect.h"
-#import "ITDissolveWindowEffect.h"
 #import "ITCutWindowEffect.h"
+#import "ITDissolveWindowEffect.h"
+#import "ITSlideHorizontallyWindowEffect.h"
+#import "ITSlideVerticallyWindowEffect.h"
+#import "ITPivotWindowEffect.h"
+
 
 #define SW_PAD    24.0
 #define SW_SPACE  24.0
 #define SW_MINW   211.0
 #define SW_BORDER 32.0
 #define SW_IMAGE  @"Library"
+
 
 @interface Controller (ITStatusItemSupport)
 - (void)createStatusItem;
@@ -25,7 +29,12 @@
     [testTextField setCastsShadow:YES];
     [tabView setAllowsDragging:YES];
     statusWindow = [ITTransientStatusWindow sharedWindow];
+    [statusWindow setEntryEffect:[[ITCutWindowEffect alloc] initWithWindow:statusWindow]];
+    [statusWindow setExitEffect:[[ITDissolveWindowEffect alloc] initWithWindow:statusWindow]];
+    [[statusWindow entryEffect] setEffectTime:[swSpeedSlider floatValue]];
+    [[statusWindow exitEffect]  setEffectTime:[swSpeedSlider floatValue]];
 //  [tabView setAllowsDragging:YES];
+    
 }
 
 /*************************************************************************/
@@ -201,17 +210,12 @@
     [[statusWindow contentView] addSubview:textField];
 
     [[statusWindow contentView] setNeedsDisplay:YES];
-
-//    [statusWindow setEntryEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
-//    [statusWindow setExitEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
-    [statusWindow setEntryEffect:[[ITCutWindowEffect alloc]      initWithWindow:statusWindow]];
-    [statusWindow setExitEffect: [[ITDissolveWindowEffect alloc] initWithWindow:statusWindow]];
 }
 
 - (IBAction)toggleStatusWindow:(id)sender
 {
-    if ( ([statusWindow visibilityState] == ITTransientStatusWindowHiddenState) ||
-         ([statusWindow visibilityState] == ITTransientStatusWindowVanishingState) ) {
+    if ( ([statusWindow visibilityState] == ITWindowHiddenState) ||
+         ([statusWindow visibilityState] == ITWindowVanishingState) ) {
         [[statusWindow contentView] setNeedsDisplay:YES];
         [statusWindow appear:self];
     } else {
@@ -221,29 +225,57 @@
 
 - (IBAction)changeWindowSetting:(id)sender
 {
-    switch ( [sender tag] )
-    {
-        case 3010:  // Not yet supported.
-            break;
-        case 3020:  // Not yet supported.
-            break;
-        case 3030:  // Change vanish delay
-            [statusWindow setExitDelay:[sender floatValue]];
-            break;
-        case 3040:  // Change vertical position
-            [statusWindow setVerticalPosition:[sender indexOfSelectedItem]];
-            break;
-        case 3050:  // Change horizontal position
-            [statusWindow setHorizontalPosition:[sender indexOfSelectedItem]];
-            break;
-        case 3060:  // Change effect speed
-            [[statusWindow entryEffect] setEffectTime:[sender floatValue]];
-            [[statusWindow exitEffect]  setEffectTime:[sender floatValue]];
-            break;
-        case 3070:  // Change entry effect
-            break;
-        case 3080:  // Change exit effect
-            break;
+    if ( [sender tag] == 3010 ) {
+
+        if ( [sender indexOfSelectedItem] == 0) {
+            [statusWindow setExitMode:ITTransientStatusWindowExitAfterDelay];
+        } else if ( [sender indexOfSelectedItem] == 1) {
+            [statusWindow setExitMode:ITTransientStatusWindowExitOnCommand];
+        }
+
+    } else if ( [sender tag] == 3020 ) {
+        // Not yet supported
+    } else if ( [sender tag] == 3030 ) {
+        [statusWindow setExitDelay:[sender floatValue]];
+    } else if ( [sender tag] == 3040 ) {
+        [statusWindow setVerticalPosition:[sender indexOfSelectedItem]];
+    } else if ( [sender tag] == 3050 ) {
+        [statusWindow setHorizontalPosition:[sender indexOfSelectedItem]];
+    } else if ( [sender tag] == 3060 ) {
+        [[statusWindow entryEffect] setEffectTime:[sender floatValue]];
+        [[statusWindow exitEffect]  setEffectTime:[sender floatValue]];
+    } else if ( [sender tag] == 3070 ) {
+    
+        if ( [sender indexOfSelectedItem] == 0 ) {
+            [statusWindow setEntryEffect:[[[ITCutWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
+        } else if ( [sender indexOfSelectedItem] == 1 ) {
+            [statusWindow setEntryEffect:[[[ITDissolveWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
+        } else if ( [sender indexOfSelectedItem] == 2 ) {
+            [statusWindow setEntryEffect:[[[ITSlideVerticallyWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
+        } else if ( [sender indexOfSelectedItem] == 3 ) {
+            [statusWindow setEntryEffect:[[[ITSlideHorizontallyWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
+        } else if ( [sender indexOfSelectedItem] == 4 ) {
+            [statusWindow setEntryEffect:[[[ITPivotWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
+        }
+
+        [[statusWindow entryEffect] setEffectTime:[swSpeedSlider floatValue]];
+        
+    } else if ( [sender tag] == 3080 ) {
+
+        if ( [sender indexOfSelectedItem] == 0 ) {
+            [statusWindow setExitEffect:[[ITCutWindowEffect alloc] initWithWindow:statusWindow]];
+        } else if ( [sender indexOfSelectedItem] == 1 ) {
+            [statusWindow setExitEffect:[[ITDissolveWindowEffect alloc] initWithWindow:statusWindow]];
+        } else if ( [sender indexOfSelectedItem] == 2 ) {
+            [statusWindow setExitEffect:[[ITSlideVerticallyWindowEffect alloc] initWithWindow:statusWindow]];
+        } else if ( [sender indexOfSelectedItem] == 3 ) {
+            [statusWindow setExitEffect:[[ITSlideHorizontallyWindowEffect alloc] initWithWindow:statusWindow]];
+        } else if ( [sender indexOfSelectedItem] == 4 ) {
+            [statusWindow setExitEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
+        }
+
+        [[statusWindow exitEffect] setEffectTime:[swSpeedSlider floatValue]];
+
     }
 }
 

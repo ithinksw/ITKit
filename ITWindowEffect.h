@@ -22,10 +22,10 @@
 
 
 typedef enum {
-    ITTransientStatusWindowHiddenState,
-    ITTransientStatusWindowAppearingState,
-    ITTransientStatusWindowVisibleState,
-    ITTransientStatusWindowVanishingState
+    ITWindowHiddenState,
+    ITWindowAppearingState,
+    ITWindowVisibleState,
+    ITWindowVanishingState
 } ITWindowVisibilityState;
 
 
@@ -53,6 +53,8 @@ typedef enum {
     ITVerticalWindowPosition    _verticalPosition;
     ITHorizontalWindowPosition  _horizontalPosition;
     NSTimer                    *_effectTimer;
+    BOOL					   __idle;
+    BOOL                       __shouldReleaseWhenIdle;
 }
 
 // Designated initializer
@@ -66,5 +68,7 @@ typedef enum {
 
 - (float)effectTime;
 - (void)setEffectTime:(float)newTime;
+
+- (void)releaseWhenIdle;
 
 @end

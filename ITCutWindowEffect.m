@@ -13,7 +13,7 @@
 - (void)performAppear
 {
     [_window orderFront:self];
-    [self setWindowVisibility:ITTransientStatusWindowVisibleState];
+    [self setWindowVisibility:ITWindowVisibleState];
 }
 
 - (void)cancelAppear
@@ -30,7 +30,7 @@
 - (void)performVanish
 {
     [_window orderOut:self];
-    [self setWindowVisibility:ITTransientStatusWindowHiddenState];
+    [self setWindowVisibility:ITWindowHiddenState];
 }
 
 - (void)cancelVanish

@@ -59,7 +59,7 @@ typedef enum {
 
     BOOL _reallyIgnoresEvents;
     
-    NSTimer *_delayTimer;
+    NSTimer *_exitTimer;
 
 //  NSView *_contentSubView;		
 }
