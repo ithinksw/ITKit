@@ -40,12 +40,8 @@
         }, 
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = ITBevelView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
-        {
-            ACTIONS = {start = id; stop = id; }; 
-            CLASS = ITChasingArrowsView; 
-            LANGUAGE = ObjC; 
-            SUPERCLASS = NSView; 
-        }, 
+        {CLASS = ITLED; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {CLASS = ITLEDCell; LANGUAGE = ObjC; SUPERCLASS = NSActionCell; }, 
         {CLASS = ITTabView; LANGUAGE = ObjC; SUPERCLASS = NSTabView; }, 
         {CLASS = ITTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }
     ); 
