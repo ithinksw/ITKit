@@ -45,8 +45,5 @@ extern CGSValueObj CGSCreateCString(const char *string);
 extern CGSValueObj CGSCreateBoolean(CGSBoolean boolean);
 extern CGError     CGSSetWindowProperty(const CGSConnectionID cid, CGSWindowID wid, const CGSValueObj key, const CGSValueObj value);
                                         
-extern CGAffineTransform CGAffineTransformMakeRotation(float angle);
-extern CGAffineTransform CGAffineTransformMakeScale(float sx, float sy);
-extern CGAffineTransform CGAffineTransformTranslate(CGAffineTransform t, float tx, float ty);
 extern CGError CGSSetWindowWarp(const CGSConnectionID cid, CGSWindowID wid, int w,int h, float *mesh);
 extern CGError CGSSetWindowTransform(const CGSConnectionID cid, CGSWindowID wid, CGAffineTransform transform);
