@@ -18,9 +18,9 @@
 
 @interface NSMenu (ITCategory)
 
-- (void)indentItem:(NSMenuItem *)item;
+- (void)indentItem:(id <NSMenuItem>)item;
 - (void)indentItemAtIndex:(int)index;
-- (void)indentItem:(NSMenuItem *)item toLevel:(int)indentLevel;
+- (void)indentItem:(id <NSMenuItem>)item toLevel:(int)indentLevel;
 - (void)indentItemAtIndex:(int)index toLevel:(int)indentLevel;
 - (MenuRef)menuRef;
 
