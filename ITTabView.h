@@ -3,7 +3,7 @@
  *  ITTabView
  *    NSTabView subclass which includes convenience features
  *
- *  Original Author : Joseph Spiros <kent.sutherland@ithinksw.com>
+ *  Original Author : Kent Sutherland <kent.sutherland@ithinksw.com>
  *   Responsibility : Matt Judy <mjudy@ithinksw.com>
  *   Responsibility : Kent Sutherland <kent.sutherland@ithinksw.com>
  *
