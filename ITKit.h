@@ -27,6 +27,7 @@
 #import <ITKit/ITBevelView.h>
 #import <ITKit/ITTextField.h>
 #import <ITKit/ITTransientStatusWindow.h>
+#import <ITKit/ITSplashScreen.h>
 
 #import <ITKit/ITIconAndTextStatusWindow.h>
 
