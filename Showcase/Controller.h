@@ -43,4 +43,11 @@
 - (IBAction)hideStatusWindow:(id)sender;
 - (IBAction)setRotation:(id)sender;
 
+// ITTabView support
+- (IBAction)toggleTabDragging:(id)sender;
+- (IBAction)toggleCommandDragging:(id)sender;
+- (IBAction)toggleControlDragging:(id)sender;
+- (IBAction)toggleOptionDragging:(id)sender;
+- (IBAction)toggleShiftDragging:(id)sender;
+
 @end

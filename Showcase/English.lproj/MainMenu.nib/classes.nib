@@ -7,9 +7,14 @@
                 setRotation = id; 
                 showStatusWindow = id; 
                 toggleCastsShadow = id; 
+                toggleCommandDragging = id; 
+                toggleControlDragging = id; 
                 toggleImage = id; 
                 toggleInvertedImage = id; 
+                toggleOptionDragging = id; 
+                toggleShiftDragging = id; 
                 toggleStatusItem = id; 
+                toggleTabDragging = id; 
                 toggleTitle = id; 
             }; 
             CLASS = Controller; 

@@ -20,6 +20,7 @@
 {
     [self createStatusItem];
     [testTextField setCastsShadow:YES];
+    [tabView setAllowsDragging:YES];
     statusWindow = [ITTransientStatusWindow sharedWindow];
 //  [tabView setAllowsDragging:YES];
 }
@@ -226,6 +227,40 @@
     [statusWindow setRotation:([sender floatValue] * (pi / 180))];
 }
 
+/*************************************************************************/
+#pragma mark -
+#pragma mark ITTransientStatusWindow SUPPORT
+/*************************************************************************/
+
+- (IBAction)toggleTabDragging:(id)sender
+{
+    if ([sender state] == NSOnState) {
+        [tabView setAllowsDragging:YES];
+    } else {
+        [tabView setAllowsDragging:NO];
+    }
+}
+
+- (IBAction)toggleCommandDragging:(id)sender
+{
+    if ([sender state] == NSOnState) {
+        [tabView setRequiredModifiers:NSCommandKeyMask];
+    } else {
+        [tabView setRequiredModifiers:0];
+    }
+}
+
+- (IBAction)toggleControlDragging:(id)sender
+{
+}
+
+- (IBAction)toggleOptionDragging:(id)sender
+{
+}
+
+- (IBAction)toggleShiftDragging:(id)sender
+{
+}
 
 /*************************************************************************/
 #pragma mark -

@@ -24,10 +24,14 @@
 {
     NSTabViewItem *_draggedTab;
     bool _allowsDragging;
+    unsigned int _requiredModifiers;
 }
 
 - (void)setAllowsDragging:(bool)flag;
 - (bool)allowsDragging;
+
+- (void)setRequiredModifiers:(unsigned int)modifiers;
+- (unsigned int)requiredModifiers;
 
 - (void)moveTab:(NSTabViewItem *)tab toIndex:(int)index;
 
