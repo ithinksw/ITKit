@@ -18,4 +18,9 @@
 	return YES;
 }
 
+- (BOOL)isKeyWindow
+{
+	return YES;
+}
+
 @end
