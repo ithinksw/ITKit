@@ -6,12 +6,12 @@
 
 - (void)performAppear
 {
-    NSLog("ITSlideHorizontallyWindowEffect does not implement performAppear.");
+    NSLog(@"ITSlideHorizontallyWindowEffect does not implement performAppear.");
 }
 
 - (void)performVanish
 {
-    NSLog("ITSlideHorizontallyWindowEffect does not implement performVanish.");
+    NSLog(@"ITSlideHorizontallyWindowEffect does not implement performVanish.");
 }
 
 

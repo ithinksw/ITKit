@@ -13,6 +13,7 @@
 
 
 #import <Cocoa/Cocoa.h>
+#import "ITWindowEffect.h"
 
 
 @interface ITDissolveWindowEffect : ITWindowEffect <ITWindowEffect> {

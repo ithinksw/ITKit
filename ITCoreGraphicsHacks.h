@@ -11,9 +11,10 @@
  *
  */
 
+
 /*************************************************************************/
 #pragma mark -
-#pragma mark CoreGraphics HACKS
+#pragma mark CoreGraphics HACK HACK HACK
 /*************************************************************************/
 
 typedef void * CGSGenericObj;
@@ -47,3 +48,15 @@ extern CGError     CGSSetWindowProperty(const CGSConnectionID cid, CGSWindowID w
                                         
 extern CGError CGSSetWindowWarp(const CGSConnectionID cid, CGSWindowID wid, int w,int h, float *mesh);
 extern CGError CGSSetWindowTransform(const CGSConnectionID cid, CGSWindowID wid, CGAffineTransform transform);
+
+
+/*************************************************************************/
+#pragma mark -
+#pragma mark NSApplication HACK HACK HACK
+/*************************************************************************/
+
+@interface NSApplication (HACKHACKHACKHACK)
+- (CGSConnectionID)contextID;
+@end
+
+

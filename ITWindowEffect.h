@@ -13,6 +13,11 @@
 
 
 #import <Cocoa/Cocoa.h>
+#import "ITWindowPositioning.h"
+
+
+#define EFFECT_FPS 30.0
+#define DEFAULT_EFFECT_TIME 0.75
 
 
 @protocol ITWindowEffect
@@ -25,7 +30,12 @@
 
 @interface ITWindowEffect : NSObject <ITWindowEffect>
 {
-    NSWindow *_window;
+    NSWindow                   *_window;
+    float                       _effectTime;
+    double                      _effectProgress;
+    ITVerticalWindowPosition    _verticalPosition;
+    ITHorizontalWindowPosition  _horizontalPosition;
+    NSTimer                    *_effectTimer;
 }
 
 // Designated initializer

@@ -1,21 +1,11 @@
 #import "ITTransientStatusWindow.h"
+#import "ITWindowEffect.h"
 #import <CoreGraphics/CoreGraphics.h>
 #import "ITCoreGraphicsHacks.h"
 #import "ITTextField.h"
 #import "ITGrayRoundedView.h"
 
-
 #define EFFECT_FPS 30.0
-
-
-/*************************************************************************/
-#pragma mark -
-#pragma mark EVIL HACKERY
-/*************************************************************************/
-
-@interface NSApplication (HACKHACKHACKHACK)
-- (CGSConnectionID)contextID;
-@end
 
 
 /*************************************************************************/
@@ -28,14 +18,7 @@
                  exitMode:(ITTransientStatusWindowExitMode)exitMode
            backgroundType:(ITTransientStatusWindowBackgroundType)backgroundType;
 - (void)rebuildWindow;
-- (void)performEffect;
-- (void)dissolveEffect;
-- (void)slideVerticalEffect;
-- (void)slideHorizontalEffect;
-- (void)pivotEffect;
-- (void)pivotStep;
-- (void)pivotFinish;
-- (void)setPivot:(float)angle;
+// - (void)performEffect;
 @end
 
 
@@ -94,16 +77,14 @@ static ITTransientStatusWindow *staticWindow = nil;
         _exitMode            = exitMode;
         _exitDelay           = DEFAULT_EXIT_DELAY;
         _backgroundType      = backgroundType;
-        _verticalPosition    = ITTransientStatusWindowPositionBottom;
-        _horizontalPosition  = ITTransientStatusWindowPositionLeft;
+        _verticalPosition    = ITWindowPositionBottom;
+        _horizontalPosition  = ITWindowPositionLeft;
         _screenPadding       = 32.0;
-        _entryEffect         = ITTransientStatusWindowEffectNone;
-        _exitEffect          = ITTransientStatusWindowEffectDissolve;
-        _effectTime          = DEFAULT_EFFECT_TIME;
-        _effectProgress      = 0.00;
+        _screenNumber        = 0;
+        _entryEffect         = nil;
+        _exitEffect          = nil;
         _reallyIgnoresEvents = YES;
         _delayTimer          = nil;
-        _effectTimer         = nil;
 
 //      if ( _backgroundType == ITTransientStatusWindowRounded ) {
 //          _contentSubView = contentView;
@@ -144,9 +125,11 @@ static ITTransientStatusWindow *staticWindow = nil;
     _reallyIgnoresEvents = flag;
 }
 
+/*
+
 - (void)orderFront:(id)sender
 {
-    if ( _entryEffect == ITTransientStatusWindowEffectNone ) {
+    if ( _entryEffect == nil ) {
         [super orderFront:sender];
         _visibilityState = ITTransientStatusWindowVisibleState;
     } else {
@@ -163,7 +146,7 @@ static ITTransientStatusWindow *staticWindow = nil;
         // set the timer, and orderOut: when it lapses.
     }
 
-    if ( _entryEffect == ITTransientStatusWindowEffectNone ) {
+    if ( _entryEffect == nil ) {
         [super makeKeyAndOrderFront:sender];
         _visibilityState = ITTransientStatusWindowVisibleState;
     } else {
@@ -174,7 +157,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 - (void)orderOut:(id)sender
 {
-    if ( _entryEffect == ITTransientStatusWindowEffectNone ) {
+    if ( _entryEffect == nil ) {
         [super orderOut:sender];
         _visibilityState = ITTransientStatusWindowHiddenState;
     } else {
@@ -184,10 +167,8 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 - (NSTimeInterval)animationResizeTime:(NSRect)newFrame
 {
-    return _effectTime;
+    return _resizeTime;
 }
-
-/*
 
 - (id)contentView
 {
@@ -212,6 +193,32 @@ static ITTransientStatusWindow *staticWindow = nil;
 }
 
 */
+
+- (void)appear
+{
+    if ( _entryEffect == nil ) {
+        [self orderFront:self];
+        _visibilityState = ITTransientStatusWindowVisibleState;
+    } else {
+        _visibilityState = ITTransientStatusWindowAppearingState;
+        [_entryEffect performAppear];
+        _visibilityState = ITTransientStatusWindowVisibleState;
+    }
+    if ( _exitMode == ITTransientStatusWindowExitAfterDelay ) {
+        // set the timer, and vanish when it lapses.
+    }
+}
+
+- (void)vanish
+{
+    if ( _entryEffect == nil ) {
+        [self orderOut:self];
+        _visibilityState = ITTransientStatusWindowHiddenState;
+    } else {
+        [_exitEffect performVanish];
+        _visibilityState = ITTransientStatusWindowHiddenState;
+    }
+}
 
 - (ITTransientStatusWindowVisibilityState)visibilityState
 {
@@ -251,24 +258,44 @@ static ITTransientStatusWindow *staticWindow = nil;
     _backgroundType = ITTransientStatusWindowRounded;
 }
 
-- (ITTransientStatusWindowPosition)verticalPosition;
+- (ITVerticalWindowPosition)verticalPosition;
 {
     return _verticalPosition;
 }
 
-- (void)setVerticalPosition:(ITTransientStatusWindowPosition)newPosition;
+- (void)setVerticalPosition:(ITVerticalWindowPosition)newPosition;
 {
     _verticalPosition = newPosition;
 }
 
-- (ITTransientStatusWindowPosition)horizontalPosition;
+- (ITHorizontalWindowPosition)horizontalPosition;
 {
     return _horizontalPosition;
 }
 
-- (void)setHorizontalPosition:(ITTransientStatusWindowPosition)newPosition;
+- (void)setHorizontalPosition:(ITHorizontalWindowPosition)newPosition;
 {
     _horizontalPosition = newPosition;
+}
+
+- (float)screenPadding
+{
+    return _screenPadding;
+}
+
+- (void)setScreenPadding:(float)newPadding
+{
+    _screenPadding = newPadding;
+}
+
+- (int)screenNumber
+{
+    return _screenNumber;
+}
+
+- (void)setScreenNumber:(int)newNumber
+{
+    _screenNumber = newNumber;
 }
 
 - (ITWindowEffect *)entryEffect
@@ -317,6 +344,8 @@ static ITTransientStatusWindow *staticWindow = nil;
     }
 }
 
+/*
+
 - (void)performEffect
 {
     if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
@@ -338,101 +367,7 @@ static ITTransientStatusWindow *staticWindow = nil;
     }
 }
 
-- (void)dissolveEffect
-{
-    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
-        [super orderFront:self];
-        _visibilityState = ITTransientStatusWindowVisibleState;
-    } else {
-        [super orderOut:self];
-        _visibilityState = ITTransientStatusWindowHiddenState;
-    }
-}
+*/
 
-- (void)slideVerticalEffect
-{
-    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
-        [super orderFront:self];
-        _visibilityState = ITTransientStatusWindowVisibleState;
-    } else {
-        [super orderOut:self];
-        _visibilityState = ITTransientStatusWindowHiddenState;
-    }
-}
-
-- (void)slideHorizontalEffect
-{
-    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
-        [super orderFront:self];
-        _visibilityState = ITTransientStatusWindowVisibleState;
-    } else {
-        [super orderOut:self];
-        _visibilityState = ITTransientStatusWindowHiddenState;
-    }
-}
-
-- (void)pivotEffect
-{
-    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
-        [self setPivot:315.0];
-        _effectProgress = 0.0;
-        [self setAlphaValue:0.0];
-        [super orderFront:self];
-        _effectTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0 / EFFECT_FPS)
-                                                        target:self
-                                                      selector:@selector(pivotStep)
-                                                      userInfo:nil
-                                                       repeats:YES];
-    } else {
-        [super orderOut:self];
-        _visibilityState = ITTransientStatusWindowHiddenState;
-    }
-}
-
-- (void)pivotStep
-{
-    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
-        float interPivot = 0.0;
-        _effectProgress += (1.0 / (EFFECT_FPS * _effectTime));
-        _effectProgress = (_effectProgress < 1.0 ? _effectProgress : 1.0);
-        interPivot = (( sin((_effectProgress * pi) - (pi / 2)) + 1 ) / 2);
-        [self setPivot:((interPivot * 45) + 315)];
-        [self setAlphaValue:interPivot];
-        if ( _effectProgress >= 1.0 ) {
-            [self pivotFinish];
-        }
-    } else {
-        //backwards
-    }
-}
-
-- (void)pivotFinish
-{
-    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
-        [_effectTimer invalidate];
-        _effectTimer = nil;
-        _effectProgress = 0.0;
-        _visibilityState = ITTransientStatusWindowVisibleState;
-    } else {
-        //backwards
-    }
-}
-
-
-- (void)setPivot:(float)angle
-{
-    float degAngle = (angle * (pi / 180));
-    CGAffineTransform transform = CGAffineTransformMakeRotation(degAngle);
-    
- // Set pivot point
-    transform.tx = -32.0;
-    transform.ty = [self frame].size.height + 32.0;
-    
-    CGSSetWindowTransform([NSApp contextID],
-                          (CGSWindowID)[self windowNumber],
-                          CGAffineTransformTranslate(transform,
-                                                     (([self frame].origin.x - 32.0) * -1),
-                                                     (([[self screen] frame].size.height - ([self frame].origin.y) + 32.0) * -1) ));
-}
 
 @end

@@ -16,10 +16,10 @@
 
 
 #import <Cocoa/Cocoa.h>
+#import "ITWindowPositioning.h"
 
 
 #define DEFAULT_EXIT_DELAY  3.0
-#define DEFAULT_EFFECT_TIME 0.75
 
 
 @class ITTextField;
@@ -29,9 +29,9 @@
 
 typedef enum {
     ITTransientStatusWindowHiddenState,
-    ITTransientStatusWindowEnteringState,
+    ITTransientStatusWindowAppearingState,
     ITTransientStatusWindowVisibleState,
-    ITTransientStatusWindowExitingState
+    ITTransientStatusWindowVanishingState
 } ITTransientStatusWindowVisibilityState;
 
 typedef enum {
@@ -48,17 +48,7 @@ typedef enum {
     ITTransientStatusWindowAquaUtility
 } ITTransientStatusWindowBackgroundType;
 
-typedef enum {
-    ITTransientStatusWindowPositionTop,
-    ITTransientStatusWindowPositionMiddle,
-    ITTransientStatusWindowPositionBottom,
-    ITTransientStatusWindowPositionLeft,
-    ITTransientStatusWindowPositionCenter,
-    ITTransientStatusWindowPositionRight,
-    ITTransientStatusWindowOther
-} ITTransientStatusWindowPosition;
-
-@interface ITTransientStatusWindow : NSWindow {
+@interface ITTransientStatusWindow : NSWindow <ITWindowPositioning> {
 
     ITTransientStatusWindowVisibilityState _visibilityState;
     ITTransientStatusWindowExitMode        _exitMode;
@@ -66,16 +56,14 @@ typedef enum {
     ITTransientStatusWindowBackgroundType  _backgroundType;
     ITWindowEffect                        *_entryEffect;
     ITWindowEffect                        *_exitEffect;
-    float                                  _effectTime;
-    double                                 _effectProgress;
-    ITTransientStatusWindowPosition        _verticalPosition;
-    ITTransientStatusWindowPosition        _horizontalPosition;
-    int                                    _screenPadding;
+    ITVerticalWindowPosition               _verticalPosition;
+    ITHorizontalWindowPosition             _horizontalPosition;
+    float                                  _screenPadding;
+    int                                    _screenNumber;
 
     BOOL _reallyIgnoresEvents;
     
     NSTimer *_delayTimer;
-    NSTimer *_effectTimer;
 
 //  NSView *_contentSubView;		
 }
@@ -97,11 +85,11 @@ typedef enum {
 - (ITTransientStatusWindowBackgroundType)backgroundType;
 - (void)setBackgroundType:(ITTransientStatusWindowBackgroundType)newType;
 
-- (ITTransientStatusWindowPosition)verticalPosition;
-- (void)setVerticalPosition:(ITTransientStatusWindowPosition)newPosition;
+- (ITVerticalWindowPosition)verticalPosition;
+- (void)setVerticalPosition:(ITVerticalWindowPosition)newPosition;
 
-- (ITTransientStatusWindowPosition)horizontalPosition;
-- (void)setHorizontalPosition:(ITTransientStatusWindowPosition)newPosition;
+- (ITHorizontalWindowPosition)horizontalPosition;
+- (void)setHorizontalPosition:(ITHorizontalWindowPosition)newPosition;
 
 - (ITWindowEffect *)entryEffect;
 - (void)setEntryEffect:(ITWindowEffect *)newEffect;

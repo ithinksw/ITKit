@@ -6,12 +6,12 @@
 
 - (void)performAppear
 {
-    NSLog("ITDissolveWindowEffect does not implement performAppear.");
+    NSLog(@"ITDissolveWindowEffect does not implement performAppear.");
 }
 
 - (void)performVanish
 {
-    NSLog("ITDissolveWindowEffect does not implement performVanish.");
+    NSLog(@"ITDissolveWindowEffect does not implement performVanish.");
 }
 
 

@@ -1,11 +1,3 @@
-//
-//  ITWindowEffect.m
-//  ITKit
-//
-//  Created by Matt L. Judy on Sat Mar 01 2003.
-//  Copyright (c) 2003 NibFile.com. All rights reserved.
-//
-
 #import "ITWindowEffect.h"
 
 
@@ -14,7 +6,23 @@
 
 - (id)initWithWindow:(NSWindow *)window
 {
-    _window = window;
+    if ( (self = [super init]) ) {
+    
+        _window         = [window retain];
+        _effectTime     = DEFAULT_EFFECT_TIME;
+        _effectProgress = 0.00;
+        _effectTimer    = nil;
+
+        if ( [window conformsToProtocol:@protocol(ITWindowPositioning)] ) {
+            _verticalPosition   = (ITVerticalWindowPosition)[window verticalPosition];
+            _horizontalPosition = (ITHorizontalWindowPosition)[window horizontalPosition];
+        } else {
+            NSLog(@"ITWindowEffect - initWithWindow: - window does not conform to ITWindowPositioning.");
+            _verticalPosition   = ITWindowPositionBottom;
+            _horizontalPosition = ITWindowPositionLeft;
+        }
+    }
+    return self;
 }
 
 - (NSWindow *)window
@@ -29,12 +37,18 @@
 
 - (void)performAppear
 {
-    NSLog("ITWindowEffect does not implement performAppear.");
+    NSLog(@"ITWindowEffect does not implement performAppear.");
 }
 
 - (void)performVanish
 {
-    NSLog("ITWindowEffect does not implement performVanish.");
+    NSLog(@"ITWindowEffect does not implement performVanish.");
+}
+
+- (void)dealloc
+{
+	[_window release];
+	[super dealloc];
 }
 
 
