@@ -41,4 +41,9 @@
 - (NSImage*) alternateImage;
 - (void) setAlternateImage:(NSImage*)image;
 
+// The following have been redefined as to supply compliance with Jaguar (10.2)'s MenuExtras that have both titles and images. Continue to use them as though you would on a NSStatusItem, everything will be done for you automatically.
+- (void) setImage:(NSImage*)image;
+- (NSString*) title;
+- (void) setTitle:(NSString*)title;
+
 @end

@@ -18,6 +18,14 @@
 - (NSStatusBarButton*) _button;
 @end
 
+/*************************************************************************/
+#pragma mark -
+#pragma mark PRIVATE METHOD DECLARATIONS
+/*************************************************************************/
+
+@interface ITStatusItem (Private)
+- (void) setSmallTitle:(NSString*)title;
+@end
 
 @implementation ITStatusItem
 
@@ -53,6 +61,39 @@
 
 - (void) setAlternateImage:(NSImage*)image {
     [[self _button] setAlternateImage:image];
+}
+
+- (void) setImage:(NSImage*)image {
+    [super setImage:image];
+    if ([self title]) {
+        [self setSmallTitle:[self title]];
+    }
+}
+
+- (NSString*) title {
+    if ([self image]) {
+        return [[self attributedTitle] string];
+    } else {
+        [super title];
+    }
+}
+
+- (void) setTitle:(NSString*)title {
+    [super setTitle:title];
+    if ([self image]) {
+        [self setSmallTitle:[self title]];
+    }
+}
+
+/*************************************************************************/
+#pragma mark -
+#pragma mark PRIVATE METHODS
+/*************************************************************************/
+
+- (void) setSmallTitle:(NSString*)title {
+    NSAttributedString *attrTitle = [[NSAttributedString alloc] initWithString:title attributes:[NSDictionary dictionaryWithObject:[NSFont fontWithName:@"Lucida Grande" size:12.0] forKey:NSFontAttributeName]];
+    [self setAttributedTitle:attrTitle];
+    [attrTitle release];
 }
 
 @end
