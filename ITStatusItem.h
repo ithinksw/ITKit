@@ -19,10 +19,9 @@
  *  2. Allows you to set an inverted (alternate) image.
  *  3. Eliminates the ugly shadow behind a normal status item.
  *
- *  Note:  In order to have the shadow not suck, Apple moves the
- *         image up one pixel.  We have chosen not to address this
- *         here, so please adjust your images DOWN one pixel to
- *         compensate for this.
+ *  Note:  In order to have the shadow not overlap the bottom of the
+ *  menubar, Apple moves the image up one pixel.  Since that shadow is
+ *  no longer drawn, please adjust your images DOWN one pixel to compensate.
  *
  */
 
