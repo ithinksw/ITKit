@@ -19,7 +19,7 @@
 
 
 #define DEFAULT_EXIT_DELAY  3.0
-#define DEFAULT_EFFECT_TIME 1.0
+#define DEFAULT_EFFECT_TIME 0.75
 
 
 @class ITTextField;
@@ -87,7 +87,11 @@ typedef enum {                                      // Note: Entry effects descr
 //  NSView *_contentSubView;		
 }
 
-+ (ITTransientStatusWindow *)sharedWindow;
++ (id)sharedWindow;
+
+- (id)initWithContentView:(NSView *)contentView
+                 exitMode:(ITTransientStatusWindowExitMode)exitMode
+           backgroundType:(ITTransientStatusWindowBackgroundType)backgroundType;
 
 - (ITTransientStatusWindowVisibilityState)visibilityState;
 

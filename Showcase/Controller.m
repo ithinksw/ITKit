@@ -233,7 +233,7 @@
 
 /*************************************************************************/
 #pragma mark -
-#pragma mark ITTransientStatusWindow SUPPORT
+#pragma mark ITTabView SUPPORT
 /*************************************************************************/
 
 - (IBAction)toggleTabDragging:(id)sender
