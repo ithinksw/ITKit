@@ -15,15 +15,15 @@
 
 
 typedef enum {
-    ITWindowPositionLeft,
-    ITWindowPositionCenter,
-    ITWindowPositionRight,
+    ITWindowPositionLeft   = 0,
+    ITWindowPositionCenter = 1,
+    ITWindowPositionRight  = 2,
 } ITHorizontalWindowPosition;
 
 typedef enum {
-    ITWindowPositionTop,
-    ITWindowPositionMiddle,
-    ITWindowPositionBottom,
+    ITWindowPositionTop    = 0,
+    ITWindowPositionMiddle = 1,
+    ITWindowPositionBottom = 2,
 } ITVerticalWindowPosition;
 
 

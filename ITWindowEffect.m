@@ -27,7 +27,6 @@
         __idle                  = YES;
 
         if ( [window conformsToProtocol:@protocol(ITWindowPositioning)] ) {
-                                                           // Casts so the compiler won't gripe
             _verticalPosition   = (ITVerticalWindowPosition)[(ITTransientStatusWindow *)window verticalPosition];
             _horizontalPosition = (ITHorizontalWindowPosition)[(ITTransientStatusWindow *)window horizontalPosition];
         } else {
