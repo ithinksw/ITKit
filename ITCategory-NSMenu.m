@@ -12,6 +12,7 @@
 - (id)_menuImpl;
 @end
 
+extern void _NSGetMenuItemForCommandKeyEvent (NSMenu *menu, void *chicken, void *taco, void *food); 
 extern MenuRef _NSGetCarbonMenu( NSMenu *menu);
 
 @implementation NSMenu (ITCategory)
@@ -30,14 +31,14 @@ extern MenuRef _NSGetCarbonMenu( NSMenu *menu);
 
 - (void)indentItemAtIndex:(int)index toLevel:(int)indentLevel {
     MenuRef carbonMenu = [self menuRef];
-    
     if (carbonMenu) {
-        SetMenuItemIndent(carbonMenu, index, indentLevel);
+        SetMenuItemIndent(carbonMenu, index + 1, indentLevel);
     }
 }
 
 - (MenuRef)menuRef {
     MenuRef carbonMenu;
+    int w00t, m00f;
     
     if( [self respondsToSelector:@selector(_menuImpl)] ) {
         [self _menuImpl];
@@ -45,6 +46,7 @@ extern MenuRef _NSGetCarbonMenu( NSMenu *menu);
         return nil;
     }
     
+    _NSGetMenuItemForCommandKeyEvent(self, NULL, &w00t, &m00f); 
     carbonMenu = _NSGetCarbonMenu(self);
     return carbonMenu;
 }
