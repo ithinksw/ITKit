@@ -99,6 +99,11 @@
     [[[self subviews] objectAtIndex:0] setNeedsDisplay:YES];
 }
 
+- (BOOL)mouseDownCanMoveWindow
+{
+    return NO;
+}
+
 
 /*************************************************************************/
 #pragma mark -
