@@ -16,6 +16,7 @@
 
 + (id)clearKeyCombo;
 + (id)keyComboWithKeyCode: (int)keyCode modifiers: (int)modifiers;
++ (id)keyComboWithPlistRepresentation: (id)plist;
 - (id)initWithKeyCode: (int)keyCode modifiers: (int)modifiers;
 
 - (id)initWithPlistRepresentation: (id)plist;

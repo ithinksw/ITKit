@@ -21,6 +21,11 @@
 	return [[[self alloc] initWithKeyCode: keyCode modifiers: modifiers] autorelease];
 }
 
++ (id)keyComboWithPlistRepresentation: (id)plist
+{
+    return [[[self alloc] initWithPlistRepresentation: plist] autorelease];
+}
+
 - (id)initWithKeyCode: (int)keyCode modifiers: (int)modifiers
 {
 	self = [super init];
