@@ -159,10 +159,10 @@
     CGAffineTransform transform;
     if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
         transform = CGAffineTransformMakeTranslation((distance - (32.0 + [[_window screen] visibleFrame].origin.x)),
-                                                    -( [[_window screen] frame].size.height - ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y) ) );
+                                                    ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) ? -( [[_window screen] frame].size.height - ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y) ) : ( 64.0 + [[_window screen] visibleFrame].origin.y - [_window frame].size.height ) );
     } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
         transform = CGAffineTransformMakeTranslation(-((([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) + distance) - 32.0 - [_window frame].size.width),
-                                                    -( [[_window screen] frame].size.height - ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y) ) );
+                                                    ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) ? -( [[_window screen] frame].size.height - ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y) ) : ( 64.0 + [[_window screen] visibleFrame].origin.y - [_window frame].size.height ) );
     }
 
     CGSSetWindowTransform([NSApp contextID],
