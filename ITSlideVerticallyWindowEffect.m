@@ -187,15 +187,16 @@
 {
     CGAffineTransform transform;
     NSPoint translation;
+	NSRect winFrame = [_window frame];
     
     translation.x = -( [_window frame].origin.x );
     
     if ( [_window verticalPosition] == ITWindowPositionTop ) {
-        translation.y = ( (([_window frame].size.height * 2) - ([[_window screen] frame].size.height - [_window frame].origin.y)) - distance);
+		translation.y = (winFrame.size.height * 2) - ([[NSScreen mainScreen] frame].size.height - winFrame.origin.y) - distance;
     } else if ( [_window verticalPosition] == ITWindowPositionBottom ) {
-        translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - distance );
+        translation.y = winFrame.origin.y + distance - [[NSScreen mainScreen] frame].size.height;
     } else {
-        translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - [_window frame].size.height );
+        translation.y = winFrame.origin.y + winFrame.size.height - [[NSScreen mainScreen] frame].size.height;
     }
     
     transform = CGAffineTransformMakeTranslation( translation.x, translation.y );

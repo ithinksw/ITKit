@@ -203,14 +203,15 @@
 {
     int hPos = [_window horizontalPosition];
     int vPos = [_window verticalPosition];
+	NSRect winFrame = [_window frame];
 
     if ( (hPos == ITWindowPositionCenter) || (vPos == ITWindowPositionMiddle) ) {
     
         CGAffineTransform transform;
         NSPoint translation;
         
-        translation.x = ( -([_window frame].origin.x) ) ;
-        translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - [_window frame].size.height );
+        translation.x = -winFrame.origin.x;
+        translation.y = winFrame.origin.y + winFrame.size.height - [[NSScreen mainScreen] frame].size.height;
 
         transform = CGAffineTransformMakeTranslation( translation.x, translation.y );
         
@@ -220,7 +221,6 @@
     } else {
         
         float  degAngle;
-        NSRect windowFrame = [_window frame];
         NSRect screenFrame = [[_window screen] frame];
         float  translateX = 0;
         float  translateY = 0;
@@ -242,23 +242,22 @@
         
         degAngle  = (angle * (pi / 180));
         transform = CGAffineTransformMakeRotation(degAngle);
-        
         if ( vPos == ITWindowPositionBottom ) {
-            transform.ty = ( windowFrame.size.height + windowFrame.origin.y);
+            transform.ty = ( winFrame.size.height + winFrame.origin.y) + (screenFrame.size.height - [[NSScreen mainScreen] frame].size.height);
             translateY   = -(screenFrame.size.height);
         } else if ( vPos == ITWindowPositionTop ) {
-            transform.ty = -( screenFrame.size.height - windowFrame.origin.y - windowFrame.size.height );
+			transform.ty = winFrame.origin.y + winFrame.size.height - [[NSScreen mainScreen] frame].size.height;
             translateY   = 0;
         }
         
         if ( hPos == ITWindowPositionLeft ) {
-            transform.tx = -( windowFrame.origin.x );
+            transform.tx = -( winFrame.origin.x );
             translateX   = 0;
         } else if ( hPos == ITWindowPositionRight ) {
-            transform.tx = ( screenFrame.size.width - windowFrame.origin.x );
+            //transform.tx = ( screenFrame.size.width - winFrame.origin.x );
+			transform.tx = ( screenFrame.size.width - winFrame.origin.x );
             translateX   = -(screenFrame.size.width);
         }
-        
         CGSSetWindowTransform([NSApp contextID],
                               (CGSWindowID)[_window windowNumber],
                               CGAffineTransformTranslate( transform,
