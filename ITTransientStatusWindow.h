@@ -4,10 +4,10 @@
  *    NSWindow subclass for quick display of status information.
  *    Similar to volume/brightness/eject bezel key windows.
  *
- *  Original Author : Kent Sutherland <joseph.spiros@ithinksw.com>
  *  Original Author : Matt Judy <mjudy@ithinksw.com>
  *   Responsibility : Matt Judy <mjudy@ithinksw.com>
  *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *      Contributor : Kent Sutherland <joseph.spiros@ithinksw.com>
  *
  *  Copyright (c) 2002 - 2003 iThink Software.
  *  All Rights Reserved
@@ -17,7 +17,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ITWindowPositioning.h"
-
+#import "ITWindowEffect.h"
 
 #define DEFAULT_EXIT_DELAY  3.0
 
@@ -28,16 +28,10 @@
 
 
 typedef enum {
-    ITTransientStatusWindowHiddenState,
-    ITTransientStatusWindowAppearingState,
-    ITTransientStatusWindowVisibleState,
-    ITTransientStatusWindowVanishingState
-} ITTransientStatusWindowVisibilityState;
-
-typedef enum {
-    ITTransientStatusWindowExitOnOrderOut,
+    ITTransientStatusWindowExitOnCommand,
     ITTransientStatusWindowExitAfterDelay,
 } ITTransientStatusWindowExitMode;
+
 
 typedef enum {
     ITTransientStatusWindowNoBackground,
@@ -48,9 +42,10 @@ typedef enum {
     ITTransientStatusWindowAquaUtility
 } ITTransientStatusWindowBackgroundType;
 
-@interface ITTransientStatusWindow : NSWindow <ITWindowPositioning> {
 
-    ITTransientStatusWindowVisibilityState _visibilityState;
+@interface ITTransientStatusWindow : NSWindow <ITWindowPositioning , ITWindowVisibility> {
+
+    ITWindowVisibilityState                _visibilityState;
     ITTransientStatusWindowExitMode        _exitMode;
     float                                  _exitDelay;
     ITTransientStatusWindowBackgroundType  _backgroundType;
@@ -74,7 +69,11 @@ typedef enum {
                  exitMode:(ITTransientStatusWindowExitMode)exitMode
            backgroundType:(ITTransientStatusWindowBackgroundType)backgroundType;
 
-- (ITTransientStatusWindowVisibilityState)visibilityState;
+- (void)appear:(id)sender;
+- (void)vanish:(id)sender;
+
+- (ITWindowVisibilityState)visibilityState;
+- (void)setVisibilityState:(ITWindowVisibilityState)newState;
 
 - (ITTransientStatusWindowExitMode)exitMode;
 - (void)setExitMode:(ITTransientStatusWindowExitMode)newMode;

@@ -18,7 +18,7 @@
                  exitMode:(ITTransientStatusWindowExitMode)exitMode
            backgroundType:(ITTransientStatusWindowBackgroundType)backgroundType;
 - (void)rebuildWindow;
-// - (void)performEffect;
+- (void)startVanishTimer;
 @end
 
 
@@ -125,50 +125,8 @@ static ITTransientStatusWindow *staticWindow = nil;
     _reallyIgnoresEvents = flag;
 }
 
+
 /*
-
-- (void)orderFront:(id)sender
-{
-    if ( _entryEffect == nil ) {
-        [super orderFront:sender];
-        _visibilityState = ITTransientStatusWindowVisibleState;
-    } else {
-        [self performEffect];
-    }
-    if ( _exitMode == ITTransientStatusWindowExitAfterDelay ) {
-        // set the timer, and orderOut: when it lapses.
-    }
-}
-
-- (void)makeKeyAndOrderFront:(id)sender
-{
-    if ( _exitMode == ITTransientStatusWindowExitAfterDelay ) {
-        // set the timer, and orderOut: when it lapses.
-    }
-
-    if ( _entryEffect == nil ) {
-        [super makeKeyAndOrderFront:sender];
-        _visibilityState = ITTransientStatusWindowVisibleState;
-    } else {
-        [self performEffect];
-        [self makeKeyWindow];
-    }
-}
-
-- (void)orderOut:(id)sender
-{
-    if ( _entryEffect == nil ) {
-        [super orderOut:sender];
-        _visibilityState = ITTransientStatusWindowHiddenState;
-    } else {
-        [self performEffect];
-    }
-}
-
-- (NSTimeInterval)animationResizeTime:(NSRect)newFrame
-{
-    return _resizeTime;
-}
 
 - (id)contentView
 {
@@ -194,35 +152,74 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 */
 
-- (void)appear
-{
-    if ( _entryEffect == nil ) {
-        [self orderFront:self];
-        _visibilityState = ITTransientStatusWindowVisibleState;
-    } else {
-        _visibilityState = ITTransientStatusWindowAppearingState;
-        [_entryEffect performAppear];
-        _visibilityState = ITTransientStatusWindowVisibleState;
+ - (IBAction)appear:(id)sender
+ {
+    NSLog(@"%i", _visibilityState);
+    if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
+         // Window is hidden.  Appear as normal, and start the timer.
+        if ( _entryEffect == nil ) {
+            [self orderFront:self];
+            _visibilityState = ITTransientStatusWindowVisibleState;
+        } else {
+            _visibilityState = ITTransientStatusWindowAppearingState;
+            [_entryEffect performAppear];
+            _visibilityState = ITTransientStatusWindowVisibleState;
+        }
+        [self startVanishTimer];
+    } else if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
+         // Window is completely visible.  Simply reset the timer.
+        [self startVanishTimer];
+    } else if ( _visibilityState == ITTransientStatusWindowAppearingState ) {
+         // Window is appearing.  Do nothing.
+    } else if ( _visibilityState == ITTransientStatusWindowVanishingState ) {
+        NSLog(@"%i", _visibilityState);
+        if ( _exitEffect == nil ) {
+            [self orderFront:self];
+            _visibilityState = ITTransientStatusWindowVisibleState;
+        } else {
+            _visibilityState = ITTransientStatusWindowAppearingState;
+            [_exitEffect cancelVanish];
+            _visibilityState = ITTransientStatusWindowVisibleState;
+        }
+        [self startVanishTimer];
     }
-    if ( _exitMode == ITTransientStatusWindowExitAfterDelay ) {
-        // set the timer, and vanish when it lapses.
+ }
+
+- (IBAction)vanish:(id)sender
+{
+    if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
+        // Window is totally visible.  Perform exit effect.
+        if ( _exitEffect == nil ) {
+            [self orderOut:self];
+            _visibilityState = ITTransientStatusWindowHiddenState;
+        } else {
+            _visibilityState = ITTransientStatusWindowVanishingState;
+            NSLog(@"%i", _visibilityState);
+            [_exitEffect performVanish];
+            NSLog(@"%i", _visibilityState);
+            _visibilityState = ITTransientStatusWindowHiddenState;
+            NSLog(@"%i", _visibilityState);
+        }
+        [self startVanishTimer];
+    } else if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
+        // Window is hidden.  Do nothing.
+    } else if ( _visibilityState == ITTransientStatusWindowAppearingState ) {
+        // Window is on its way in.  Cancel appear.
+        [_entryEffect cancelAppear];
+        _visibilityState = ITTransientStatusWindowHiddenState;
+    } else if ( _visibilityState == ITTransientStatusWindowVanishingState ) {
+        // Window is on its way out.  Do nothing.
     }
 }
 
-- (void)vanish
-{
-    if ( _entryEffect == nil ) {
-        [self orderOut:self];
-        _visibilityState = ITTransientStatusWindowHiddenState;
-    } else {
-        [_exitEffect performVanish];
-        _visibilityState = ITTransientStatusWindowHiddenState;
-    }
-}
-
-- (ITTransientStatusWindowVisibilityState)visibilityState
+- (ITWindowVisibilityState)visibilityState
 {
     return _visibilityState;
+}
+
+- (void)setVisibilityState:(ITWindowVisibilityState)newState
+{
+    _visibilityState = newState;
 }
 
 - (ITTransientStatusWindowExitMode)exitMode
@@ -344,30 +341,9 @@ static ITTransientStatusWindow *staticWindow = nil;
     }
 }
 
-/*
-
-- (void)performEffect
+- (void)startVanishTimer
 {
-    if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
-        _visibilityState = ITTransientStatusWindowEnteringState;
-    } else if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
-        _visibilityState = ITTransientStatusWindowExitingState;
-    } else {
-        return;
-    }
-        
-    if ( _entryEffect == ITTransientStatusWindowEffectDissolve ) {
-        [self dissolveEffect];
-    } else if ( _entryEffect == ITTransientStatusWindowEffectSlideVertically ) {
-        [self slideVerticalEffect];
-    } else if ( _entryEffect == ITTransientStatusWindowEffectSlideHorizontally ) {
-        [self slideHorizontalEffect];
-    } else if ( _entryEffect == ITTransientStatusWindowEffectPivot ) {
-        [self pivotEffect];
-    }
+
 }
-
-*/
-
 
 @end

@@ -14,5 +14,15 @@
     NSLog(@"ITSlideVerticallyWindowEffect does not implement performVanish.");
 }
 
+- (void)cancelAppear
+{
+    NSLog(@"ITSlideVerticallyWindowEffect does not implement cancelAppear.");
+}
+
+- (void)cancelVanish
+{
+    NSLog(@"ITSlideVerticallyWindowEffect does not implement cancelVanish.");
+}
+
 
 @end

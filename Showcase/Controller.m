@@ -1,6 +1,7 @@
 #import "Controller.h"
 #import "ITTransientStatusWindow.h"
 #import "ITTextField.h"
+#import "ITPivotWindowEffect.h"
 
 #define SW_PAD    24.0
 #define SW_SPACE  24.0
@@ -198,6 +199,9 @@
     [[statusWindow contentView] addSubview:textField];
 
     [[statusWindow contentView] setNeedsDisplay:YES];
+
+    [statusWindow setEntryEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
+    [statusWindow setExitEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
 }
 
 - (IBAction)showStatusWindow:(id)sender
@@ -210,7 +214,7 @@
                                        NSHeight([statusWindow frame]) )
                    display:YES];
 */
-    [statusWindow orderFront:self];
+    [statusWindow appear:self];
 /*
     [statusWindow setFrame:NSMakeRect( SW_BORDER,
                                        SW_BORDER,
@@ -223,12 +227,12 @@
 
 - (IBAction)hideStatusWindow:(id)sender
 {
-    [statusWindow orderOut:self];
+    [statusWindow vanish:self];
 }
 
 - (IBAction)setRotation:(id)sender
 {
-    [statusWindow setPivot:[sender floatValue]];
+    NSLog(@"no longer supported");
 }
 
 /*************************************************************************/

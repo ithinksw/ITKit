@@ -1,62 +1,89 @@
 #import "ITPivotWindowEffect.h"
 #import "ITCoreGraphicsHacks.h"
 
+@interface ITPivotWindowEffect (Private)
+- (void)setPivot:(float)angle;
+- (void)pivotFinish;
+@end
+
 @implementation ITPivotWindowEffect
 
 
 - (void)performAppear
 {
-    NSLog(@"ITPivotWindowEffect does not implement performAppear.");
+    [self setPivot:315.0];
+    _effectProgress = 0.0;
+    [_window setAlphaValue:0.0];
+    [_window orderFront:self];
+    _effectTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0 / EFFECT_FPS)
+                                                    target:self
+                                                  selector:@selector(appearStep)
+                                                  userInfo:nil
+                                                   repeats:YES];
 }
 
 - (void)performVanish
 {
-    NSLog(@"ITPivotWindowEffect does not implement performVanish.");
+    [self setPivot:0.0];
+    _effectProgress = 1.0;
+    [_window setAlphaValue:1.0];
+    [_window orderFront:self];
+    _effectTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0 / EFFECT_FPS)
+                                                    target:self
+                                                  selector:@selector(vanishStep)
+                                                  userInfo:nil
+                                                   repeats:YES];
 }
 
-- (void)pivotEffect
+- (void)cancelAppear
 {
-    if ( YES ) {
-        [self setPivot:315.0];
-        _effectProgress = 0.0;
-        [_window setAlphaValue:0.0];
-        [_window orderFront:self];
-        _effectTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0 / EFFECT_FPS)
-                                                        target:self
-                                                      selector:@selector(pivotStep)
-                                                      userInfo:nil
-                                                       repeats:YES];
-    } else {
-        [_window orderOut:self];
+    [self pivotFinish];
+    [_window orderOut:self];
+    [self setPivot:0.0];
+    [_window setAlphaValue:1.0];
+}
+
+- (void)cancelVanish
+{
+    [self pivotFinish];
+    [self setPivot:0.0];
+    [_window setAlphaValue:1.0];
+    [_window orderFront:self];
+    [_window display];
+}
+
+- (void)appearStep
+{
+    float interPivot = 0.0;
+    _effectProgress += (1.0 / (EFFECT_FPS * _effectTime));
+    _effectProgress = (_effectProgress < 1.0 ? _effectProgress : 1.0);
+    interPivot = (( sin((_effectProgress * pi) - (pi / 2)) + 1 ) / 2);
+    [self setPivot:((interPivot * 45) + 315)];
+    [_window setAlphaValue:interPivot];
+
+    if ( _effectProgress >= 1.0 ) {
+        [self pivotFinish];
     }
 }
 
-- (void)pivotStep
+- (void)vanishStep
 {
-    if ( YES ) {
-        float interPivot = 0.0;
-        _effectProgress += (1.0 / (EFFECT_FPS * _effectTime));
-        _effectProgress = (_effectProgress < 1.0 ? _effectProgress : 1.0);
-        interPivot = (( sin((_effectProgress * pi) - (pi / 2)) + 1 ) / 2);
-        [self setPivot:((interPivot * 45) + 315)];
-        [_window setAlphaValue:interPivot];
-        if ( _effectProgress >= 1.0 ) {
-            [self pivotFinish];
-        }
-    } else {
-        //backwards
+    float interPivot = 1.0;
+    _effectProgress -= (1.0 / (EFFECT_FPS * _effectTime));
+    _effectProgress = (_effectProgress > 0.0 ? _effectProgress : 0.0);
+    interPivot = (( sin((_effectProgress * pi) - (pi / 2)) + 1 ) / 2);
+    [self setPivot:((interPivot * 45) + 315)];
+    [_window setAlphaValue:interPivot];
+
+    if ( _effectProgress <= 0.0 ) {
+        [self pivotFinish];
     }
 }
 
 - (void)pivotFinish
 {
-    if ( YES ) {
-        [_effectTimer invalidate];
-        _effectTimer = nil;
-        _effectProgress = 0.0;
-    } else {
-        //backwards
-    }
+    [_effectTimer invalidate];
+    _effectTimer = nil;
 }
 
 
@@ -65,7 +92,7 @@
     float degAngle = (angle * (pi / 180));
     CGAffineTransform transform = CGAffineTransformMakeRotation(degAngle);
     
- // Set pivot point
+ // Set pivot rotation point
     transform.tx = -32.0;
     transform.ty = [_window frame].size.height + 32.0;
 

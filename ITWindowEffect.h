@@ -20,11 +20,25 @@
 #define DEFAULT_EFFECT_TIME 0.75
 
 
-@protocol ITWindowEffect
+typedef enum {
+    ITTransientStatusWindowHiddenState,
+    ITTransientStatusWindowAppearingState,
+    ITTransientStatusWindowVisibleState,
+    ITTransientStatusWindowVanishingState
+} ITWindowVisibilityState;
 
+
+@protocol ITWindowEffect
 - (void)performAppear;
 - (void)performVanish;
+- (void)cancelAppear;
+- (void)cancelVanish;
+@end
 
+
+@protocol ITWindowVisibility
+- (ITWindowVisibilityState)visibilityState;
+- (void)setVisibilityState:(ITWindowVisibilityState)newState;
 @end
 
 
@@ -43,7 +57,8 @@
 
 - (NSWindow *)window;
 
-// setWindow: does not retain or release its window.  It simply references it.
 - (void)setWindow:(NSWindow *)newWindow;
+
+- (void)setWindowVisibility:(ITWindowVisibilityState)visibilityState;
 
 @end

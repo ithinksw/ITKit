@@ -14,5 +14,15 @@
     NSLog(@"ITDissolveWindowEffect does not implement performVanish.");
 }
 
+- (void)cancelAppear
+{
+    NSLog(@"ITWindowEffect does not implement cancelAppear.");
+}
+
+- (void)cancelVanish
+{
+    NSLog(@"ITDissolveWindowEffect does not implement cancelVanish.");
+}
+
 
 @end

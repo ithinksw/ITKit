@@ -1,4 +1,5 @@
 #import "ITWindowEffect.h"
+#import "ITTransientStatusWindow.h"
 
 
 @implementation ITWindowEffect
@@ -14,8 +15,9 @@
         _effectTimer    = nil;
 
         if ( [window conformsToProtocol:@protocol(ITWindowPositioning)] ) {
-            _verticalPosition   = (ITVerticalWindowPosition)[window verticalPosition];
-            _horizontalPosition = (ITHorizontalWindowPosition)[window horizontalPosition];
+                                                           // Casts so the compiler won't gripe
+            _verticalPosition   = (ITVerticalWindowPosition)[(ITTransientStatusWindow *)window verticalPosition];
+            _horizontalPosition = (ITHorizontalWindowPosition)[(ITTransientStatusWindow *)window horizontalPosition];
         } else {
             NSLog(@"ITWindowEffect - initWithWindow: - window does not conform to ITWindowPositioning.");
             _verticalPosition   = ITWindowPositionBottom;
@@ -32,7 +34,18 @@
 
 - (void)setWindow:(NSWindow *)newWindow
 {
-    _window = newWindow;
+    [_window autorelease];
+    _window = [newWindow retain];
+}
+
+- (void)setWindowVisibility:(ITWindowVisibilityState)visibilityState
+{
+    if ( [_window conformsToProtocol:@protocol(ITWindowVisibility)] ) {
+       // Cast so the compiler won't gripe
+        [(ITTransientStatusWindow *)_window setVisibilityState:visibilityState];
+    } else {
+        NSLog(@"ITWindowEffect - setWindowVisibility: - window does not conform to ITWindowVisibility.");
+    }
 }
 
 - (void)performAppear
@@ -43,6 +56,16 @@
 - (void)performVanish
 {
     NSLog(@"ITWindowEffect does not implement performVanish.");
+}
+
+- (void)cancelAppear
+{
+    NSLog(@"ITWindowEffect does not implement cancelAppear.");
+}
+
+- (void)cancelVanish
+{
+    NSLog(@"ITWindowEffect does not implement cancelVanish.");
 }
 
 - (void)dealloc
