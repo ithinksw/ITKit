@@ -7,7 +7,7 @@
  *   Responsibility : Matt Judy <mjudy@ithinksw.com>
  *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
  *
- *  Copyright (c) 2002 iThink Software.
+ *  Copyright (c) 2002 - 2003 iThink Software.
  *  All Rights Reserved
  *
  */
@@ -27,6 +27,7 @@
  *
  */
 
+
 #import <Cocoa/Cocoa.h>
 
 
@@ -42,5 +43,6 @@
 // These allow you to use an alternate (selected) image for your status item.
 - (NSImage*) alternateImage;
 - (void) setAlternateImage:(NSImage*)image;
+
 
 @end
