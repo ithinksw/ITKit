@@ -21,5 +21,12 @@
 @interface ITTabView : NSTabView
 {
     NSTabViewItem *_draggedTab;
+    bool _allowsDragging;
 }
+
+- (void)setAllowsDragging:(bool)flag;
+- (bool)allowsDragging;
+
+- (void)moveTab:(NSTabViewItem *)tab toIndex:(int)index;
+
 @end
