@@ -222,8 +222,8 @@
         float  degAngle;
         NSRect windowFrame = [_window frame];
         NSRect screenFrame = [[_window screen] frame];
-        float  translateX;
-        float  translateY;
+        float  translateX = 0;
+        float  translateY = 0;
         CGAffineTransform transform;
         
         if ( vPos == ITWindowPositionBottom ) {

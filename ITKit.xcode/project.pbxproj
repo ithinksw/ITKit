@@ -109,18 +109,18 @@
 			sourceTree = "<group>";
 		};
 		0867D69BFE84028FC02AAC07 = {
-			expectedFileType = wrapper.framework;
 			fallbackIsa = PBXFileReference;
 			isa = PBXFrameworkReference;
+			lastKnownFileType = wrapper.framework;
 			name = Foundation.framework;
 			path = /System/Library/Frameworks/Foundation.framework;
 			refType = 0;
 			sourceTree = "<absolute>";
 		};
 		0867D6A5FE840307C02AAC07 = {
-			expectedFileType = wrapper.framework;
 			fallbackIsa = PBXFileReference;
 			isa = PBXFrameworkReference;
+			lastKnownFileType = wrapper.framework;
 			name = AppKit.framework;
 			path = /System/Library/Frameworks/AppKit.framework;
 			refType = 0;
@@ -150,9 +150,9 @@
 			sourceTree = "<group>";
 		};
 		089C1667FE841158C02AAC07 = {
-			expectedFileType = text.plist.strings;
 			fileEncoding = 10;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
 			name = English;
 			path = English.lproj/InfoPlist.strings;
 			refType = 4;
@@ -160,6 +160,7 @@
 		};
 		08FB77AEFE84172EC02AAC07 = {
 			children = (
+				7C01A1B7059B4A86003A4662,
 				7C992F93054F53F2000B93EA,
 				7C992F96054F53F7000B93EA,
 				7C992F9B054F547C000B93EA,
@@ -195,9 +196,9 @@
 			sourceTree = "<group>";
 		};
 		1058C7B1FEA5585E11CA2CBB = {
-			expectedFileType = wrapper.framework;
 			fallbackIsa = PBXFileReference;
 			isa = PBXFrameworkReference;
+			lastKnownFileType = wrapper.framework;
 			name = Cocoa.framework;
 			path = /System/Library/Frameworks/Cocoa.framework;
 			refType = 0;
@@ -237,9 +238,9 @@
 			sourceTree = "<group>";
 		};
 		2A30D88E056B3AD90087AE54 = {
-			expectedFileType = text.plist;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist;
 			name = English;
 			path = English.lproj/ITKeyCodes.plist;
 			refType = 4;
@@ -252,24 +253,24 @@
 			};
 		};
 		2A30D892056B3AE30087AE54 = {
-			expectedFileType = text.plist;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist;
 			name = French;
 			path = French.lproj/ITKeyCodes.plist;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		2A30D895056B3AF20087AE54 = {
-			expectedFileType = text.plist;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist;
 			name = German;
 			path = German.lproj/ITKeyCodes.plist;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		2A30D898056B3B000087AE54 = {
-			expectedFileType = text.plist;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist;
 			name = Japanese;
 			path = Japanese.lproj/ITKeyCodes.plist;
 			refType = 4;
@@ -309,8 +310,8 @@
 			sourceTree = "<group>";
 		};
 		2A30D8A2056B3BE30087AE54 = {
-			expectedFileType = wrapper.nib;
 			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
 			name = English;
 			path = English.lproj/ITKeyComboPanel.nib;
 			refType = 4;
@@ -323,24 +324,24 @@
 			};
 		};
 		2A30D8A6056B3BEE0087AE54 = {
-			expectedFileType = wrapper.nib;
 			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
 			name = French;
 			path = French.lproj/ITKeyComboPanel.nib;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		2A30D8A9056B3BF60087AE54 = {
-			expectedFileType = wrapper.nib;
 			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
 			name = German;
 			path = German.lproj/ITKeyComboPanel.nib;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		2A30D8B5056B3C1B0087AE54 = {
-			expectedFileType = wrapper.nib;
 			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
 			name = Japanese;
 			path = Japanese.lproj/ITKeyComboPanel.nib;
 			refType = 4;
@@ -360,9 +361,9 @@
 			sourceTree = "<group>";
 		};
 		2A30D8BD056B3C5D0087AE54 = {
-			expectedFileType = text.plist.strings;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
 			name = English;
 			path = English.lproj/Localizable.strings;
 			refType = 4;
@@ -375,24 +376,24 @@
 			};
 		};
 		2A30D8C1056B3C670087AE54 = {
-			expectedFileType = text.plist.strings;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
 			name = French;
 			path = French.lproj/Localizable.strings;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		2A30D8C4056B3C750087AE54 = {
-			expectedFileType = text.plist.strings;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
 			name = German;
 			path = German.lproj/Localizable.strings;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		2A30D8C7056B3C830087AE54 = {
-			expectedFileType = text.plist.strings;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
 			name = Japanese;
 			path = Japanese.lproj/Localizable.strings;
 			refType = 4;
@@ -433,17 +434,17 @@
 			targetProxy = 2AC8297F056C451900A7D7E2;
 		};
 		2AC8313F056D00F700A7D7E2 = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITImageView.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		2AC83140056D00F700A7D7E2 = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITImageView.m;
 			refType = 4;
 			sourceTree = "<group>";
@@ -464,17 +465,17 @@
 			};
 		};
 		2AC8319B056D037700A7D7E2 = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITImageCell.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		2AC8319C056D037700A7D7E2 = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITImageCell.m;
 			refType = 4;
 			sourceTree = "<group>";
@@ -514,9 +515,9 @@
 			sourceTree = "<group>";
 		};
 		32DBCF5E0370ADEE00C91783 = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITKit_Prefix.pch;
 			refType = 4;
 			sourceTree = "<group>";
@@ -531,6 +532,86 @@
 //7C2
 //7C3
 //7C4
+		7C01A1B7059B4A86003A4662 = {
+			children = (
+				7C01A1BA059B4A8B003A4662,
+			);
+			isa = PBXGroup;
+			name = Carbon;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C01A1BA059B4A8B003A4662 = {
+			children = (
+				7C01A1BF059B4AA1003A4662,
+				7C01A1C0059B4AA1003A4662,
+				7C01A1C5059B4AAC003A4662,
+				7C01A1C6059B4AAC003A4662,
+				7C23B320059BA4C000E08741,
+			);
+			isa = PBXGroup;
+			name = Resources;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C01A1BF059B4AA1003A4662 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ITMacResourceFile.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C01A1C0059B4AA1003A4662 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ITMacResourceFile.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C01A1C5059B4AAC003A4662 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ITMacResource.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C01A1C6059B4AAC003A4662 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ITMacResource.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C23B316059BA4AA00E08741 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ITStringMacResource.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C23B317059BA4AA00E08741 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ITStringMacResource.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C23B320059BA4C000E08741 = {
+			children = (
+				7C23B316059BA4AA00E08741,
+				7C23B317059BA4AA00E08741,
+			);
+			isa = PBXGroup;
+			name = "Custom Types";
+			refType = 4;
+			sourceTree = "<group>";
+		};
 		7C5B7C93054F6EC9008379B6 = {
 			fileRef = 8DC2EF5B0486A6940098B216;
 			isa = PBXBuildFile;
@@ -538,409 +619,409 @@
 			};
 		};
 		7C992DC9054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITBevelView.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DCA054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITBevelView.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DCB054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITButton.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DCC054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITButton.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DCD054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITButtonCell.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DCE054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITButtonCell.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DCF054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = "ITCategory-NSMenu.h";
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD0054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = "ITCategory-NSMenu.m";
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD1054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = "ITCategory-NSView.h";
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD2054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = "ITCategory-NSView.m";
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD3054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITCoreGraphicsHacks.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD4054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITCutWindowEffect.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD5054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITCutWindowEffect.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD6054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITDissolveWindowEffect.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD7054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITDissolveWindowEffect.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD8054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITTSWBackgroundView.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DD9054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITTSWBackgroundView.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DDA054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITHotKey.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DDB054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITHotKey.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DDC054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITHotKeyCenter.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DDD054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITHotKeyCenter.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DDE054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITKeyBroadcaster.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DDF054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITKeyBroadcaster.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DE0054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITKeyCombo.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DE1054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITKeyCombo.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DE2054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITKeyComboPanel.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DE3054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITKeyComboPanel.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DE4054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITKit.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DE7054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITPivotWindowEffect.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DE8054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITPivotWindowEffect.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DE9054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITSlideHorizontallyWindowEffect.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DEA054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITSlideHorizontallyWindowEffect.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DEB054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITSlideVerticallyWindowEffect.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DEC054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITSlideVerticallyWindowEffect.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DED054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITStatusItem.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DEE054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITStatusItem.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DEF054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITTableCornerView.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF0054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITTableCornerView.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF1054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITTableView.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF2054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITTableView.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF3054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITTabView.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF4054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITTabView.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF5054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITTextField.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF6054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITTextField.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF7054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITTextFieldCell.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF8054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITTextFieldCell.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DF9054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITTransientStatusWindow.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DFA054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITTransientStatusWindow.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DFB054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITWindowEffect.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DFC054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			path = ITWindowEffect.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992DFD054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			path = ITWindowPositioning.h;
 			refType = 4;
 			sourceTree = "<group>";
@@ -1337,15 +1418,15 @@
 			sourceTree = "<group>";
 		};
 		7C992E3F054F5246000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			path = ITKeyboardIcon.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C992E43054F5246000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			path = URLTextViewHand.tiff;
 			refType = 4;
 			sourceTree = "<group>";
@@ -1363,9 +1444,9 @@
 			};
 		};
 		7C992E78054F5285000B93EA = {
-			expectedFileType = text;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = text;
 			path = EffectSupport.txt;
 			refType = 4;
 			sourceTree = "<group>";
@@ -1473,7 +1554,7 @@
 			productType = "com.apple.product-type.application";
 		};
 		7C992F87054F5389000B93EA = {
-			expectedFileType = wrapper.application;
+			explicitFileType = wrapper.application;
 			includeInIndex = 0;
 			isa = PBXFileReference;
 			path = ITKitShowcase.app;
@@ -1564,18 +1645,18 @@
 			sourceTree = "<group>";
 		};
 		7C993015054F54F0000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			name = ITChasingArrowsView.h;
 			path = Deprecated/ITChasingArrowsView.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993016054F54F0000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			name = ITChasingArrowsView.m;
 			path = Deprecated/ITChasingArrowsView.m;
 			refType = 4;
@@ -1600,80 +1681,80 @@
 			sourceTree = "<group>";
 		};
 		7C993035054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow1.tiff;
 			path = Deprecated/ITChasingArrow1.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C993036054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow2.tiff;
 			path = Deprecated/ITChasingArrow2.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C993037054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow3.tiff;
 			path = Deprecated/ITChasingArrow3.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C993038054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow4.tiff;
 			path = Deprecated/ITChasingArrow4.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C993039054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow5.tiff;
 			path = Deprecated/ITChasingArrow5.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C99303A054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow6.tiff;
 			path = Deprecated/ITChasingArrow6.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C99303B054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow7.tiff;
 			path = Deprecated/ITChasingArrow7.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C99303C054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow8.tiff;
 			path = Deprecated/ITChasingArrow8.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C99303D054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow9.tiff;
 			path = Deprecated/ITChasingArrow9.tiff;
 			refType = 2;
 			sourceTree = SOURCE_ROOT;
 		};
 		7C99303E054F6524000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITChasingArrow10.tiff;
 			path = Deprecated/ITChasingArrow10.tiff;
 			refType = 2;
@@ -1736,9 +1817,9 @@
 			sourceTree = "<group>";
 		};
 		7C99309F054F6992000B93EA = {
-			expectedFileType = text.plist.strings;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
 			name = English;
 			path = Showcase/English.lproj/InfoPlist.strings;
 			refType = 4;
@@ -1761,8 +1842,8 @@
 			sourceTree = "<group>";
 		};
 		7C9930DC054F699B000B93EA = {
-			expectedFileType = wrapper.nib;
 			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
 			name = English;
 			path = Showcase/English.lproj/MainMenu.nib;
 			refType = 4;
@@ -1803,56 +1884,56 @@
 			sourceTree = "<group>";
 		};
 		7C993102054F69F9000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = CD.tiff;
 			path = Showcase/CD.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993103054F69F9000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = iPod.tif;
 			path = Showcase/iPod.tif;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993104054F69F9000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITStatusItem.tiff;
 			path = Showcase/ITStatusItem.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993105054F69F9000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = ITStatusItemInv.tiff;
 			path = Showcase/ITStatusItemInv.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993106054F69F9000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = Library.tiff;
 			path = Showcase/Library.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993107054F69F9000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = Radio.tiff;
 			path = Showcase/Radio.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993108054F69F9000B93EA = {
-			expectedFileType = image.tiff;
 			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
 			name = Volume.tiff;
 			path = Showcase/Volume.tiff;
 			refType = 4;
@@ -1901,27 +1982,27 @@
 			};
 		};
 		7C99312D054F6A03000B93EA = {
-			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
 			name = Controller.h;
 			path = Showcase/Controller.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C99312E054F6A03000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			name = Controller.m;
 			path = Showcase/Controller.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C99312F054F6A03000B93EA = {
-			expectedFileType = sourcecode.c.objc;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
 			name = main.m;
 			path = Showcase/main.m;
 			refType = 4;
@@ -1946,8 +2027,8 @@
 			};
 		};
 		7CC84BE0054F6CA2001DC704 = {
-			expectedFileType = wrapper.framework;
 			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
 			name = ApplicationServices.framework;
 			path = /System/Library/Frameworks/ApplicationServices.framework;
 			refType = 0;
@@ -1960,8 +2041,8 @@
 			};
 		};
 		7CC84BE4054F6CAA001DC704 = {
-			expectedFileType = wrapper.framework;
 			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
 			name = Carbon.framework;
 			path = /System/Library/Frameworks/Carbon.framework;
 			refType = 0;
@@ -2145,15 +2226,15 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8DC2EF5A0486A6940098B216 = {
-			expectedFileType = text.plist;
 			fileEncoding = 4;
 			isa = PBXFileReference;
+			lastKnownFileType = text.plist;
 			path = Info.plist;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		8DC2EF5B0486A6940098B216 = {
-			expectedFileType = wrapper.framework;
+			explicitFileType = wrapper.framework;
 			includeInIndex = 0;
 			isa = PBXFileReference;
 			path = ITKit.framework;
