@@ -3,6 +3,7 @@
         {
             ACTIONS = {
                 buildStatusWindow = id; 
+                changeBevelViewSetting = id; 
                 changeWindowSetting = id; 
                 toggleCastsShadow = id; 
                 toggleCommandDragging = id; 
@@ -19,6 +20,7 @@
             CLASS = Controller; 
             LANGUAGE = ObjC; 
             OUTLETS = {
+                bevelView = ITBevelView; 
                 showImageCheckBox = NSButton; 
                 showStatusItemCheckBox = NSButton; 
                 showTitleCheckBox = NSButton; 
@@ -37,6 +39,7 @@
             SUPERCLASS = NSObject; 
         }, 
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = ITBevelView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
         {
             ACTIONS = {start = id; stop = id; }; 
             CLASS = ITChasingArrowsView; 

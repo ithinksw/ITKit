@@ -16,6 +16,7 @@
 #import <ITKit/ITStatusItem.h>
 #import <ITKit/ITTableView.h>
 #import <ITKit/ITTabView.h>
+#import <ITKit/ITBevelView.h>
 #import <ITKit/ITTextField.h>
 #import <ITKit/ITTransientStatusWindow.h>
 

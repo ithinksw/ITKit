@@ -137,7 +137,7 @@
     [self setSlide:0.0];
     [self setWindowVisibility:ITWindowHiddenState];
 
-    __idle =YES;
+    __idle = YES;
     
     if ( __shouldReleaseWhenIdle ) {
         [self release];

@@ -16,6 +16,9 @@
     // ITTabView Support
     IBOutlet ITTabView *tabView;
 
+    // ITBevelView support
+    IBOutlet ITBevelView *bevelView;
+
     // ITTextField Support
     IBOutlet ITTextField *testTextField;
 
@@ -49,5 +52,8 @@
 - (IBAction)toggleControlDragging:(id)sender;
 - (IBAction)toggleOptionDragging:(id)sender;
 - (IBAction)toggleShiftDragging:(id)sender;
+
+// ITBevelView support
+- (IBAction)changeBevelViewSetting:(id)sender;
 
 @end

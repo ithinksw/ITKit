@@ -1,6 +1,7 @@
 #import "Controller.h"
 #import "ITTransientStatusWindow.h"
 #import "ITTextField.h"
+#import "ITBevelView.h"
 #import "ITCutWindowEffect.h"
 #import "ITDissolveWindowEffect.h"
 #import "ITSlideHorizontallyWindowEffect.h"
@@ -28,6 +29,7 @@
     [self createStatusItem];
     [testTextField setCastsShadow:YES];
     [tabView setAllowsDragging:YES];
+    [bevelView setBevelDepth:10];
     statusWindow = [ITTransientStatusWindow sharedWindow];
     [statusWindow setEntryEffect:[[ITCutWindowEffect alloc] initWithWindow:statusWindow]];
     [statusWindow setExitEffect:[[ITDissolveWindowEffect alloc] initWithWindow:statusWindow]];
@@ -60,6 +62,10 @@
     }
 
     [statusItem setMenu:statusItemMenu];
+
+    [statusItemMenu addItemWithTitle:[NSString stringWithUTF8String:"★★★★★"]
+                              action:nil
+                       keyEquivalent:@""];
 }
 
 - (void)removeStatusItem
@@ -315,6 +321,16 @@
 {
 }
 
+
+/*************************************************************************/
+#pragma mark -
+#pragma mark ITBevelView SUPPORT
+/*************************************************************************/
+
+- (IBAction)changeBevelViewSetting:(id)sender
+{
+    [bevelView setBevelDepth:[sender intValue]];
+}
 
 /*************************************************************************/
 #pragma mark -
