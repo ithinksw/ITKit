@@ -146,15 +146,14 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 - (void)orderFront:(id)sender
 {
-    if ( _exitMode == ITTransientStatusWindowExitAfterDelay ) {
-        // set the timer, and orderOut: when it lapses.
-    }
-
     if ( _entryEffect == ITTransientStatusWindowEffectNone ) {
         [super orderFront:sender];
         _visibilityState = ITTransientStatusWindowVisibleState;
     } else {
         [self performEffect];
+    }
+    if ( _exitMode == ITTransientStatusWindowExitAfterDelay ) {
+        // set the timer, and orderOut: when it lapses.
     }
 }
 
