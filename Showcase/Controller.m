@@ -204,15 +204,15 @@
     [statusWindow setExitEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
 }
 
-- (IBAction)showStatusWindow:(id)sender
+- (IBAction)toggleStatusWindow:(id)sender
 {
-    [[statusWindow contentView] setNeedsDisplay:YES];
-    [statusWindow appear:self];
-}
-
-- (IBAction)hideStatusWindow:(id)sender
-{
-    [statusWindow vanish:self];
+    if ( ([statusWindow visibilityState] == ITTransientStatusWindowHiddenState) ||
+         ([statusWindow visibilityState] == ITTransientStatusWindowVanishingState) ) {
+        [[statusWindow contentView] setNeedsDisplay:YES];
+        [statusWindow appear:self];
+    } else {
+        [statusWindow vanish:self];
+    }
 }
 
 - (IBAction)changeWindowSetting:(id)sender
@@ -278,6 +278,7 @@
 - (IBAction)toggleShiftDragging:(id)sender
 {
 }
+
 
 /*************************************************************************/
 #pragma mark -

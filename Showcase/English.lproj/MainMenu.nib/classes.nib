@@ -4,8 +4,6 @@
             ACTIONS = {
                 buildStatusWindow = id; 
                 changeWindowSetting = id; 
-                hideStatusWindow = id; 
-                showStatusWindow = id; 
                 toggleCastsShadow = id; 
                 toggleCommandDragging = id; 
                 toggleControlDragging = id; 
@@ -14,6 +12,7 @@
                 toggleOptionDragging = id; 
                 toggleShiftDragging = id; 
                 toggleStatusItem = id; 
+                toggleStatusWindow = id; 
                 toggleTabDragging = id; 
                 toggleTitle = id; 
             }; 

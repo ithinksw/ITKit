@@ -46,6 +46,7 @@ typedef enum {
 {
     NSWindow                   *_window;
     float                       _effectTime;
+    float                       _effectSpeed;
     double                      _effectProgress;
     ITVerticalWindowPosition    _verticalPosition;
     ITHorizontalWindowPosition  _horizontalPosition;

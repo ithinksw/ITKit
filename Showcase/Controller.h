@@ -39,8 +39,7 @@
 
 // ITTransientStatusWindow Support
 - (IBAction)buildStatusWindow:(id)sender;
-- (IBAction)showStatusWindow:(id)sender;
-- (IBAction)hideStatusWindow:(id)sender;
+- (IBAction)toggleStatusWindow:(id)sender;
 - (IBAction)changeWindowSetting:(id)sender;
 
 // ITTabView support
