@@ -96,24 +96,30 @@
             [NSNumber numberWithBool:NO], @"Right", nil] , @"Bottom" , nil];
 }
 
++ (unsigned int)listOrder
+{
+    NSLog(@"ITWindowEffect does not implement +listOrder.");
+    return 0;
+}
+
 - (void)performAppear
 {
-    NSLog(@"ITWindowEffect does not implement performAppear.");
+    NSLog(@"ITWindowEffect does not implement -performAppear.");
 }
 
 - (void)performVanish
 {
-    NSLog(@"ITWindowEffect does not implement performVanish.");
+    NSLog(@"ITWindowEffect does not implement -performVanish.");
 }
 
 - (void)cancelAppear
 {
-    NSLog(@"ITWindowEffect does not implement cancelAppear.");
+    NSLog(@"ITWindowEffect does not implement -cancelAppear.");
 }
 
 - (void)cancelVanish
 {
-    NSLog(@"ITWindowEffect does not implement cancelVanish.");
+    NSLog(@"ITWindowEffect does not implement -cancelVanish.");
 }
 
 - (void)releaseWhenIdle;

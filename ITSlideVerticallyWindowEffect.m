@@ -40,6 +40,12 @@
 }
 
 
++ (unsigned int)listOrder
+{
+    return 300;
+}
+
+
 /*************************************************************************/
 #pragma mark -
 #pragma mark APPEAR METHODS

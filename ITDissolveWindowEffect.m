@@ -37,6 +37,11 @@
             [NSNumber numberWithBool:YES], @"Right", nil] , @"Bottom" , nil];
 }
 
++ (unsigned int)listOrder
+{
+    return 200;
+}
+
 
 /*************************************************************************/
 #pragma mark -

@@ -32,6 +32,7 @@ typedef enum {
 @protocol ITWindowEffect
 + (NSString *)effectName;
 + (NSDictionary *)supportedPositions;
++ (unsigned int)listOrder;
 - (void)performAppear;
 - (void)performVanish;
 - (void)cancelAppear;
