@@ -86,10 +86,14 @@
     if ( [self isHighlighted] ) {
         alpha = 0.50;
     }
-
+    
     [[NSColor colorWithCalibratedWhite:0.0 alpha:alpha] set];
     [path fill];
 }
 
+- (BOOL)isOpaque
+{
+    return NO;
+}
 
 @end

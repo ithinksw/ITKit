@@ -22,6 +22,18 @@
     return [ITButtonCell class];
 }
 
+- (void)displayIfNeeded {
+    [self displayIfNeededIgnoringOpacity];
+}
+
+- (void)displayIfNeededInRect:(NSRect)aRect {
+    [self displayIfNeededInRectIgnoringOpacity:aRect];
+}
+
+- (void)displayRect:(NSRect)aRect {
+    [self displayRectIgnoringOpacity:aRect];
+}
+
 - (id)initWithCoder:(NSCoder *)coder
 {
     if ( ( self = [super initWithCoder:coder] ) ) {
