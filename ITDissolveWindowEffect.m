@@ -1,6 +1,6 @@
 #import "ITDissolveWindowEffect.h"
 #import "ITTransientStatusWindow.h"
-
+#import "ITCoreGraphicsHacks.h"
 
 @interface ITDissolveWindowEffect (Private)
 - (void)performAppearFromProgress:(float)progress effectTime:(float)time;
@@ -22,7 +22,31 @@
 
 - (void)performAppear
 {
+    CGAffineTransform transform;
+    NSPoint appearPoint;
     __idle = NO;
+    
+    //Set the location on the screen
+    if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
+        appearPoint.x = -( 32.0 + [[_window screen] visibleFrame].origin.x );
+    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
+        appearPoint.x = -(([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) - 32.0 - [_window frame].size.width);
+    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionCenter ) {
+        appearPoint.x = ( [_window frame].size.width - [[_window screen] visibleFrame].size.width ) / 2;
+    }
+    
+    if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
+        appearPoint.y = ( 64.0 + [[_window screen] visibleFrame].origin.y - [_window frame].size.height );
+    } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
+        appearPoint.y = -( [[_window screen] frame].size.height - ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y) );
+    } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionMiddle ) {
+        appearPoint.y = ( [_window frame].size.height - [[_window screen] visibleFrame].size.height) / 2;
+    }
+    
+    transform = CGAffineTransformMakeTranslation(appearPoint.x, appearPoint.y);
+    CGSSetWindowTransform([NSApp contextID],
+                          (CGSWindowID)[_window windowNumber],
+                          transform);
     
     [self setWindowVisibility:ITWindowAppearingState];
     [self performAppearFromProgress:0.0 effectTime:_effectTime];

@@ -164,20 +164,50 @@
 
 - (void)setPivot:(float)angle
 {
-    float degAngle = (angle * (pi / 180));
-
-    CGAffineTransform transform = CGAffineTransformMakeRotation(degAngle);
+    float degAngle;
+    NSPoint appearPoint;
+    CGAffineTransform transform;
+    
+    if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
+        if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
+            degAngle = (angle * (pi / 180));
+        } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
+            degAngle = (-angle * (pi / 180));
+        }
+    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
+        if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
+            degAngle = (angle * (pi / 180));
+        } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
+            degAngle = (-angle * (pi / 180));
+        }
+    }
+    
+    transform = CGAffineTransformMakeRotation(degAngle);
     
  // Set pivot rotation point
     transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x );
     transform.ty = ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y );
-
+    
+    if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
+        appearPoint.x = -( 32.0 + [[_window screen] visibleFrame].origin.x );
+    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
+        appearPoint.x = -(([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) - 32.0 - [_window frame].size.width);
+    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionCenter ) {
+        appearPoint.x = ( [_window frame].size.width - [[_window screen] visibleFrame].size.width ) / 2;
+    }
+    
+    if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
+        appearPoint.y = ( [_window frame].size.height - [[_window screen] visibleFrame].size.height) / 2;
+    } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
+        appearPoint.y = -( [[_window screen] frame].size.height - ([_window frame].origin.y) + 32.0 + [[_window screen] visibleFrame].origin.y) ;
+    }/* else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionMiddle ) {
+        appearPoint.y = ( [_window frame].size.height - [[_window screen] visibleFrame].size.height) / 2;
+    }*/
     CGSSetWindowTransform([NSApp contextID],
                           (CGSWindowID)[_window windowNumber],
                           CGAffineTransformTranslate( transform,
-                                                     -( [_window frame].origin.x - (32.0 + [[_window screen] visibleFrame].origin.x) ),
-                                                     -( [[_window screen] frame].size.height - ([_window frame].origin.y) + 32.0 + [[_window screen] visibleFrame].origin.y) ) );
+                                                     appearPoint.x,
+                                                     appearPoint.y ) );
 }
-
 
 @end
