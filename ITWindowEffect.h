@@ -30,6 +30,8 @@ typedef enum {
 
 
 @protocol ITWindowEffect
++ (NSString *)effectName;
++ (NSDictionary *)supportedPositions;
 - (void)performAppear;
 - (void)performVanish;
 - (void)cancelAppear;
@@ -57,7 +59,7 @@ typedef enum {
     BOOL                       __shouldReleaseWhenIdle;
 }
 
-+ (NSArray *)effectsInfo;
++ (NSArray *)effectClasses;
 
 // Designated initializer
 - (id)initWithWindow:(NSWindow *)window;

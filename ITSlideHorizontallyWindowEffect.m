@@ -17,6 +17,29 @@
 @implementation ITSlideHorizontallyWindowEffect
 
 
++ (NSString *)effectName
+{
+    return @"Slide Horizontally";
+}
+
++ (NSDictionary *)supportedPositions
+{
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithBool:YES], @"Left",
+            [NSNumber numberWithBool:NO], @"Center",
+            [NSNumber numberWithBool:YES], @"Right", nil] , @"Top" ,
+        [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithBool:YES], @"Left",
+            [NSNumber numberWithBool:NO], @"Center",
+            [NSNumber numberWithBool:YES], @"Right", nil] , @"Middle" ,
+        [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithBool:YES], @"Left",
+            [NSNumber numberWithBool:NO], @"Center",
+            [NSNumber numberWithBool:YES], @"Right", nil] , @"Bottom" , nil];
+}
+
+
 /*************************************************************************/
 #pragma mark -
 #pragma mark APPEAR METHODS

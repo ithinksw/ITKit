@@ -1,10 +1,17 @@
-//
-//  ITCategory-NSMenu.h
-//  ITKit
-//
-//  Created by Joseph Spiros on Sat Sep 27 2003.
-//  Copyright (c) 2003 __MyCompanyName__. All rights reserved.
-//
+/*
+ *	ITKit
+ *  ITCategory-NSMenu.h
+ *    Category which extends NSMenu
+ *
+ *  Original Author : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *   Responsibility : Matt Judy <mjudy@ithinksw.com>
+ *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *
+ *  Copyright (c) 2002 - 2003 iThink Software.
+ *  All Rights Reserved
+ *
+ */
+
 
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
