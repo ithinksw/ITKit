@@ -261,12 +261,6 @@
 //7C2
 //7C3
 //7C4
-		7C5B7C93054F6EC9008379B6 = {
-			fileRef = 8DC2EF5B0486A6940098B216;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
 		7C992DC9054F5179000B93EA = {
 			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
@@ -1313,6 +1307,7 @@
 		7C992F82054F5389000B93EA = {
 			buildActionMask = 2147483647;
 			files = (
+				7CAFE6C9056321E7004CBAFE,
 				7C993130054F6A03000B93EA,
 			);
 			isa = PBXHeadersBuildPhase;
@@ -1346,7 +1341,7 @@
 		7C992F85054F5389000B93EA = {
 			buildActionMask = 2147483647;
 			files = (
-				7C5B7C93054F6EC9008379B6,
+				7CAFE6CC05632206004CBAFE,
 			);
 			isa = PBXFrameworksBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1362,7 +1357,7 @@
 			);
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PREFIX_HEADER = ITKit_Prefix.pch;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				INFOPLIST_FILE = "ITKitShowcase-Info.plist";
@@ -1376,6 +1371,7 @@
 				WARNING_CFLAGS = "-Wmost";
 			};
 			dependencies = (
+				7CAFE6D00563220F004CBAFE,
 			);
 			isa = PBXNativeTarget;
 			name = ITKitShowcase;
@@ -1887,6 +1883,30 @@
 			isa = PBXBuildFile;
 			settings = {
 			};
+		};
+		7CAFE6C9056321E7004CBAFE = {
+			fileRef = 32DBCF5E0370ADEE00C91783;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7CAFE6CC05632206004CBAFE = {
+			fileRef = 8DC2EF5B0486A6940098B216;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7CAFE6CF0563220F004CBAFE = {
+			containerPortal = 0867D690FE84028FC02AAC07;
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = ITKit;
+		};
+		7CAFE6D00563220F004CBAFE = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216;
+			targetProxy = 7CAFE6CF0563220F004CBAFE;
 		};
 		7CC84BE0054F6CA2001DC704 = {
 			expectedFileType = wrapper.framework;
