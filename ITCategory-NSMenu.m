@@ -31,7 +31,7 @@ extern MenuRef _NSGetCarbonMenu( NSMenu *menu);
 
 - (void)indentItemAtIndex:(int)index toLevel:(int)indentLevel {
     if ([[self itemAtIndex:index] respondsToSelector:@selector(setIndentationLevel:)]) {
-        [[self itemAtIndex:index] setIndentationLevel:indentLevel];
+        (void)[[self itemAtIndex:index] setIndentationLevel:indentLevel];
     } else {
         MenuRef carbonMenu = [self menuRef];
         if (carbonMenu) {
@@ -45,7 +45,7 @@ extern MenuRef _NSGetCarbonMenu( NSMenu *menu);
     int w00t, m00f;
     
     if( [self respondsToSelector:@selector(_menuImpl)] ) {
-        [self _menuImpl];
+        (void)[self _menuImpl];
     } else {
         return nil;
     }
