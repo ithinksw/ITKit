@@ -192,7 +192,7 @@
     // Setup the Window, and remove all its contentview's subviews.
     windowWidth  = ( SW_PAD + imageWidth + SW_SPACE + textWidth + SW_PAD );
     windowHeight = ( SW_PAD + contentHeight + SW_PAD );
-    [statusWindow setFrame:NSMakeRect(SW_BORDER, SW_BORDER, windowWidth, windowHeight) display:YES];
+    [statusWindow setFrame:NSMakeRect(SW_BORDER, SW_BORDER, windowWidth, windowHeight) display:YES animate:YES];
     [[[statusWindow contentView] subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
     // Setup, position, fill, and add the image view to the content view.

@@ -177,7 +177,6 @@
 				7C992DF2054F5179000B93EA,
 				7C992DF3054F5179000B93EA,
 				7C992DF4054F5179000B93EA,
-				7C992F9E054F54C1000B93EA,
 			);
 			isa = PBXGroup;
 			name = Classes;
@@ -261,6 +260,12 @@
 //7C2
 //7C3
 //7C4
+		7C5B7C93054F6EC9008379B6 = {
+			fileRef = 8DC2EF5B0486A6940098B216;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		7C992DC9054F5179000B93EA = {
 			expectedFileType = sourcecode.c.h;
 			fileEncoding = 4;
@@ -482,22 +487,6 @@
 			fileEncoding = 4;
 			isa = PBXFileReference;
 			path = ITKit.h;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C992DE5054F5179000B93EA = {
-			expectedFileType = sourcecode.c.h;
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			path = ITLED.h;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C992DE6054F5179000B93EA = {
-			expectedFileType = sourcecode.c.objc;
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			path = ITLED.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1066,9 +1055,6 @@
 		7C992E39054F522D000B93EA = {
 			children = (
 				7C992E3A054F522D000B93EA,
-				7C992E3C054F5237000B93EA,
-				7C992E3D054F523F000B93EA,
-				7C992E49054F525E000B93EA,
 			);
 			isa = PBXVariantGroup;
 			name = ITKeyCodes.plist;
@@ -1080,8 +1066,8 @@
 			expectedFileType = text.plist;
 			fileEncoding = 4;
 			isa = PBXFileReference;
-			name = English;
-			path = English.lproj/ITKeyCodes.plist;
+			name = Global;
+			path = ITKeyCodes.plist;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1090,22 +1076,6 @@
 			isa = PBXBuildFile;
 			settings = {
 			};
-		};
-		7C992E3C054F5237000B93EA = {
-			expectedFileType = text.plist;
-			isa = PBXFileReference;
-			name = French;
-			path = French.lproj/ITKeyCodes.plist;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C992E3D054F523F000B93EA = {
-			expectedFileType = text.plist;
-			isa = PBXFileReference;
-			name = German;
-			path = German.lproj/ITKeyCodes.plist;
-			refType = 4;
-			sourceTree = "<group>";
 		};
 		7C992E3E054F5246000B93EA = {
 			children = (
@@ -1185,14 +1155,6 @@
 			settings = {
 			};
 		};
-		7C992E49054F525E000B93EA = {
-			expectedFileType = text.plist;
-			isa = PBXFileReference;
-			name = Japanese;
-			path = Japanese.lproj/ITKeyCodes.plist;
-			refType = 4;
-			sourceTree = "<group>";
-		};
 		7C992E78054F5285000B93EA = {
 			expectedFileType = text;
 			fileEncoding = 4;
@@ -1204,9 +1166,6 @@
 		7C992E9B054F52B0000B93EA = {
 			children = (
 				7C992E9C054F52B0000B93EA,
-				7C992EBC054F52B7000B93EA,
-				7C992ED7054F52BC000B93EA,
-				7C992EFA054F52C4000B93EA,
 			);
 			isa = PBXVariantGroup;
 			name = ITKeyComboPanel.nib;
@@ -1217,8 +1176,8 @@
 		7C992E9C054F52B0000B93EA = {
 			expectedFileType = wrapper.nib;
 			isa = PBXFileReference;
-			name = English;
-			path = English.lproj/ITKeyComboPanel.nib;
+			name = Global;
+			path = ITKeyComboPanel.nib;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1228,36 +1187,9 @@
 			settings = {
 			};
 		};
-		7C992EBC054F52B7000B93EA = {
-			expectedFileType = wrapper.nib;
-			isa = PBXFileReference;
-			name = French;
-			path = French.lproj/ITKeyComboPanel.nib;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C992ED7054F52BC000B93EA = {
-			expectedFileType = wrapper.nib;
-			isa = PBXFileReference;
-			name = German;
-			path = German.lproj/ITKeyComboPanel.nib;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C992EFA054F52C4000B93EA = {
-			expectedFileType = wrapper.nib;
-			isa = PBXFileReference;
-			name = Japanese;
-			path = Japanese.lproj/ITKeyComboPanel.nib;
-			refType = 4;
-			sourceTree = "<group>";
-		};
 		7C992F18054F52CF000B93EA = {
 			children = (
 				7C992F19054F52CF000B93EA,
-				7C992F3C054F52D6000B93EA,
-				7C992F5D054F52DC000B93EA,
-				7C992F7E054F52E4000B93EA,
 			);
 			isa = PBXVariantGroup;
 			name = Localizable.strings;
@@ -1269,8 +1201,8 @@
 			expectedFileType = text.plist.strings;
 			fileEncoding = 4;
 			isa = PBXFileReference;
-			name = English;
-			path = English.lproj/Localizable.strings;
+			name = Global;
+			path = Localizable.strings;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1280,34 +1212,9 @@
 			settings = {
 			};
 		};
-		7C992F3C054F52D6000B93EA = {
-			expectedFileType = text.plist.strings;
-			isa = PBXFileReference;
-			name = French;
-			path = French.lproj/Localizable.strings;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C992F5D054F52DC000B93EA = {
-			expectedFileType = text.plist.strings;
-			isa = PBXFileReference;
-			name = German;
-			path = German.lproj/Localizable.strings;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C992F7E054F52E4000B93EA = {
-			expectedFileType = text.plist.strings;
-			isa = PBXFileReference;
-			name = Japanese;
-			path = Japanese.lproj/Localizable.strings;
-			refType = 4;
-			sourceTree = "<group>";
-		};
 		7C992F82054F5389000B93EA = {
 			buildActionMask = 2147483647;
 			files = (
-				7CAFE6C9056321E7004CBAFE,
 				7C993130054F6A03000B93EA,
 			);
 			isa = PBXHeadersBuildPhase;
@@ -1341,7 +1248,7 @@
 		7C992F85054F5389000B93EA = {
 			buildActionMask = 2147483647;
 			files = (
-				7CAFE6CC05632206004CBAFE,
+				7C5B7C93054F6EC9008379B6,
 			);
 			isa = PBXFrameworksBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1357,7 +1264,7 @@
 			);
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ITKit_Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				INFOPLIST_FILE = "ITKitShowcase-Info.plist";
@@ -1371,7 +1278,6 @@
 				WARNING_CFLAGS = "-Wmost";
 			};
 			dependencies = (
-				7CAFE6D00563220F004CBAFE,
 			);
 			isa = PBXNativeTarget;
 			name = ITKitShowcase;
@@ -1479,17 +1385,6 @@
 			);
 			isa = PBXGroup;
 			name = "Hot Keys";
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		7C992F9E054F54C1000B93EA = {
-			children = (
-				7C992DE5054F5179000B93EA,
-				7C992DE6054F5179000B93EA,
-			);
-			isa = PBXGroup;
-			name = Incomplete;
-			path = "";
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1883,30 +1778,6 @@
 			isa = PBXBuildFile;
 			settings = {
 			};
-		};
-		7CAFE6C9056321E7004CBAFE = {
-			fileRef = 32DBCF5E0370ADEE00C91783;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		7CAFE6CC05632206004CBAFE = {
-			fileRef = 8DC2EF5B0486A6940098B216;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		7CAFE6CF0563220F004CBAFE = {
-			containerPortal = 0867D690FE84028FC02AAC07;
-			isa = PBXContainerItemProxy;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = ITKit;
-		};
-		7CAFE6D00563220F004CBAFE = {
-			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216;
-			targetProxy = 7CAFE6CF0563220F004CBAFE;
 		};
 		7CC84BE0054F6CA2001DC704 = {
 			expectedFileType = wrapper.framework;
