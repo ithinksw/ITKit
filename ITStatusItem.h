@@ -1,18 +1,27 @@
-//
-//  ITStatusItem.h
-//  iThinkAppKit
-//
-//  Created by Joseph Spiros on Fri Dec 06 2002.
-//  Copyright (c) 2002 iThink Software. All rights reserved.
-//
+/*
+ *	ITKit
+ *  ITStatusItem
+ *    NSStatusItem subclass which reduces suckage
+ *
+ *  Original Author : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *   Responsibility : Matt Judy <mjudy@ithinksw.com>
+ *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
+ *
+ *  Copyright (c) 2002 iThink Software.
+ *  All Rights Reserved
+ *
+ */
 
-#import <AppKit/AppKit.h>
+#import <Cocoa/Cocoa.h>
 
 
-@interface ITStatusItem : NSStatusItem {
-    NSStatusItem *statusItem;
+@interface ITStatusItem : NSStatusItem
+{
 }
-- (NSStatusItem*) statusItem;
+
+- (id)initWithStatusBar:(NSStatusBar*)statusBar withLength:(float)length;
+
 - (NSImage*) alternateImage;
 - (void) setAlternateImage:(NSImage*)image;
+
 @end
