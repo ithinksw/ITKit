@@ -156,13 +156,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 {
     if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
          // Window is hidden.  Appear as normal, and start the timer.
-        if ( _entryEffect == nil ) {
-            [self orderFront:self];
-            _visibilityState = ITTransientStatusWindowVisibleState;
-        } else {
-            [_entryEffect performAppear];
-        }
-        [self startVanishTimer];
+        [_entryEffect performAppear];
     } else if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
          // Window is completely visible.  Simply reset the timer.
         [self startVanishTimer];
@@ -170,13 +164,7 @@ static ITTransientStatusWindow *staticWindow = nil;
          // Window is on its way in.  Do nothing.
     } else if ( _visibilityState == ITTransientStatusWindowVanishingState ) {
         // Window is on its way out.  Cancel the vanish.
-        if ( _exitEffect == nil ) {
-            [self orderFront:self];
-            _visibilityState = ITTransientStatusWindowVisibleState;
-        } else {
-            [_exitEffect cancelVanish];
-        }
-        [self startVanishTimer];
+        [_exitEffect cancelVanish];
     }
 }
 
@@ -184,13 +172,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 {
     if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
         // Window is totally visible.  Perform exit effect.
-        if ( _exitEffect == nil ) {
-            [self orderOut:self];
-            _visibilityState = ITTransientStatusWindowHiddenState;
-        } else {
-            [_exitEffect performVanish];
-        }
-        [self startVanishTimer];
+        [_exitEffect performVanish];
     } else if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
         // Window is hidden.  Do nothing.
     } else if ( _visibilityState == ITTransientStatusWindowAppearingState ) {
@@ -209,6 +191,10 @@ static ITTransientStatusWindow *staticWindow = nil;
 - (void)setVisibilityState:(ITWindowVisibilityState)newState
 {
     _visibilityState = newState;
+    
+    if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
+        [self startVanishTimer];
+    }
 }
 
 - (ITTransientStatusWindowExitMode)exitMode
@@ -262,6 +248,16 @@ static ITTransientStatusWindow *staticWindow = nil;
 - (void)setHorizontalPosition:(ITHorizontalWindowPosition)newPosition;
 {
     _horizontalPosition = newPosition;
+}
+
+- (float)effectProgress
+{
+    return _effectProgress;
+}
+
+- (void)setEffectProgress:(float)newProgress
+{
+    _effectProgress = newProgress;
 }
 
 - (float)screenPadding
@@ -332,7 +328,8 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 - (void)startVanishTimer
 {
-
+    // start timer, if appropriate
+    // if timer already exists, restart it.
 }
 
 @end

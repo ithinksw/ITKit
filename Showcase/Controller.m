@@ -2,6 +2,8 @@
 #import "ITTransientStatusWindow.h"
 #import "ITTextField.h"
 #import "ITPivotWindowEffect.h"
+#import "ITDissolveWindowEffect.h"
+#import "ITCutWindowEffect.h"
 
 #define SW_PAD    24.0
 #define SW_SPACE  24.0
@@ -200,8 +202,10 @@
 
     [[statusWindow contentView] setNeedsDisplay:YES];
 
-    [statusWindow setEntryEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
-    [statusWindow setExitEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
+//    [statusWindow setEntryEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
+//    [statusWindow setExitEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
+    [statusWindow setEntryEffect:[[ITCutWindowEffect alloc]      initWithWindow:statusWindow]];
+    [statusWindow setExitEffect: [[ITDissolveWindowEffect alloc] initWithWindow:statusWindow]];
 }
 
 - (IBAction)toggleStatusWindow:(id)sender

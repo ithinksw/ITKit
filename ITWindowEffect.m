@@ -11,7 +11,6 @@
     
         _window         = [window retain];
         _effectTime     = DEFAULT_EFFECT_TIME;
-        _effectProgress = 0.00;
         _effectTimer    = nil;
 
         if ( [window conformsToProtocol:@protocol(ITWindowPositioning)] ) {
@@ -40,7 +39,7 @@
 
 - (void)setWindowVisibility:(ITWindowVisibilityState)visibilityState
 {
-    if ( [_window conformsToProtocol:@protocol(ITWindowVisibility)] ) {
+    if ( [_window conformsToProtocol:@protocol(ITWindowMotility)] ) {
        // Cast so the compiler won't gripe
         [(ITTransientStatusWindow *)_window setVisibilityState:visibilityState];
     } else {

@@ -43,7 +43,7 @@ typedef enum {
 } ITTransientStatusWindowBackgroundType;
 
 
-@interface ITTransientStatusWindow : NSWindow <ITWindowPositioning , ITWindowVisibility> {
+@interface ITTransientStatusWindow : NSWindow <ITWindowPositioning , ITWindowMotility> {
 
     ITWindowVisibilityState                _visibilityState;
     ITTransientStatusWindowExitMode        _exitMode;
@@ -51,6 +51,7 @@ typedef enum {
     ITTransientStatusWindowBackgroundType  _backgroundType;
     ITWindowEffect                        *_entryEffect;
     ITWindowEffect                        *_exitEffect;
+    double                                 _effectProgress;
     ITVerticalWindowPosition               _verticalPosition;
     ITHorizontalWindowPosition             _horizontalPosition;
     float                                  _screenPadding;
@@ -89,6 +90,9 @@ typedef enum {
 
 - (ITHorizontalWindowPosition)horizontalPosition;
 - (void)setHorizontalPosition:(ITHorizontalWindowPosition)newPosition;
+
+- (float)effectProgress;
+- (void)setEffectProgress:(float)newProgress;
 
 - (ITWindowEffect *)entryEffect;
 - (void)setEntryEffect:(ITWindowEffect *)newEffect;

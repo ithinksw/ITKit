@@ -15,6 +15,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ITWindowPositioning.h"
 
+@class ITTransientStatusWindow;
 
 #define EFFECT_FPS 30.0
 #define DEFAULT_EFFECT_TIME 0.75
@@ -36,18 +37,19 @@ typedef enum {
 @end
 
 
-@protocol ITWindowVisibility
+@protocol ITWindowMotility
 - (ITWindowVisibilityState)visibilityState;
 - (void)setVisibilityState:(ITWindowVisibilityState)newState;
+- (float)effectProgress;
+- (void)setEffectProgress:(float)newProgress;
 @end
 
 
 @interface ITWindowEffect : NSObject <ITWindowEffect>
 {
-    NSWindow                   *_window;
+    ITTransientStatusWindow    *_window;
     float                       _effectTime;
     float                       _effectSpeed;
-    double                      _effectProgress;
     ITVerticalWindowPosition    _verticalPosition;
     ITHorizontalWindowPosition  _horizontalPosition;
     NSTimer                    *_effectTimer;

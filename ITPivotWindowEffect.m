@@ -6,13 +6,21 @@
 @interface ITPivotWindowEffect (Private)
 - (void)setPivot:(float)angle;
 - (void)performAppearFromProgress:(float)progress effectTime:(float)time;
-- (void)performVanishFromProgress:(float)progress effectTime:(float)time;
+- (void)appearStep;
 - (void)appearFinish;
+- (void)performVanishFromProgress:(float)progress effectTime:(float)time;
+- (void)vanishStep;
 - (void)vanishFinish;
 @end
 
 
 @implementation ITPivotWindowEffect
+
+
+/*************************************************************************/
+#pragma mark -
+#pragma mark APPEAR METHODS
+/*************************************************************************/
 
 - (void)performAppear
 {
@@ -22,7 +30,7 @@
 
 - (void)performAppearFromProgress:(float)progress effectTime:(float)time
 {
-    _effectProgress = progress;
+    [_window setEffectProgress:progress];
     _effectSpeed = (1.0 / (EFFECT_FPS * time));
     
     if ( progress == 0.0 ) {
@@ -38,6 +46,43 @@
                                                    repeats:YES];
 }
 
+- (void)appearStep
+{
+    float interPivot = 0.0;
+    [_window setEffectProgress:([_window effectProgress] + _effectSpeed)];
+    [_window setEffectProgress:( ([_window effectProgress] < 1.0) ? [_window effectProgress] : 1.0)];
+    interPivot = (( sin(([_window effectProgress] * pi) - (pi / 2)) + 1 ) / 2);
+    [self setPivot:((interPivot * 45) + 315)];
+    [_window setAlphaValue:interPivot];
+
+    if ( [_window effectProgress] >= 1.0 ) {
+        [self appearFinish];
+    }
+}
+
+- (void)appearFinish
+{
+    [_effectTimer invalidate];
+    _effectTimer = nil;
+    [self setWindowVisibility:ITTransientStatusWindowVisibleState];
+}
+
+- (void)cancelAppear
+{
+    [self setWindowVisibility:ITTransientStatusWindowVanishingState];
+
+    [_effectTimer invalidate];
+    _effectTimer = nil;
+
+    [self performVanishFromProgress:[_window effectProgress] effectTime:(_effectTime / 3.5)];
+}
+
+
+/*************************************************************************/
+#pragma mark -
+#pragma mark VANISH METHODS
+/*************************************************************************/
+
 - (void)performVanish
 {
     [self setWindowVisibility:ITTransientStatusWindowVanishingState];
@@ -46,7 +91,7 @@
 
 - (void)performVanishFromProgress:(float)progress effectTime:(float)time
 {
-    _effectProgress = progress;
+    [_window setEffectProgress:progress];
     _effectSpeed = (1.0 / (EFFECT_FPS * time));
     if ( progress == 1.0 ) {
         [self setPivot:0.0];
@@ -61,14 +106,27 @@
                                                    repeats:YES];
 }
 
-- (void)cancelAppear
+- (void)vanishStep
 {
-    [self setWindowVisibility:ITTransientStatusWindowVanishingState];
-    
+    float interPivot = 1.0;
+    [_window setEffectProgress:([_window effectProgress] - _effectSpeed)];
+    [_window setEffectProgress:( ([_window effectProgress] > 0.0) ? [_window effectProgress] : 0.0)];
+    interPivot = (( sin(([_window effectProgress] * pi) - (pi / 2)) + 1 ) / 2);
+    [self setPivot:((interPivot * 45) + 315)];
+    [_window setAlphaValue:interPivot];
+
+    if ( [_window effectProgress] <= 0.0 ) {
+        [self vanishFinish];
+    }
+}
+
+- (void)vanishFinish
+{
     [_effectTimer invalidate];
     _effectTimer = nil;
-    
-    [self performVanishFromProgress:_effectProgress effectTime:(_effectTime / 3.5)];
+    [_window orderOut:self];
+    [_window setAlphaValue:1.0];
+    [self setWindowVisibility:ITTransientStatusWindowHiddenState];
 }
 
 - (void)cancelVanish
@@ -78,50 +136,14 @@
     [_effectTimer invalidate];
     _effectTimer = nil;
 
-    [self performAppearFromProgress:_effectProgress effectTime:(_effectTime / 3.5)];
+    [self performAppearFromProgress:[_window effectProgress] effectTime:(_effectTime / 3.5)];
 }
 
-- (void)appearStep
-{
-    float interPivot = 0.0;
-    _effectProgress += _effectSpeed;
-    _effectProgress = (_effectProgress < 1.0 ? _effectProgress : 1.0);
-    interPivot = (( sin((_effectProgress * pi) - (pi / 2)) + 1 ) / 2);
-    [self setPivot:((interPivot * 45) + 315)];
-    [_window setAlphaValue:interPivot];
 
-    if ( _effectProgress >= 1.0 ) {
-        [self appearFinish];
-    }
-}
-
-- (void)vanishStep
-{
-    float interPivot = 1.0;
-    _effectProgress -= _effectSpeed;
-    _effectProgress = (_effectProgress > 0.0 ? _effectProgress : 0.0);
-    interPivot = (( sin((_effectProgress * pi) - (pi / 2)) + 1 ) / 2);
-    [self setPivot:((interPivot * 45) + 315)];
-    [_window setAlphaValue:interPivot];
-
-    if ( _effectProgress <= 0.0 ) {
-        [self vanishFinish];
-    }
-}
-
-- (void)appearFinish
-{
-    [_effectTimer invalidate];
-    _effectTimer = nil;
-    [self setWindowVisibility:ITTransientStatusWindowVisibleState];
-}
-
-- (void)vanishFinish
-{
-    [_effectTimer invalidate];
-    _effectTimer = nil;
-    [self setWindowVisibility:ITTransientStatusWindowHiddenState];
-}
+/*************************************************************************/
+#pragma mark -
+#pragma mark PRIVATE METHOD IMPLEMENTATIONS
+/*************************************************************************/
 
 - (void)setPivot:(float)angle
 {
