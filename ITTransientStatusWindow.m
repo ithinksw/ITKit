@@ -86,6 +86,7 @@ static ITTransientStatusWindow *staticWindow = nil;
         _exitEffect          = nil;
         _reallyIgnoresEvents = YES;
         _exitTimer           = nil;
+		[self setScreen:[NSScreen mainScreen]];
 
 //      if ( _backgroundType == ITTransientStatusWindowRounded ) {
 //          _contentSubView = contentView;
@@ -101,6 +102,11 @@ static ITTransientStatusWindow *staticWindow = nil;
     return self;
 }
 
+- (void)dealloc
+{
+	[_screen release];
+	[super dealloc];
+}
 
 /*************************************************************************/
 #pragma mark -
@@ -181,6 +187,17 @@ static ITTransientStatusWindow *staticWindow = nil;
     } else if ( _visibilityState == ITWindowVanishingState ) {
         // Window is on its way out.  Do nothing.
     }
+}
+
+- (void)setScreen:(NSScreen *)newScreen
+{
+	[_screen release];
+	_screen = [newScreen retain];
+}
+
+- (NSScreen *)screen
+{
+	return _screen;
 }
 
 - (void)setSizing:(ITTransientStatusWindowSizing)newSizing

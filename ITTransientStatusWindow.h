@@ -62,6 +62,7 @@ typedef enum {
     ITTransientStatusWindowSizing          _sizing;
     float                                  _screenPadding;
 //    int                                    _screenNumber;
+	NSScreen *_screen;
 
     BOOL _reallyIgnoresEvents;
     
@@ -78,6 +79,8 @@ typedef enum {
 
 - (void)appear:(id)sender;
 - (void)vanish:(id)sender;
+
+- (void)setScreen:(NSScreen *)newScreen;
 
 - (void)setSizing:(ITTransientStatusWindowSizing)newSizing;
 - (ITTransientStatusWindowSizing)sizing;

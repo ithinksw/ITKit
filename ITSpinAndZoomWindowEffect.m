@@ -193,28 +193,28 @@
 
 - (void)setScale:(float)scale angle:(float)angle
 {
-    int hPos = [_window horizontalPosition];
+    //int hPos = [_window horizontalPosition];
     float radAngle = (angle * 4 * pi);
     CGAffineTransform transform;
     NSPoint translation;
     NSRect screenFrame = [[_window screen] frame];
     
-    translation.x = screenFrame.origin.x + ([_window frame].size.width / 2.0);
-    translation.y = screenFrame.origin.y + ([_window frame].size.height / 2.0);
+    translation.x = /*screenFrame.origin.x + */([_window frame].size.width / 2.0);
+    translation.y = /*screenFrame.origin.y + */([_window frame].size.height / 2.0);
     transform = CGAffineTransformMakeTranslation(translation.x, translation.y);
     transform = CGAffineTransformScale(transform, 1.0 / scale, 1.0 / scale);
     transform = CGAffineTransformRotate(transform, radAngle);
     transform = CGAffineTransformTranslate(transform, -translation.x, -translation.y);
     
-    if (hPos == ITWindowPositionLeft) {
+    /*if (hPos == ITWindowPositionLeft) {
         translation.x = -[_window frame].origin.x;
     } else if (hPos == ITWindowPositionRight) {
         translation.x = -[_window frame].origin.x;
     } else {
         translation.x = -[_window frame].origin.x;
-    }
-    
-    translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - [_window frame].size.height );
+    }*/
+    translation.x = -[_window frame].origin.x;
+    translation.y = -( screenFrame.size.height - [_window frame].origin.y - [_window frame].size.height );
     
     transform = CGAffineTransformTranslate(transform, translation.x, translation.y);
     CGSSetWindowTransform([NSApp contextID],
