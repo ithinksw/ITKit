@@ -47,7 +47,9 @@
     }
     
     if ( _scalesSmoothly ) {
-        CGContextSetInterpolationQuality([[NSGraphicsContext currentContext] graphicsPort], kCGInterpolationHigh);
+       // CGContextSetInterpolationQuality([[NSGraphicsContext currentContext] graphicsPort], kCGInterpolationHigh);
+	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+	[[NSGraphicsContext currentContext] setShouldAntialias:YES];
     }
     
     if ( castsShadow ) {
