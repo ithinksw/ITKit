@@ -6,7 +6,7 @@
 //  Copyright (c) 2003 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
 
 @interface NSMenu (ITCategory)
