@@ -4,7 +4,7 @@
  *    NSTabView subclass which includes convenience features
  *
  *  Original Author : Kent Sutherland <kent.sutherland@ithinksw.com>
- *   Responsibility : Matt Judy <mjudy@ithinksw.com>
+ *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
  *   Responsibility : Kent Sutherland <kent.sutherland@ithinksw.com>
  *
  *  Copyright (c) 2002 - 2003 iThink Software.

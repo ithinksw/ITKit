@@ -1,9 +1,16 @@
-//
-//  ITKeyCombo.h
-//
-//  Created by Quentin Carnicelli on Sat Aug 02 2003.
-//  Copyright (c) 2003 iThink Software. All rights reserved.
-//
+/*
+ *	ITKit
+ *  ITKeyCombo
+ *
+ *  Original Author : Quentin Carnicelli <...>
+ *   Responsibility : Kent Sutherland <kent.sutherland@ithinksw.com>
+ *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
+ *
+ *  Copyright (c) 2002 - 2003 iThink Software.
+ *  All Rights Reserved
+ *
+ */
+
 
 #import <Foundation/Foundation.h>
 
@@ -30,7 +37,9 @@
 - (BOOL)isClearCombo;
 - (BOOL)isValidHotKeyCombo;
 
+
 @end
+
 
 @interface ITKeyCombo (UserDisplayAdditions)
 

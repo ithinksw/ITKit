@@ -68,7 +68,7 @@
         [self setPivot:315.0];
         [_window setAlphaValue:0.0];
     }
-
+    
     [_window orderFront:self];
     _effectTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0 / EFFECT_FPS)
                                                     target:self
@@ -80,13 +80,17 @@
 - (void)appearStep
 {
     float interPivot = 0.0;
-    [_window setEffectProgress:([_window effectProgress] + _effectSpeed)];
-    [_window setEffectProgress:( ([_window effectProgress] < 1.0) ? [_window effectProgress] : 1.0)];
-    interPivot = (( sin(([_window effectProgress] * pi) - (pi / 2)) + 1 ) / 2);
-    [self setPivot:((interPivot * 45) + 315)];
+    float progress   = ([_window effectProgress] + _effectSpeed);
+    
+    progress = ( (progress < 1.0) ? progress : 1.0 );
+    
+    [_window setEffectProgress:progress];
+    
+    interPivot = (( sin((progress * pi) - (pi / 2)) + 1 ) / 2);
+    [self setPivot:(315 + (interPivot * 45))];
     [_window setAlphaValue:interPivot];
-
-    if ( [_window effectProgress] >= 1.0 ) {
+    
+    if ( progress >= 1.0 ) {
         [self appearFinish];
     }
 }
@@ -96,9 +100,9 @@
     [_effectTimer invalidate];
     _effectTimer = nil;
     [self setWindowVisibility:ITWindowVisibleState];
-
+    
     __idle = YES;
-
+    
     if ( __shouldReleaseWhenIdle ) {
         [self release];
     }
@@ -107,10 +111,10 @@
 - (void)cancelAppear
 {
     [self setWindowVisibility:ITWindowVanishingState];
-
+    
     [_effectTimer invalidate];
     _effectTimer = nil;
-
+    
     [self performVanishFromProgress:[_window effectProgress] effectTime:(_effectTime / 3.5)];
 }
 
@@ -136,7 +140,7 @@
         [self setPivot:0.0];
         [_window setAlphaValue:1.0];
     }
-
+    
     [_window orderFront:self];
     _effectTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0 / EFFECT_FPS)
                                                     target:self
@@ -148,13 +152,17 @@
 - (void)vanishStep
 {
     float interPivot = 1.0;
-    [_window setEffectProgress:([_window effectProgress] - _effectSpeed)];
-    [_window setEffectProgress:( ([_window effectProgress] > 0.0) ? [_window effectProgress] : 0.0)];
+    float progress   = ([_window effectProgress] - _effectSpeed);
+    
+    progress = ( (progress > 0.0) ? progress : 0.0);
+    
+    [_window setEffectProgress:progress];
+    
     interPivot = (( sin(([_window effectProgress] * pi) - (pi / 2)) + 1 ) / 2);
-    [self setPivot:((interPivot * 45) + 315)];
+    [self setPivot:(315 + (interPivot * 45))];
     [_window setAlphaValue:interPivot];
-
-    if ( [_window effectProgress] <= 0.0 ) {
+    
+    if ( progress <= 0.0 ) {
         [self vanishFinish];
     }
 }
@@ -167,9 +175,9 @@
     [_window setAlphaValue:1.0];
     [self setPivot:0.0];
     [self setWindowVisibility:ITWindowHiddenState];
-
+    
     __idle = YES;
-
+    
     if ( __shouldReleaseWhenIdle ) {
         [self release];
     }
@@ -178,10 +186,10 @@
 - (void)cancelVanish
 {
     [self setWindowVisibility:ITWindowAppearingState];
-
+    
     [_effectTimer invalidate];
     _effectTimer = nil;
-
+    
     [self performAppearFromProgress:[_window effectProgress] effectTime:(_effectTime / 3.5)];
 }
 
@@ -194,51 +202,53 @@
 - (void)setPivot:(float)angle
 {
     float degAngle;
-    NSPoint appearPoint;
     CGAffineTransform transform;
+    NSRect windowFrame    = [_window frame];
+    NSRect screenFrame    = [[_window screen] frame];
+    int hPos = [_window horizontalPosition];
+    int vPos = [_window verticalPosition];
+    float  translateX;
+    float  translateY;
     
-    if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
-        if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
-            degAngle = (angle * (pi / 180));
-        } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
-            degAngle = (-angle * (pi / 180));
+    if ( vPos == ITWindowPositionBottom ) {
+        if ( hPos == ITWindowPositionLeft ) {
+            angle = angle;
+        } else if ( hPos == ITWindowPositionRight ) {
+            angle = ( 45 - -(315 - angle) );
         }
-    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
-        if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
-            degAngle = (angle * (pi / 180));
-        } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
-            degAngle = (angle * (pi / 180));
+    } else if ( vPos == ITWindowPositionTop ) {
+        if ( hPos == ITWindowPositionLeft ) {
+            angle = ( 45 - -(315 - angle) );
+        } else if ( hPos == ITWindowPositionRight ) {
+            angle = angle;
         }
     }
     
+    degAngle  = (angle * (pi / 180));
     transform = CGAffineTransformMakeRotation(degAngle);
     
- // Set pivot rotation point
-    //transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x );
-    transform.ty = ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y );
-    
-    if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
-        appearPoint.x = -( 32.0 + [[_window screen] visibleFrame].origin.x );
-        transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x );
-    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
-        transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x ) + [_window frame].size.width;
-        appearPoint.x = -(([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) - 64.0);
-    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionCenter ) {
-        appearPoint.x = ( [_window frame].size.width - [[_window screen] visibleFrame].size.width ) / 2;
+    if ( vPos == ITWindowPositionBottom ) {
+        transform.ty = ( windowFrame.size.height + windowFrame.origin.y);
+        translateY   = -(screenFrame.size.height);
+    } else if ( vPos == ITWindowPositionTop ) {
+        transform.ty = -( screenFrame.size.height - windowFrame.origin.y - windowFrame.size.height );
+        translateY   = 0;
     }
     
-    if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
-        appearPoint.y = ( [_window frame].size.height - [[_window screen] visibleFrame].size.height) / 2;
-    } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
-        appearPoint.y = -( [[_window screen] frame].size.height - ([_window frame].origin.y) + 32.0 + [[_window screen] visibleFrame].origin.y) ;
-    }/* else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionMiddle ) {
-        appearPoint.y = ( [_window frame].size.height - [[_window screen] visibleFrame].size.height) / 2;
-    }*/
+    if ( hPos == ITWindowPositionLeft ) {
+        transform.tx = -( windowFrame.origin.x );
+        translateX   = 0;
+    } else if ( hPos == ITWindowPositionRight ) {
+        transform.tx = ( screenFrame.size.width - windowFrame.origin.x );
+        translateX   = -(screenFrame.size.width);
+    }
+    
     CGSSetWindowTransform([NSApp contextID],
                           (CGSWindowID)[_window windowNumber],
                           CGAffineTransformTranslate( transform,
-                                                     appearPoint.x,
-                                                     appearPoint.y ) );
+                                                      translateX,
+                                                      translateY ) );
 }
+
 
 @end

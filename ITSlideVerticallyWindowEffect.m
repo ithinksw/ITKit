@@ -186,26 +186,17 @@
 - (void)setSlide:(float)distance
 {
     CGAffineTransform transform;
-    float xPoint;
+    NSPoint translation;
     
-    if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
-        xPoint = -( 32.0 + [[_window screen] visibleFrame].origin.x );
-    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
-        xPoint = -(([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) - 32.0 - [_window frame].size.width);
-    } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionCenter ) {
-        xPoint = ( [_window frame].size.width - [[_window screen] visibleFrame].size.width ) / 2;
+    translation.x = -( [_window frame].origin.x );
+    
+    if ( [_window verticalPosition] == ITWindowPositionTop ) {
+        translation.y = ( (([_window frame].size.height * 2) - ([[_window screen] frame].size.height - [_window frame].origin.y)) - distance);
+    } else if ( [_window verticalPosition] == ITWindowPositionBottom ) {
+        translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - distance );
     }
     
-    /*if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
-        transform = CGAffineTransformMakeTranslation( ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) ? -( 32.0 + [[_window screen] visibleFrame].origin.x ) : -(([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) - 32.0 - [_window frame].size.width),
-                                                    -( [[_window screen] frame].size.height - ( distance + 32.0 + [[_window screen] visibleFrame].origin.y ) ) );
-    } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
-        transform = CGAffineTransformMakeTranslation( ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) ? -( 32.0 + [[_window screen] visibleFrame].origin.x ) : -(([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) - 32.0 - [_window frame].size.width),
-                                                    [[_window screen] visibleFrame].origin.y - distance + 64.0 );
-    }*/
-    
-    transform = CGAffineTransformMakeTranslation(xPoint,
-                                                 ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) ? ( [[_window screen] visibleFrame].origin.y - distance + 64.0 ) : -( [[_window screen] frame].size.height - ( distance + 32.0 + [[_window screen] visibleFrame].origin.y ) ) );
+    transform = CGAffineTransformMakeTranslation( translation.x, translation.y );
     
     CGSSetWindowTransform([NSApp contextID],
                           (CGSWindowID)[_window windowNumber],

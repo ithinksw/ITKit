@@ -2,10 +2,10 @@
  *	ITKit
  *  ITChasingArrowsView
  *    Animating Asynchronous Arrows Widget
- *    *** DEPRECATED: NSProgressIndicator now offers an async widget.  MLJ - 01/14/2003
+ *    *** DEPRECATED: NSProgressIndicator now offers an async mode.  MLJ - 01/14/2003
  *
  *  Original Author : Doug Brown <...>
- *   Responsibility : Matt Judy <mjudy@ithinksw.com>
+ *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
  *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
  *
  *  Copyright (c) 2002 - 2003 iThink Software.

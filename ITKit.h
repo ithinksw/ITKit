@@ -2,8 +2,8 @@
  *	ITKit
  *    iThink Software's custom extensions to Apple's AppKit framework
  *
- *  Original Author : Matt Judy <mjudy@ithinksw.com>
- *   Responsibility : Matt Judy <mjudy@ithinksw.com>
+ *  Original Author : Matthew Judy <mjudy@ithinksw.com>
+ *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
  *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
  *
  *  Copyright (c) 2002 - 2003 iThink Software.

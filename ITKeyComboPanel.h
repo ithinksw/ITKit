@@ -1,16 +1,24 @@
-//
-//  ITKeyComboPanel.h
+/*
+ *	ITKit
+ *  ITKeyComboPanel
+ *
+ *  Original Author : Quentin Carnicelli <...>
+ *   Responsibility : Kent Sutherland <kent.sutherland@ithinksw.com>
+ *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
+ *
+ *  Copyright (c) 2002 - 2003 iThink Software.
+ *  All Rights Reserved
+ *
+ */
 
-//
-//  Created by Quentin Carnicelli on Sun Aug 03 2003.
-//  Copyright (c) 2003 iThink Software. All rights reserved.
-//
 
 #import <AppKit/AppKit.h>
+
 
 @class ITKeyBroadcaster;
 @class ITKeyCombo;
 @class ITHotKey;
+
 
 @interface ITKeyComboPanel : NSWindowController
 {
@@ -37,4 +45,6 @@
 - (IBAction)ok: (id)sender;
 - (IBAction)cancel: (id)sender;
 - (IBAction)clear: (id)sender;
+
+
 @end

@@ -4,10 +4,10 @@
  *    NSWindow subclass for quick display of status information.
  *    Similar to volume/brightness/eject bezel key windows.
  *
- *  Original Author : Matt Judy <mjudy@ithinksw.com>
- *   Responsibility : Matt Judy <mjudy@ithinksw.com>
+ *  Original Author : Matthew Judy <mjudy@ithinksw.com>
+ *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
  *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
- *      Contributor : Kent Sutherland <joseph.spiros@ithinksw.com>
+ *      Contributor : Kent Sutherland <kent.sutherland@ithinksw.com>
  *
  *  Copyright (c) 2002 - 2003 iThink Software.
  *  All Rights Reserved
