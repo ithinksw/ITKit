@@ -28,5 +28,7 @@
 #import <ITKit/ITTextField.h>
 #import <ITKit/ITTransientStatusWindow.h>
 
+#import <ITKit/ITIconAndTextStatusWindow.h>
+
 #import <ITKit/ITCategory-NSView.h>
 #import <ITKit/ITCategory-NSMenu.h>

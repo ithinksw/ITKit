@@ -183,6 +183,16 @@ static ITTransientStatusWindow *staticWindow = nil;
     }
 }
 
+- (void)setSizing:(ITTransientStatusWindowSizing)newSizing
+{
+    _sizing = newSizing;
+}
+
+- (ITTransientStatusWindowSizing)sizing
+{
+    return _sizing;
+}
+
 - (ITWindowVisibilityState)visibilityState
 {
     return _visibilityState;

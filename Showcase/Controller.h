@@ -26,15 +26,15 @@
     IBOutlet ITTextField *testTextField;
 
     // ITTransientStatusWindow Support
-    ITTransientStatusWindow *statusWindow;
-    IBOutlet NSTextView     *swSampleTextView;
-    IBOutlet NSPopUpButton  *swVanishModePopup;
-    IBOutlet NSPopUpButton  *swBackgroundTypePopup;
-    IBOutlet NSPopUpButton  *swDefinedPositionPopup;
-    IBOutlet NSTextField    *swVanishDelay;
-    IBOutlet NSTextField    *swShadowSaturation;
-    IBOutlet NSSlider       *swEntrySpeedSlider;
-    IBOutlet NSSlider       *swExitSpeedSlider;
+    ITIconAndTextStatusWindow   *statusWindow;
+    IBOutlet NSTextView         *swSampleTextView;
+    IBOutlet NSPopUpButton      *swVanishModePopup;
+    IBOutlet NSPopUpButton      *swBackgroundTypePopup;
+    IBOutlet NSPopUpButton      *swDefinedPositionPopup;
+    IBOutlet NSTextField        *swVanishDelay;
+    IBOutlet NSTextField        *swShadowSaturation;
+    IBOutlet NSSlider           *swEntrySpeedSlider;
+    IBOutlet NSSlider           *swExitSpeedSlider;
 }
 
 // ITStatusItem Support

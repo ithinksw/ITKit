@@ -42,6 +42,11 @@ typedef enum {
     ITTransientStatusWindowAquaUtility
 } ITTransientStatusWindowBackgroundType;
 
+typedef enum {
+    ITTransientStatusWindowRegular,
+    ITTransientStatusWindowSmall,
+    ITTransientStatusWindowMini
+} ITTransientStatusWindowSizing;
 
 @interface ITTransientStatusWindow : NSWindow <ITWindowPositioning , ITWindowMotility> {
 
@@ -54,6 +59,7 @@ typedef enum {
     double                                 _effectProgress;
     ITVerticalWindowPosition               _verticalPosition;
     ITHorizontalWindowPosition             _horizontalPosition;
+    ITTransientStatusWindowSizing          _sizing;
     float                                  _screenPadding;
 //    int                                    _screenNumber;
 
@@ -72,6 +78,9 @@ typedef enum {
 
 - (void)appear:(id)sender;
 - (void)vanish:(id)sender;
+
+- (void)setSizing:(ITTransientStatusWindowSizing)newSizing;
+- (ITTransientStatusWindowSizing)sizing;
 
 - (ITWindowVisibilityState)visibilityState;
 - (void)setVisibilityState:(ITWindowVisibilityState)newState;
