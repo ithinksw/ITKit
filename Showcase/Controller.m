@@ -202,19 +202,23 @@
 
 - (IBAction)showStatusWindow:(id)sender
 {
-//    [[statusWindow contentView] setNeedsDisplay:YES];
+    [[statusWindow contentView] setNeedsDisplay:YES];
+/*
     [statusWindow setFrame:NSMakeRect( (0.0 - NSWidth([statusWindow frame])),
                                        SW_BORDER,
                                        NSWidth([statusWindow frame]),
                                        NSHeight([statusWindow frame]) )
                    display:YES];
+*/
     [statusWindow orderFront:self];
+/*
     [statusWindow setFrame:NSMakeRect( SW_BORDER,
                                        SW_BORDER,
                                        NSWidth([statusWindow frame]),
                                        NSHeight([statusWindow frame]) )
                    display:YES
                    animate:YES];
+*/
 }
 
 - (IBAction)hideStatusWindow:(id)sender
@@ -224,7 +228,7 @@
 
 - (IBAction)setRotation:(id)sender
 {
-    [statusWindow setRotation:([sender floatValue] * (pi / 180))];
+    [statusWindow setPivot:[sender floatValue]];
 }
 
 /*************************************************************************/

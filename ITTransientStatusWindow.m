@@ -4,8 +4,9 @@
 #import "ITTextField.h"
 #import "ITGrayRoundedView.h"
 
-@class ITTextField;
-@class ITGrayRoundedView;
+
+#define EFFECT_FPS 30.0
+
 
 /*************************************************************************/
 #pragma mark -
@@ -28,9 +29,13 @@
            backgroundType:(ITTransientStatusWindowBackgroundType)backgroundType;
 - (void)rebuildWindow;
 - (void)performEffect;
-- (void)dissolveEffect:(BOOL)entering;
-- (void)slideVerticalEffect:(BOOL)entering;
-- (void)slideHorizontalEffect:(BOOL)entering;
+- (void)dissolveEffect;
+- (void)slideVerticalEffect;
+- (void)slideHorizontalEffect;
+- (void)pivotEffect;
+- (void)pivotStep;
+- (void)pivotFinish;
+- (void)setPivot:(float)angle;
 @end
 
 
@@ -91,12 +96,14 @@ static ITTransientStatusWindow *staticWindow = nil;
         _backgroundType      = backgroundType;
         _verticalPosition    = ITTransientStatusWindowPositionBottom;
         _horizontalPosition  = ITTransientStatusWindowPositionLeft;
-        _entryEffect         = ITTransientStatusWindowEffectNone;
+//      _entryEffect         = ITTransientStatusWindowEffectNone;
+        _entryEffect         = ITTransientStatusWindowEffectPivot;
         _exitEffect          = ITTransientStatusWindowEffectDissolve;
         _effectTime          = DEFAULT_EFFECT_TIME;
+        _effectProgress      = 0.00;
         _reallyIgnoresEvents = YES;
-        _delayTimer = nil;
-        _fadeTimer  = nil;
+        _delayTimer          = nil;
+        _effectTimer         = nil;
 
 //        if ( _backgroundType == ITTransientStatusWindowRounded ) {
 //            _contentSubView = contentView;
@@ -117,18 +124,6 @@ static ITTransientStatusWindow *staticWindow = nil;
 #pragma mark -
 #pragma mark INSTANCE METHODS
 /*************************************************************************/
-
-- (void)setRotation:(float)angle
-{
-    CGAffineTransform transform = CGAffineTransformMakeRotation(angle);
-    transform.tx = -32.0;
-    transform.ty = [self frame].size.height + 32.0;
-    CGSSetWindowTransform([NSApp contextID],
-                          (CGSWindowID)[self windowNumber],
-                          CGAffineTransformTranslate(transform,
-                                                     (([self frame].origin.x - 32.0) * -1),
-                                                     (([[self screen] frame].size.height - ([self frame].origin.y) + 32.0) * -1) ));
-}
 
 - (BOOL)ignoresMouseEvents
 {
@@ -157,6 +152,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 
     if ( _entryEffect == ITTransientStatusWindowEffectNone ) {
         [super orderFront:sender];
+        _visibilityState = ITTransientStatusWindowVisibleState;
     } else {
         [self performEffect];
     }
@@ -170,6 +166,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 
     if ( _entryEffect == ITTransientStatusWindowEffectNone ) {
         [super makeKeyAndOrderFront:sender];
+        _visibilityState = ITTransientStatusWindowVisibleState;
     } else {
         [self performEffect];
         [self makeKeyWindow];
@@ -180,6 +177,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 {
     if ( _entryEffect == ITTransientStatusWindowEffectNone ) {
         [super orderOut:sender];
+        _visibilityState = ITTransientStatusWindowHiddenState;
     } else {
         [self performEffect];
     }
@@ -321,50 +319,116 @@ static ITTransientStatusWindow *staticWindow = nil;
 - (void)performEffect
 {
     if ( _visibilityState == ITTransientStatusWindowHiddenState ) {
-        if ( _entryEffect == ITTransientStatusWindowEffectDissolve ) {
-            [self dissolveEffect:YES];
-        } else if ( _entryEffect == ITTransientStatusWindowEffectSlideVertically ) {
-            [self slideVerticalEffect:YES];
-        } else if ( _entryEffect == ITTransientStatusWindowEffectSlideHorizontally ) {
-            [self slideHorizontalEffect:YES];
-        }
+        _visibilityState = ITTransientStatusWindowEnteringState;
     } else if ( _visibilityState == ITTransientStatusWindowVisibleState ) {
-        if ( _exitEffect == ITTransientStatusWindowEffectDissolve ) {
-            [self dissolveEffect:NO];
-        } else if ( _exitEffect == ITTransientStatusWindowEffectSlideVertically ) {
-            [self slideVerticalEffect:NO];
-        } else if ( _exitEffect == ITTransientStatusWindowEffectSlideHorizontally ) {
-            [self slideHorizontalEffect:NO];
+        _visibilityState = ITTransientStatusWindowExitingState;
+    } else {
+        return;
+    }
+        
+    if ( _entryEffect == ITTransientStatusWindowEffectDissolve ) {
+        [self dissolveEffect];
+    } else if ( _entryEffect == ITTransientStatusWindowEffectSlideVertically ) {
+        [self slideVerticalEffect];
+    } else if ( _entryEffect == ITTransientStatusWindowEffectSlideHorizontally ) {
+        [self slideHorizontalEffect];
+    } else if ( _entryEffect == ITTransientStatusWindowEffectPivot ) {
+        [self pivotEffect];
+    }
+}
+
+- (void)dissolveEffect
+{
+    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
+        [super orderFront:self];
+        _visibilityState = ITTransientStatusWindowVisibleState;
+    } else {
+        [super orderOut:self];
+        _visibilityState = ITTransientStatusWindowHiddenState;
+    }
+}
+
+- (void)slideVerticalEffect
+{
+    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
+        [super orderFront:self];
+        _visibilityState = ITTransientStatusWindowVisibleState;
+    } else {
+        [super orderOut:self];
+        _visibilityState = ITTransientStatusWindowHiddenState;
+    }
+}
+
+- (void)slideHorizontalEffect
+{
+    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
+        [super orderFront:self];
+        _visibilityState = ITTransientStatusWindowVisibleState;
+    } else {
+        [super orderOut:self];
+        _visibilityState = ITTransientStatusWindowHiddenState;
+    }
+}
+
+- (void)pivotEffect
+{
+    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
+        [self setPivot:315.0];
+        _effectProgress = 0.0;
+        [self setAlphaValue:0.0];
+        [super orderFront:self];
+        _effectTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0 / EFFECT_FPS)
+                                                        target:self
+                                                      selector:@selector(pivotStep)
+                                                      userInfo:nil
+                                                       repeats:YES];
+    } else {
+        [super orderOut:self];
+        _visibilityState = ITTransientStatusWindowHiddenState;
+    }
+}
+
+- (void)pivotStep
+{
+    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
+        float interPivot = 0.0;
+        _effectProgress += (1.0 / (EFFECT_FPS * _effectTime));
+        _effectProgress = (_effectProgress < 1.0 ? _effectProgress : 1.0);
+        interPivot = (( sin((_effectProgress * pi) - (pi / 2)) + 1 ) / 2);
+        [self setPivot:((interPivot * 45) + 315)];
+        [self setAlphaValue:interPivot];
+        if ( _effectProgress >= 1.0 ) {
+            [self pivotFinish];
         }
-    }
-}
-
-- (void)dissolveEffect:(BOOL)entering
-{
-    if ( entering ) {
-        [super orderFront:self];
     } else {
-        [super orderOut:self];
+        //backwards
     }
 }
 
-- (void)slideVerticalEffect:(BOOL)entering
+- (void)pivotFinish
 {
-    if ( entering ) {
-        [super orderFront:self];
+    if ( _visibilityState == ITTransientStatusWindowEnteringState ) {
+        [_effectTimer invalidate];
+        _effectTimer = nil;
+        _effectProgress = 0.0;
+        _visibilityState = ITTransientStatusWindowVisibleState;
     } else {
-        [super orderOut:self];
+        //backwards
     }
 }
 
-- (void)slideHorizontalEffect:(BOOL)entering
+
+- (void)setPivot:(float)angle
 {
-    if ( entering ) {
-        [super orderFront:self];
-    } else {
-        [super orderOut:self];
-    }
+    float degAngle = (angle * (pi / 180));
+    CGAffineTransform transform = CGAffineTransformMakeRotation(degAngle);
+    transform.tx = -32.0;
+    transform.ty = [self frame].size.height + 32.0;
+    CGSSetWindowTransform([NSApp contextID],
+                          (CGSWindowID)[self windowNumber],
+                          CGAffineTransformTranslate(transform,
+                                                     (([self frame].origin.x - 32.0) * -1),
+                                                     (([[self screen] frame].size.height - ([self frame].origin.y) + 32.0) * -1) ));
 }
-
 
 @end

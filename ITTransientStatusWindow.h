@@ -19,7 +19,7 @@
 
 
 #define DEFAULT_EXIT_DELAY  3.0
-#define DEFAULT_EFFECT_TIME 0.33
+#define DEFAULT_EFFECT_TIME 1.0
 
 
 @class ITTextField;
@@ -75,13 +75,14 @@ typedef enum {                                      // Note: Entry effects descr
     ITTransientStatusWindowEffect          _entryEffect;
     ITTransientStatusWindowEffect          _exitEffect;
     float                                  _effectTime;
+    double                                 _effectProgress;
     ITTransientStatusWindowPosition        _verticalPosition;
     ITTransientStatusWindowPosition        _horizontalPosition;
 
     BOOL _reallyIgnoresEvents;
     
     NSTimer *_delayTimer;
-    NSTimer *_fadeTimer;
+    NSTimer *_effectTimer;
 
 //  NSView *_contentSubView;		
 }
@@ -110,8 +111,6 @@ typedef enum {                                      // Note: Entry effects descr
 
 - (ITTransientStatusWindowEffect)exitEffect;
 - (void)setExitEffect:(ITTransientStatusWindowEffect)newEffect;
-
-- (void)setRotation:(float)angle;
 
 
 @end
