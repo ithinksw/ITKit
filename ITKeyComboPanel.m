@@ -43,15 +43,12 @@ static id _sharedKeyComboPanel = nil;
 {
 	[[NSNotificationCenter defaultCenter] removeObserver: self];
 	[mKeyName release];
-	[mTitleFormat release];
 
 	[super dealloc];
 }
 
 - (void)windowDidLoad
 {
-	mTitleFormat = [[mTitleField stringValue] retain];
-
 	[[NSNotificationCenter defaultCenter]
 		addObserver: self
 		selector: @selector( noteKeyBroadcast: )
@@ -65,7 +62,7 @@ static id _sharedKeyComboPanel = nil;
 		[mComboField setStringValue: [mKeyCombo description]];
 
 	if( mTitleField )
-		[mTitleField setStringValue: [NSString stringWithFormat: mTitleFormat, mKeyName]];
+		[mTitleField setStringValue:mKeyName];
 }
 
 - (int)runModal

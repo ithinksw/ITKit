@@ -26,7 +26,6 @@
 	IBOutlet NSTextField*		mComboField;
 	IBOutlet ITKeyBroadcaster*	mKeyBcaster;
 
-	NSString*				mTitleFormat;
 	NSString*				mKeyName;
 	ITKeyCombo*				mKeyCombo;
 }
