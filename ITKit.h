@@ -13,6 +13,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import <ITKit/ITHotKey.h>
+#import <ITKit/ITHotKeyCenter.h>
+#import <ITKit/ITKeyBroadcaster.h>
+#import <ITKit/ITKeyCombo.h>
+#import <ITKit/ITKeyComboPanel.h>
 #import <ITKit/ITStatusItem.h>
 #import <ITKit/ITTableView.h>
 #import <ITKit/ITTabView.h>

@@ -1,4 +1,4 @@
-POSITIONS:
+þÿPOSITIONS:
 
 +-------------------+
 | A       B       C |
@@ -31,5 +31,4 @@ Pos. | Possible Effects      + = Maybe (Future)
   G  | 0   1   2   3   4
   H  | 0   1   2   -   +
   I  | 0   1   2   3   4
-
 

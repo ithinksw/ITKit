@@ -3,7 +3,7 @@
 //  ITKitTester
 //
 //  Created by Matt L. Judy on Sat Dec 07 2002.
-//  Copyright (c) 2002 NibFile.com. All rights reserved.
+//  Copyright (c) 2002 iThink Software. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
