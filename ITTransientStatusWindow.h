@@ -18,11 +18,12 @@
 #import <Cocoa/Cocoa.h>
 
 
+#define DEFAULT_EXIT_DELAY  3.0
+#define DEFAULT_EFFECT_TIME 0.33
+
+
 @class ITTextField;
 @class ITGrayRoundedView;
-
-
-#define DEFAULT_EXIT_DELAY 3.0
 
 
 typedef enum {
@@ -61,19 +62,23 @@ typedef enum {                                     // Note: Entry effects descri
     ITTransientStatusWindowEffectDissolve,         // Fades in.
     ITTransientStatusWindowEffectSlideVertically,  // Slides vertically onto the screen from the nearest edge
     ITTransientStatusWindowEffectSlideHorizontally // Slides horizontally onto the screen from the nearest edge
+    ITTransientStatusWindowEffectPivot             // Rotate into place from perpendicular edge
 } ITTransientStatusWindowEffect;
 
 
 @interface ITTransientStatusWindow : NSWindow {
 
-    ITTransientStatusWindowVisibilityState  _visibilityState;
-    ITTransientStatusWindowExitMode         _exitMode;
-    float                                   _exitDelay;
-    ITTransientStatusWindowBackgroundType   _backgroundType;
-    ITTransientStatusWindowEffect			_entryEffect;
-    ITTransientStatusWindowEffect           _exitEffect;
-    ITTransientStatusWindowPosition			_verticalPosition;
-    ITTransientStatusWindowPosition			_horizontalPosition;
+    ITTransientStatusWindowVisibilityState _visibilityState;
+    ITTransientStatusWindowExitMode        _exitMode;
+    float                                  _exitDelay;
+    ITTransientStatusWindowBackgroundType  _backgroundType;
+    ITTransientStatusWindowEffect          _entryEffect;
+    ITTransientStatusWindowEffect          _exitEffect;
+    float                                  _effectTime;
+    ITTransientStatusWindowPosition        _verticalPosition;
+    ITTransientStatusWindowPosition        _horizontalPosition;
+
+    BOOL _reallyIgnoresEvents;
     
     NSTimer *_delayTimer;
     NSTimer *_fadeTimer;
@@ -105,5 +110,8 @@ typedef enum {                                     // Note: Entry effects descri
 
 - (ITTransientStatusWindowEffect)exitEffect;
 - (void)setExitEffect:(ITTransientStatusWindowEffect)newEffect;
+
+- (void)setRotation:(float)angle;
+
 
 @end

@@ -71,10 +71,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 {
     NSRect contentRect;
     
-    CGSValueObj   	 key;
-    CGSValueObj   	 ignore;
-
-    // If no Content View was provided, use a generic NSImageView with the app icon.
+    // If no Content View was provided, use a generic NSView with the app icon.
     if ( ! (contentView) ) {
         contentView = [[[NSView alloc] initWithFrame:
             NSMakeRect(100.0, 100.0, 200.0, 200.0)] autorelease];
@@ -88,15 +85,16 @@ static ITTransientStatusWindow *staticWindow = nil;
                                      backing:NSBackingStoreBuffered
                                        defer:NO] ) ) {
                                     
-        _visibilityState    = ITTransientStatusWindowHiddenState;
-        _exitMode           = exitMode;
-        _exitDelay          = DEFAULT_EXIT_DELAY;
-        _backgroundType     = backgroundType;
-        _verticalPosition   = ITTransientStatusWindowPositionBottom;
-        _horizontalPosition = ITTransientStatusWindowPositionLeft;
-        _entryEffect        = ITTransientStatusWindowEffectNone;
-        _exitEffect         = ITTransientStatusWindowEffectDissolve;
-        
+        _visibilityState     = ITTransientStatusWindowHiddenState;
+        _exitMode            = exitMode;
+        _exitDelay           = DEFAULT_EXIT_DELAY;
+        _backgroundType      = backgroundType;
+        _verticalPosition    = ITTransientStatusWindowPositionBottom;
+        _horizontalPosition  = ITTransientStatusWindowPositionLeft;
+        _entryEffect         = ITTransientStatusWindowEffectNone;
+        _exitEffect          = ITTransientStatusWindowEffectDissolve;
+        _effectTime          = DEFAULT_EFFECT_TIME;
+        _reallyIgnoresEvents = YES;
         _delayTimer = nil;
         _fadeTimer  = nil;
 
@@ -106,16 +104,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 //            [self setContentView:contentView];
 //        }
 
-//      [self setIgnoresMouseEvents:YES];
-
-        key = CGSCreateCString("IgnoreForEvents");
-        ignore = CGSCreateBoolean(kCGSTrue);
-        
-        CGSSetWindowProperty([NSApp contextID], (CGSWindowID)[self windowNumber], key, ignore);
-
-        CGSReleaseObj(key);
-        CGSReleaseObj(ignore);
-        
+        [self setIgnoresMouseEvents:YES];
         [self setLevel:NSScreenSaverWindowLevel];
         [self setContentView:contentView];
         [self rebuildWindow];
@@ -128,6 +117,38 @@ static ITTransientStatusWindow *staticWindow = nil;
 #pragma mark -
 #pragma mark INSTANCE METHODS
 /*************************************************************************/
+
+- (void)setRotation:(float)angle
+{
+    CGAffineTransform transform = CGAffineTransformMakeRotation(angle);
+    transform.tx = -32.0;
+    transform.ty = [self frame].size.height + 32.0;
+    CGSSetWindowTransform([NSApp contextID],
+                          (CGSWindowID)[self windowNumber],
+                          CGAffineTransformTranslate(transform,
+                                                     (([self frame].origin.x - 32.0) * -1),
+                                                     (([[self screen] frame].size.height - ([self frame].origin.y) + 32.0) * -1) ));
+    NSLog(@"%f %f", ([self frame].origin.x * -1), ([self frame].origin.y * -1));
+}
+
+- (BOOL)ignoresMouseEvents
+{
+    return _reallyIgnoresEvents;
+}
+
+- (void)setIgnoresMouseEvents:(BOOL)flag
+{
+    CGSValueObj   	 key;
+    CGSValueObj   	 ignore;
+
+    key = CGSCreateCString("IgnoreForEvents");
+    ignore = CGSCreateBoolean( (flag ? kCGSTrue : kCGSFalse) );
+    CGSSetWindowProperty([NSApp contextID], (CGSWindowID)[self windowNumber], key, ignore);
+    CGSReleaseObj(key);
+    CGSReleaseObj(ignore);
+
+    _reallyIgnoresEvents = flag;
+}
 
 - (void)orderFront:(id)sender
 {
@@ -163,6 +184,11 @@ static ITTransientStatusWindow *staticWindow = nil;
     } else {
         [self performEffect];
     }
+}
+
+- (NSTimeInterval)animationResizeTime:(NSRect)newFrame
+{
+    return _effectTime;
 }
 
 /*

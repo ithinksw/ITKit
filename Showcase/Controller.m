@@ -186,6 +186,8 @@
                            textWidth,
                            textHeight);
     textField = [[[ITTextField alloc] initWithFrame:textRect] autorelease];
+    [textField setEditable:NO];
+    [textField setSelectable:NO];
     [textField setBordered:NO];
     [textField setDrawsBackground:NO];
     [textField setFont:[NSFont fontWithName:@"Lucida Grande Bold" size:18]];
@@ -196,39 +198,6 @@
 
     [[statusWindow contentView] setNeedsDisplay:YES];
 }
-
-/*
-- (IBAction)foo:(id)sender
-{
-
-    maxLineHeight = ( ( maxLineHeight > [cdImage size].height ) ? maxLineHeight : [cdImage size].height );
-    
-    totalWidth  = ( ITTSWPADDING + [cdImage size].width + ITTSWSPACING + maxLineWidth + ITTSWPADDING );
-    totalHeight = ( ITTSWPADDING + maxLineHeight + ITTSWPADDING );
-
-    totalWidth  = ( ( totalWidth  > ITTSWMINW ) ? totalWidth  : ITTSWMINW );
-
-
-    [statusWindow setFrame:NSMakeRect(72.0, 72.0, totalWidth, totalHeight)
-                   display:YES];
-
-    textField = [[[ITTextField alloc] initWithFrame:
-        NSMakeRect((24.0 + [cdImage size].width + 32.0), 24.0, maxLineWidth, maxLineHeight)] autorelease];
-    [[statusWindow contentView] addSubview:textField];
-    [textField setBordered:NO];
-    [textField setDrawsBackground:NO];
-    [textField setFont:[NSFont fontWithName:@"Lucida Grande Bold" size:18]];
-    [textField setTextColor:[NSColor whiteColor]];
-    [textField setCastsShadow:YES];
-    [textField setStringValue:text];
-
-
-    [[statusWindow contentView] lockFocus];
-    [cdImage compositeToPoint:NSMakePoint(ITTSWPADDING, ( ITTSWPADDING + ((maxLineHeight - [cdImage size].height) / ITTSWPADDING)) )
-                    operation:NSCompositeSourceOver];
-    [[statusWindow contentView] unlockFocus];
-}
-*/
 
 - (IBAction)showStatusWindow:(id)sender
 {
@@ -251,6 +220,12 @@
 {
     [statusWindow orderOut:self];
 }
+
+- (IBAction)setRotation:(id)sender
+{
+    [statusWindow setRotation:([sender floatValue] * (pi / 180))];
+}
+
 
 /*************************************************************************/
 #pragma mark -

@@ -41,5 +41,6 @@
 - (IBAction)buildStatusWindow:(id)sender;
 - (IBAction)showStatusWindow:(id)sender;
 - (IBAction)hideStatusWindow:(id)sender;
+- (IBAction)setRotation:(id)sender;
 
 @end

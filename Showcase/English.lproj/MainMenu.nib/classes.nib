@@ -4,6 +4,7 @@
             ACTIONS = {
                 buildStatusWindow = id; 
                 hideStatusWindow = id; 
+                setRotation = id; 
                 showStatusWindow = id; 
                 toggleCastsShadow = id; 
                 toggleImage = id; 
