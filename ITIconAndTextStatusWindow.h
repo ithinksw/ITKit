@@ -12,7 +12,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "ITTransientStatusWindow.h"
+#import <ITKit/ITTransientStatusWindow.h>
 
 @interface ITIconAndTextStatusWindow : ITTransientStatusWindow {
 	NSImage *_image;

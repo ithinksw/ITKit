@@ -12,7 +12,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "ITWindowPositioning.h"
+#import <ITKit/ITWindowPositioning.h>
 
 @class ITTransientStatusWindow;
 

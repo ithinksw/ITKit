@@ -13,8 +13,8 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "ITWindowPositioning.h"
-#import "ITWindowEffect.h"
+#import <ITKit/ITWindowPositioning.h>
+#import <ITKit/ITWindowEffect.h>
 
 #define DEFAULT_EXIT_DELAY 3.0
 
