@@ -299,9 +299,6 @@
 		2A30D8A1056B3BE30087AE54 = {
 			children = (
 				2A30D8A2056B3BE30087AE54,
-				2A30D8A6056B3BEE0087AE54,
-				2A30D8A9056B3BF60087AE54,
-				2A30D8B5056B3C1B0087AE54,
 			);
 			isa = PBXVariantGroup;
 			name = ITKeyComboPanel.nib;
@@ -323,36 +320,9 @@
 			settings = {
 			};
 		};
-		2A30D8A6056B3BEE0087AE54 = {
-			isa = PBXFileReference;
-			lastKnownFileType = wrapper.nib;
-			name = French;
-			path = French.lproj/ITKeyComboPanel.nib;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		2A30D8A9056B3BF60087AE54 = {
-			isa = PBXFileReference;
-			lastKnownFileType = wrapper.nib;
-			name = German;
-			path = German.lproj/ITKeyComboPanel.nib;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		2A30D8B5056B3C1B0087AE54 = {
-			isa = PBXFileReference;
-			lastKnownFileType = wrapper.nib;
-			name = Japanese;
-			path = Japanese.lproj/ITKeyComboPanel.nib;
-			refType = 4;
-			sourceTree = "<group>";
-		};
 		2A30D8BC056B3C5D0087AE54 = {
 			children = (
 				2A30D8BD056B3C5D0087AE54,
-				2A30D8C1056B3C670087AE54,
-				2A30D8C4056B3C750087AE54,
-				2A30D8C7056B3C830087AE54,
 			);
 			isa = PBXVariantGroup;
 			name = Localizable.strings;
@@ -374,30 +344,6 @@
 			isa = PBXBuildFile;
 			settings = {
 			};
-		};
-		2A30D8C1056B3C670087AE54 = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.strings;
-			name = French;
-			path = French.lproj/Localizable.strings;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		2A30D8C4056B3C750087AE54 = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.strings;
-			name = German;
-			path = German.lproj/Localizable.strings;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		2A30D8C7056B3C830087AE54 = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.strings;
-			name = Japanese;
-			path = Japanese.lproj/Localizable.strings;
-			refType = 4;
-			sourceTree = "<group>";
 		};
 		2AAF7B22056C3536009B9225 = {
 			children = (
