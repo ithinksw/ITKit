@@ -178,20 +178,22 @@
         if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionBottom ) {
             degAngle = (angle * (pi / 180));
         } else if ( [(ITTransientStatusWindow *)_window verticalPosition] == ITWindowPositionTop ) {
-            degAngle = (-angle * (pi / 180));
+            degAngle = (angle * (pi / 180));
         }
     }
     
     transform = CGAffineTransformMakeRotation(degAngle);
     
  // Set pivot rotation point
-    transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x );
+    //transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x );
     transform.ty = ( [_window frame].size.height + 32.0 + [[_window screen] visibleFrame].origin.y );
     
     if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionLeft ) {
         appearPoint.x = -( 32.0 + [[_window screen] visibleFrame].origin.x );
+        transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x );
     } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionRight ) {
-        appearPoint.x = -(([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) - 32.0 - [_window frame].size.width);
+        transform.tx = -( 32.0 + [[_window screen] visibleFrame].origin.x ) + [_window frame].size.width;
+        appearPoint.x = -(([[_window screen] visibleFrame].size.width + [[_window screen] visibleFrame].origin.x) - 32.0);
     } else if ( [(ITTransientStatusWindow *)_window horizontalPosition] == ITWindowPositionCenter ) {
         appearPoint.x = ( [_window frame].size.width - [[_window screen] visibleFrame].size.width ) / 2;
     }
