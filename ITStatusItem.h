@@ -17,7 +17,7 @@
  *
  *  1. Makes the status item smarter about highlighting.
  *  2. Allows you to set an inverted (alternate) image.
- *  3. Eliminates the ugly shadow behind a normal status item.
+ *  3. Eliminates the pre-Jaguar shadow behind a normal status item.
  *
  *  Note:  In order to have the shadow not overlap the bottom of the
  *  menubar, Apple moves the image up one pixel.  Since that shadow is
