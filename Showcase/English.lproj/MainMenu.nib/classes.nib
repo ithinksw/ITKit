@@ -1,0 +1,44 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                buildStatusWindow = id; 
+                showStatusWindow = id; 
+                toggleCastsShadow = id; 
+                toggleImage = id; 
+                toggleInvertedImage = id; 
+                toggleStatusItem = id; 
+                toggleTitle = id; 
+            }; 
+            CLASS = Controller; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                showImageCheckBox = NSButton; 
+                showStatusItemCheckBox = NSButton; 
+                showTitleCheckBox = NSButton; 
+                statusItemMenu = NSMenu; 
+                swBackgroundTypePopup = NSPopUpButton; 
+                swDefinedPositionPopup = NSPopUpButton; 
+                swSampleTextView = NSTextView; 
+                swVanishDelay = NSTextField; 
+                swVanishModePopup = NSPopUpButton; 
+                swVanishOnClick = NSMatrix; 
+                tabView = ITTabView; 
+                testTextField = ITTextField; 
+                useInvertedCheckBox = NSButton; 
+                window = NSWindow; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {start = id; stop = id; }; 
+            CLASS = ITChasingArrowsView; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSView; 
+        }, 
+        {CLASS = ITTabView; LANGUAGE = ObjC; SUPERCLASS = NSTabView; }, 
+        {CLASS = ITTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }
+    ); 
+    IBVersion = 1; 
+}
