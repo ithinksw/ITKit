@@ -192,6 +192,8 @@
         translation.x = ( -([_window frame].origin.x) + distance ) ;
     } else if ( [_window horizontalPosition] == ITWindowPositionRight ) {
         translation.x = ( -([_window frame].origin.x) - distance ) ;
+    } else {
+        translation.x = ( -([_window frame].origin.x) ) ;
     }
     
     translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - [_window frame].size.height );
@@ -202,4 +204,6 @@
                           (CGSWindowID)[_window windowNumber],
                           transform);
 }
+
+
 @end

@@ -201,53 +201,70 @@
 
 - (void)setPivot:(float)angle
 {
-    float degAngle;
-    CGAffineTransform transform;
-    NSRect windowFrame    = [_window frame];
-    NSRect screenFrame    = [[_window screen] frame];
     int hPos = [_window horizontalPosition];
     int vPos = [_window verticalPosition];
-    float  translateX;
-    float  translateY;
+
+    if ( (hPos == ITWindowPositionCenter) || (vPos == ITWindowPositionMiddle) ) {
     
-    if ( vPos == ITWindowPositionBottom ) {
-        if ( hPos == ITWindowPositionLeft ) {
-            angle = angle;
-        } else if ( hPos == ITWindowPositionRight ) {
-            angle = ( 45 - -(315 - angle) );
+        CGAffineTransform transform;
+        NSPoint translation;
+        
+        translation.x = ( -([_window frame].origin.x) ) ;
+        translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - [_window frame].size.height );
+
+        transform = CGAffineTransformMakeTranslation( translation.x, translation.y );
+        
+        CGSSetWindowTransform([NSApp contextID],
+                              (CGSWindowID)[_window windowNumber],
+                              transform);
+    } else {
+        
+        float  degAngle;
+        NSRect windowFrame = [_window frame];
+        NSRect screenFrame = [[_window screen] frame];
+        float  translateX;
+        float  translateY;
+        CGAffineTransform transform;
+        
+        if ( vPos == ITWindowPositionBottom ) {
+            if ( hPos == ITWindowPositionLeft ) {
+                angle = angle;
+            } else if ( hPos == ITWindowPositionRight ) {
+                angle = ( 45 - -(315 - angle) );
+            }
+        } else if ( vPos == ITWindowPositionTop ) {
+            if ( hPos == ITWindowPositionLeft ) {
+                angle = ( 45 - -(315 - angle) );
+            } else if ( hPos == ITWindowPositionRight ) {
+                angle = angle;
+            }
         }
-    } else if ( vPos == ITWindowPositionTop ) {
-        if ( hPos == ITWindowPositionLeft ) {
-            angle = ( 45 - -(315 - angle) );
-        } else if ( hPos == ITWindowPositionRight ) {
-            angle = angle;
+        
+        degAngle  = (angle * (pi / 180));
+        transform = CGAffineTransformMakeRotation(degAngle);
+        
+        if ( vPos == ITWindowPositionBottom ) {
+            transform.ty = ( windowFrame.size.height + windowFrame.origin.y);
+            translateY   = -(screenFrame.size.height);
+        } else if ( vPos == ITWindowPositionTop ) {
+            transform.ty = -( screenFrame.size.height - windowFrame.origin.y - windowFrame.size.height );
+            translateY   = 0;
         }
+        
+        if ( hPos == ITWindowPositionLeft ) {
+            transform.tx = -( windowFrame.origin.x );
+            translateX   = 0;
+        } else if ( hPos == ITWindowPositionRight ) {
+            transform.tx = ( screenFrame.size.width - windowFrame.origin.x );
+            translateX   = -(screenFrame.size.width);
+        }
+        
+        CGSSetWindowTransform([NSApp contextID],
+                              (CGSWindowID)[_window windowNumber],
+                              CGAffineTransformTranslate( transform,
+                                                          translateX,
+                                                          translateY ) );
     }
-    
-    degAngle  = (angle * (pi / 180));
-    transform = CGAffineTransformMakeRotation(degAngle);
-    
-    if ( vPos == ITWindowPositionBottom ) {
-        transform.ty = ( windowFrame.size.height + windowFrame.origin.y);
-        translateY   = -(screenFrame.size.height);
-    } else if ( vPos == ITWindowPositionTop ) {
-        transform.ty = -( screenFrame.size.height - windowFrame.origin.y - windowFrame.size.height );
-        translateY   = 0;
-    }
-    
-    if ( hPos == ITWindowPositionLeft ) {
-        transform.tx = -( windowFrame.origin.x );
-        translateX   = 0;
-    } else if ( hPos == ITWindowPositionRight ) {
-        transform.tx = ( screenFrame.size.width - windowFrame.origin.x );
-        translateX   = -(screenFrame.size.width);
-    }
-    
-    CGSSetWindowTransform([NSApp contextID],
-                          (CGSWindowID)[_window windowNumber],
-                          CGAffineTransformTranslate( transform,
-                                                      translateX,
-                                                      translateY ) );
 }
 
 

@@ -194,6 +194,8 @@
         translation.y = ( (([_window frame].size.height * 2) - ([[_window screen] frame].size.height - [_window frame].origin.y)) - distance);
     } else if ( [_window verticalPosition] == ITWindowPositionBottom ) {
         translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - distance );
+    } else {
+        translation.y = -( [[_window screen] frame].size.height - [_window frame].origin.y - [_window frame].size.height );
     }
     
     transform = CGAffineTransformMakeTranslation( translation.x, translation.y );

@@ -126,7 +126,6 @@ static ITTransientStatusWindow *staticWindow = nil;
     _reallyIgnoresEvents = flag;
 }
 
-
 /*
 
 - (id)contentView
