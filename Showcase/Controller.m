@@ -27,6 +27,12 @@
 - (void)awakeFromNib
 {
     [self createStatusItem];
+    [button setBezelStyle:1001];
+    [button setFont:[NSFont fontWithName:@"Lucida Grande Bold" size:14]];
+    [button setTitle:@"Launch Manually"];
+    [button setButtonType:NSMomentaryLight];
+    [button sizeToFit];
+    [button setFrameSize:NSMakeSize([button frame].size.width + 8, 24)];
     [testTextField setCastsShadow:YES];
     [tabView setAllowsDragging:YES];
     [bevelView setBevelDepth:10];
@@ -331,6 +337,13 @@
 {
     [bevelView setBevelDepth:[sender intValue]];
 }
+
+
+/*************************************************************************/
+#pragma mark -
+#pragma mark ITButton SUPPORT
+/*************************************************************************/
+
 
 /*************************************************************************/
 #pragma mark -

@@ -14,9 +14,7 @@
 
 - (id)init
 {
-	self = [super init];
-	
-	if( self )
+	if ( (self = [super init]) )
 	{
 		[self setKeyCombo: [ITKeyCombo clearKeyCombo]];
 	}
@@ -34,7 +32,9 @@
 
 - (NSString*)description
 {
-	return [NSString stringWithFormat: @"<%@: %@>", NSStringFromClass( [self class] ), [self keyCombo]];
+	return [NSString stringWithFormat: @"<%@: %@>",
+        NSStringFromClass( [self class] ),
+        [self keyCombo]];
 }
 
 #pragma mark -

@@ -13,6 +13,9 @@
     IBOutlet NSButton *useInvertedCheckBox;
     IBOutlet NSButton *showTitleCheckBox;
     
+    // ITButton Support
+    IBOutlet ITButton *button;
+    
     // ITTabView Support
     IBOutlet ITTabView *tabView;
 

@@ -18,6 +18,8 @@
 #import <ITKit/ITKeyBroadcaster.h>
 #import <ITKit/ITKeyCombo.h>
 #import <ITKit/ITKeyComboPanel.h>
+#import <ITKit/ITButton.h>
+#import <ITKit/ITButtonCell.h>
 #import <ITKit/ITStatusItem.h>
 #import <ITKit/ITTableView.h>
 #import <ITKit/ITTabView.h>

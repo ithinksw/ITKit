@@ -15,9 +15,9 @@
 #pragma mark INITIALIZATION METHODS
 /*************************************************************************/
 
-- (id)init
+- (id)initTextCell:(NSString *)string;
 {
-    if ( ( self = [super init] ) ) {
+    if ( ( self = [super initTextCell:string] ) ) {
         castsShadow      = NO;
         shadowElevation  = 45.0;
         shadowAzimuth    = 90.0;
@@ -32,7 +32,7 @@
 
 - (id)initWithCoder:(NSCoder *)coder
 {
-    if ( ( self = [super initWithCoder:coder] ) ) {
+    if ( ( self = [super initWithCoder:coder] ) ) {        
         castsShadow      = NO;
         shadowElevation  = 45.0;
         shadowAzimuth    = 90.0;
@@ -51,13 +51,13 @@
 #pragma mark DRAWING METHODS
 /*************************************************************************/
 
-- (void)drawInteriorWithFrame:(NSRect)rect inView:(NSView *)controlView
+- (void)drawWithFrame:(NSRect)rect inView:(NSView *)controlView
 {
     CGSGenericObj        style = nil;
     CGShadowStyle        shadow;
 
     if ( castsShadow ) { 
-        // Create the shadow style to use for drawing the string
+//      Create the shadow style to use for drawing the string
         shadow.version    = 0;
         shadow.elevation  = shadowElevation;
         shadow.azimuth    = shadowAzimuth;
@@ -73,7 +73,7 @@
     }
     
     // Draw the string
-    [super drawInteriorWithFrame:rect inView:controlView];
+    [super drawWithFrame:rect inView:controlView];
     
 
     if ( castsShadow ) { 

@@ -18,15 +18,6 @@
 
 @interface ITTextField : NSTextField {
 
-    BOOL  castsShadow;
-    
-    float shadowElevation;
-    float shadowAzimuth;
-    float shadowAmbient;
-    float shadowHeight;
-    float shadowRadius;
-    float shadowSaturation;
-
 }
 
 - (BOOL)castsShadow;

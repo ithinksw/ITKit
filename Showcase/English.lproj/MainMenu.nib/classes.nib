@@ -21,6 +21,7 @@
             LANGUAGE = ObjC; 
             OUTLETS = {
                 bevelView = ITBevelView; 
+                button = ITButton; 
                 showImageCheckBox = NSButton; 
                 showStatusItemCheckBox = NSButton; 
                 showTitleCheckBox = NSButton; 
@@ -40,10 +41,13 @@
         }, 
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = ITBevelView; LANGUAGE = ObjC; SUPERCLASS = NSView; }, 
+        {CLASS = ITButton; LANGUAGE = ObjC; SUPERCLASS = NSButton; }, 
+        {CLASS = ITButtonCell; LANGUAGE = ObjC; SUPERCLASS = NSButtonCell; }, 
         {CLASS = ITLED; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
         {CLASS = ITLEDCell; LANGUAGE = ObjC; SUPERCLASS = NSActionCell; }, 
         {CLASS = ITTabView; LANGUAGE = ObjC; SUPERCLASS = NSTabView; }, 
-        {CLASS = ITTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }
+        {CLASS = ITTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }, 
+        {CLASS = ITTextFieldCell; LANGUAGE = ObjC; SUPERCLASS = NSTextFieldCell; }
     ); 
     IBVersion = 1; 
 }
