@@ -42,7 +42,7 @@
 
 + (unsigned int)listOrder
 {
-    return 600;
+    return 700;
 }
 
 
