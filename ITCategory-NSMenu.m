@@ -1,11 +1,3 @@
-//
-//  ITCategory-NSMenu.m
-//  ITKit
-//
-//  Created by Joseph Spiros on Sat Sep 27 2003.
-//  Copyright (c) 2003 __MyCompanyName__. All rights reserved.
-//
-
 #import "ITCategory-NSMenu.h"
 
 @interface NSMenu (HACKHACKHACKHACK)
@@ -53,6 +45,16 @@ extern MenuRef _NSGetCarbonMenu( NSMenu *menu);
     _NSGetMenuItemForCommandKeyEvent(self, NULL, &w00t, &m00f); 
     carbonMenu = _NSGetCarbonMenu(self);
     return carbonMenu;
+}
+
+- (void)removeAllItems {
+	int numOfItems = [self numberOfItems];
+	int i = numOfItems;
+	
+	while (i != 0) {
+		[self removeItemAtIndex:(i-1)];
+		i--;
+	}
 }
 
 @end

@@ -4,10 +4,9 @@
  *    Category which extends NSView
  *
  *  Original Author : Joseph Spiros <joseph.spiros@ithinksw.com>
- *   Responsibility : Matthew Judy <mjudy@ithinksw.com>
  *   Responsibility : Joseph Spiros <joseph.spiros@ithinksw.com>
  *
- *  Copyright (c) 2002 - 2003 iThink Software.
+ *  Copyright (c) 2002 - 2004 iThink Software.
  *  All Rights Reserved
  *
  */
@@ -19,5 +18,6 @@
 @interface NSView (ITCategory)
 
 - (void)removeAllSubviews;
+- (void)removeSubview:(NSView *)subview;
 
 @end
