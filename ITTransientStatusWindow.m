@@ -195,6 +195,8 @@ static ITTransientStatusWindow *staticWindow = nil;
     
     if ( _visibilityState == ITWindowVisibleState ) {
         [self startVanishTimer];
+    } else if ( (_visibilityState == ITWindowVanishingState) || (_visibilityState == ITWindowHiddenState) ) {
+        [self stopVanishTimer];
     }
 }
 
