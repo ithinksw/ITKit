@@ -9,6 +9,7 @@
 #import "ITSlideHorizontallyWindowEffect.h"
 #import "ITSlideVerticallyWindowEffect.h"
 #import "ITPivotWindowEffect.h"
+#import "ITZoomWindowEffect.h"
 #import "ITMultilineTextFieldCell.h"
 
 
@@ -40,9 +41,10 @@
     [bevelView setBevelDepth:10];
     statusWindow = [ITIconAndTextStatusWindow sharedWindow];
     [statusWindow setEntryEffect:[[ITCutWindowEffect alloc] initWithWindow:statusWindow]];
-    [statusWindow setExitEffect:[[ITDissolveWindowEffect alloc] initWithWindow:statusWindow]];
+    [statusWindow setExitEffect:[[ITCutWindowEffect alloc] initWithWindow:statusWindow]];
     [[statusWindow entryEffect] setEffectTime:[swEntrySpeedSlider floatValue]];
     [[statusWindow exitEffect]  setEffectTime:[swExitSpeedSlider floatValue]];
+    [self populateEffectPopups];
 //  [tabView setAllowsDragging:YES];
     [[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
     
@@ -152,6 +154,21 @@
 #pragma mark ITTransientStatusWindow SUPPORT
 /*************************************************************************/
 
+- (void)populateEffectPopups
+{
+    NSArray *effects = [ITWindowEffect effectClasses];
+    int i;
+    [entryEffectPopup removeAllItems];
+    [exitEffectPopup removeAllItems];
+    for (i = 0; i < [effects count]; i++) {
+        id anItem = [effects objectAtIndex:i];
+        [entryEffectPopup addItemWithTitle:[anItem effectName]];
+        [exitEffectPopup addItemWithTitle:[anItem effectName]];
+        [[entryEffectPopup lastItem] setRepresentedObject:anItem];
+        [[exitEffectPopup lastItem] setRepresentedObject:anItem];
+    }
+}
+
 - (IBAction)buildStatusWindow:(id)sender
 {
     NSImage     *image        = [NSImage imageNamed:SW_IMAGE];
@@ -194,39 +211,12 @@
     } else if ( [sender tag] == 3061 ) {
         [[statusWindow exitEffect]  setEffectTime:[sender floatValue]];
     } else if ( [sender tag] == 3070 ) {
-    
-        if ( [sender indexOfSelectedItem] == 0 ) {
-            [statusWindow setEntryEffect:[[[ITCutWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
-        } else if ( [sender indexOfSelectedItem] == 1 ) {
-            [statusWindow setEntryEffect:[[[ITDissolveWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
-        } else if ( [sender indexOfSelectedItem] == 2 ) {
-            [statusWindow setEntryEffect:[[[ITSlideVerticallyWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
-        } else if ( [sender indexOfSelectedItem] == 3 ) {
-            [statusWindow setEntryEffect:[[[ITSlideHorizontallyWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
-        } else if ( [sender indexOfSelectedItem] == 4 ) {
-            [statusWindow setEntryEffect:[[[ITPivotWindowEffect alloc] initWithWindow:statusWindow] autorelease]];
-        }
-
+        [statusWindow setEntryEffect:[[[[[sender selectedItem] representedObject] alloc] initWithWindow:statusWindow] autorelease]];
         [[statusWindow entryEffect] setEffectTime:[swEntrySpeedSlider floatValue]];
-        
     } else if ( [sender tag] == 3080 ) {
-
-        if ( [sender indexOfSelectedItem] == 0 ) {
-            [statusWindow setExitEffect:[[ITCutWindowEffect alloc] initWithWindow:statusWindow]];
-        } else if ( [sender indexOfSelectedItem] == 1 ) {
-            [statusWindow setExitEffect:[[ITDissolveWindowEffect alloc] initWithWindow:statusWindow]];
-        } else if ( [sender indexOfSelectedItem] == 2 ) {
-            [statusWindow setExitEffect:[[ITSlideVerticallyWindowEffect alloc] initWithWindow:statusWindow]];
-        } else if ( [sender indexOfSelectedItem] == 3 ) {
-            [statusWindow setExitEffect:[[ITSlideHorizontallyWindowEffect alloc] initWithWindow:statusWindow]];
-        } else if ( [sender indexOfSelectedItem] == 4 ) {
-            [statusWindow setExitEffect:[[ITPivotWindowEffect alloc] initWithWindow:statusWindow]];
-        }
-
+        [statusWindow setExitEffect:[[[[[sender selectedItem] representedObject] alloc] initWithWindow:statusWindow] autorelease]];
         [[statusWindow exitEffect] setEffectTime:[swExitSpeedSlider floatValue]];
-
     } else if ( [sender tag] == 3090 ) {
-    
         if ( [sender indexOfSelectedItem] == 0 ) {
             [(ITTSWBackgroundView *)[statusWindow contentView] setBackgroundMode:ITTSWBackgroundApple];
         } else if ( [sender indexOfSelectedItem] == 1 ) {
@@ -234,7 +224,6 @@
         } else if ( [sender indexOfSelectedItem] == 2 ) {
             [(ITTSWBackgroundView *)[statusWindow contentView] setBackgroundMode:ITTSWBackgroundColored];
         }
-        
     } else if ( [sender tag] == 3100 ) {
         [(ITTSWBackgroundView *)[statusWindow contentView] setBackgroundColor:[sender color]];
     }

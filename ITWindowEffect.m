@@ -12,6 +12,7 @@
         NSClassFromString(@"ITSlideHorizontallyWindowEffect"),
         NSClassFromString(@"ITSlideVerticallyWindowEffect"),
         NSClassFromString(@"ITPivotWindowEffect"),
+        NSClassFromString(@"ITZoomWindowEffect"),
         nil];
         
     return classes;

@@ -22,6 +22,8 @@
             OUTLETS = {
                 bevelView = ITBevelView; 
                 button = ITButton; 
+                entryEffectPopup = NSPopUpButton; 
+                exitEffectPopup = NSPopUpButton; 
                 showImageCheckBox = NSButton; 
                 showStatusItemCheckBox = NSButton; 
                 showTitleCheckBox = NSButton; 

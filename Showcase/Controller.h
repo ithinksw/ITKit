@@ -26,6 +26,8 @@
     IBOutlet ITTextField *testTextField;
 
     // ITTransientStatusWindow Support
+    IBOutlet NSPopUpButton      *entryEffectPopup;
+    IBOutlet NSPopUpButton      *exitEffectPopup;
     ITIconAndTextStatusWindow   *statusWindow;
     IBOutlet NSTextView         *swSampleTextView;
     IBOutlet NSPopUpButton      *swVanishModePopup;
@@ -50,6 +52,7 @@
 - (IBAction)toggleCastsShadow:(id)sender;
 
 // ITTransientStatusWindow Support
+- (void)populateEffectPopups;
 - (IBAction)buildStatusWindow:(id)sender;
 - (IBAction)toggleStatusWindow:(id)sender;
 - (IBAction)changeWindowSetting:(id)sender;
