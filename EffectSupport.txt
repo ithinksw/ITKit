@@ -1,4 +1,4 @@
-þÿPOSITIONS:
+POSITIONS:
 
 +-------------------+
 | A       B       C |
