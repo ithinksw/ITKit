@@ -50,7 +50,18 @@
 {
     if ( _subStyle == ITGrayRoundedBezelStyle ) {
         [self drawGrayRoundedBezelWithFrame:rect inView:controlView];
-        [super drawInteriorWithFrame:rect inView:controlView];
+        if ( [self attributedTitle] ) {
+            NSPoint stringOrigin;
+            NSSize stringSize;
+            stringSize = [[self attributedTitle] size];
+            stringOrigin.x = rect.origin.x + (rect.size.width - stringSize.width)/2;
+            stringOrigin.y = (rect.origin.y + (rect.size.height - stringSize.height)/2) - 2;
+            [controlView lockFocus];
+            [[self attributedTitle] drawAtPoint:stringOrigin];
+            [controlView unlockFocus];
+        } else {
+            [super drawInteriorWithFrame:rect inView:controlView];
+        }
         [[controlView superview] setNeedsDisplay:YES];
     } else {
         [super drawWithFrame:rect inView:controlView];
