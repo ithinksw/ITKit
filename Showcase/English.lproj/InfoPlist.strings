@@ -1,6 +1,6 @@
 /* Localized versions of Info.plist keys */
 
-CFBundleName = "ITKitTester";
-CFBundleShortVersionString = "ITKitTester version 0.1";
-CFBundleGetInfoString = "ITKitTester version 0.1, Copyright 2003 iThink Software.";
-NSHumanReadableCopyright = "Copyright 2003 iThink Software.";
+CFBundleName = "ITKitShowcase";
+CFBundleShortVersionString = "1.0";
+CFBundleGetInfoString = "ITKitShowcase 1.0, Copyright (c) 2005 iThink Software.";
+NSHumanReadableCopyright = "Copyright (c) 2005 iThink Software.";

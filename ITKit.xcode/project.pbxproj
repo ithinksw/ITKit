@@ -219,9 +219,9 @@
 		2A30D88D056B3AD90087AE54 = {
 			children = (
 				2A30D88E056B3AD90087AE54,
+				2A30D898056B3B000087AE54,
 				2A30D892056B3AE30087AE54,
 				2A30D895056B3AF20087AE54,
-				2A30D898056B3B000087AE54,
 			);
 			isa = PBXVariantGroup;
 			name = ITKeyCodes.plist;
@@ -291,6 +291,9 @@
 		2A30D8A1056B3BE30087AE54 = {
 			children = (
 				2A30D8A2056B3BE30087AE54,
+				7C6E5BFA07D777C300A5F91F,
+				7C6E5BFB07D777C800A5F91F,
+				7C6E5BFC07D777CC00A5F91F,
 			);
 			isa = PBXVariantGroup;
 			name = ITKeyComboPanel.nib;
@@ -315,6 +318,9 @@
 		2A30D8BC056B3C5D0087AE54 = {
 			children = (
 				2A30D8BD056B3C5D0087AE54,
+				7C6E5BF707D7776F00A5F91F,
+				7C6E5BF807D7778300A5F91F,
+				7C6E5BF907D7778700A5F91F,
 			);
 			isa = PBXVariantGroup;
 			name = Localizable.strings;
@@ -729,6 +735,62 @@
 			isa = PBXBuildFile;
 			settings = {
 			};
+		};
+		7C6E5BF607D7774500A5F91F = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = text.xml;
+			path = Info.plist;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C6E5BF707D7776F00A5F91F = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = Japanese;
+			path = Japanese.lproj/Localizable.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C6E5BF807D7778300A5F91F = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = French;
+			path = French.lproj/Localizable.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C6E5BF907D7778700A5F91F = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.strings;
+			name = German;
+			path = German.lproj/Localizable.strings;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C6E5BFA07D777C300A5F91F = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = Japanese;
+			path = Japanese.lproj/ITKeyComboPanel.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C6E5BFB07D777C800A5F91F = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = French;
+			path = French.lproj/ITKeyComboPanel.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C6E5BFC07D777CC00A5F91F = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = German;
+			path = German.lproj/ITKeyComboPanel.nib;
+			refType = 4;
+			sourceTree = "<group>";
 		};
 		7C992DC9054F5179000B93EA = {
 			fileEncoding = 4;
@@ -1605,7 +1667,7 @@
 				GCC_PREFIX_HEADER = "";
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				INFOPLIST_FILE = "ITKitShowcase-Info.plist";
+				INFOPLIST_FILE = Showcase/Info.plist;
 				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				OTHER_CFLAGS = "";
@@ -1781,8 +1843,7 @@
 				7C9930E0054F69E2000B93EA,
 			);
 			isa = PBXGroup;
-			name = Showcase;
-			path = "";
+			path = Showcase;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1792,7 +1853,7 @@
 			);
 			isa = PBXVariantGroup;
 			name = InfoPlist.strings;
-			path = "";
+			path = ..;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1817,7 +1878,7 @@
 			);
 			isa = PBXVariantGroup;
 			name = MainMenu.nib;
-			path = "";
+			path = ..;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1837,15 +1898,16 @@
 		};
 		7C9930E0054F69E2000B93EA = {
 			children = (
-				7C993102054F69F9000B93EA,
-				7C993103054F69F9000B93EA,
+				7C6E5BF607D7774500A5F91F,
+				7C99309E054F6992000B93EA,
+				7C9930DB054F699B000B93EA,
 				7C993104054F69F9000B93EA,
 				7C993105054F69F9000B93EA,
+				7C993102054F69F9000B93EA,
 				7C993106054F69F9000B93EA,
 				7C993107054F69F9000B93EA,
 				7C993108054F69F9000B93EA,
-				7C9930DB054F699B000B93EA,
-				7C99309E054F6992000B93EA,
+				7C993103054F69F9000B93EA,
 			);
 			isa = PBXGroup;
 			name = Resources;
@@ -1866,56 +1928,49 @@
 		7C993102054F69F9000B93EA = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.tiff;
-			name = CD.tiff;
-			path = Showcase/CD.tiff;
+			path = CD.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993103054F69F9000B93EA = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.tiff;
-			name = iPod.tif;
-			path = Showcase/iPod.tif;
+			path = iPod.tif;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993104054F69F9000B93EA = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.tiff;
-			name = ITStatusItem.tiff;
-			path = Showcase/ITStatusItem.tiff;
+			path = ITStatusItem.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993105054F69F9000B93EA = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.tiff;
-			name = ITStatusItemInv.tiff;
-			path = Showcase/ITStatusItemInv.tiff;
+			path = ITStatusItemInv.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993106054F69F9000B93EA = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.tiff;
-			name = Library.tiff;
-			path = Showcase/Library.tiff;
+			path = Library.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993107054F69F9000B93EA = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.tiff;
-			name = Radio.tiff;
-			path = Showcase/Radio.tiff;
+			path = Radio.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993108054F69F9000B93EA = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.tiff;
-			name = Volume.tiff;
-			path = Showcase/Volume.tiff;
+			path = Volume.tiff;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1965,8 +2020,7 @@
 			fileEncoding = 4;
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
-			name = Controller.h;
-			path = Showcase/Controller.h;
+			path = Controller.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1974,8 +2028,7 @@
 			fileEncoding = 4;
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.objc;
-			name = Controller.m;
-			path = Showcase/Controller.m;
+			path = Controller.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1983,8 +2036,7 @@
 			fileEncoding = 4;
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.objc;
-			name = main.m;
-			path = Showcase/main.m;
+			path = main.m;
 			refType = 4;
 			sourceTree = "<group>";
 		};
