@@ -35,6 +35,7 @@
                 swVanishDelay = NSTextField; 
                 swVanishModePopup = NSPopUpButton; 
                 tabView = ITTabView; 
+                tableView = NSTableView; 
                 testTextField = ITTextField; 
                 useInvertedCheckBox = NSButton; 
                 window = NSWindow; 

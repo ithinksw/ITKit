@@ -9,6 +9,7 @@
 #import "ITSlideHorizontallyWindowEffect.h"
 #import "ITSlideVerticallyWindowEffect.h"
 #import "ITPivotWindowEffect.h"
+#import "ITMultilineTextFieldCell.h"
 
 
 #define SW_PAD    24.0
@@ -44,6 +45,10 @@
     [[statusWindow exitEffect]  setEffectTime:[swExitSpeedSlider floatValue]];
 //  [tabView setAllowsDragging:YES];
     [[NSColorPanel sharedColorPanel] setShowsAlpha:YES];
+    
+    [tableView setRowHeight:200];
+    [[tableView tableColumnWithIdentifier:@"custom"] setDataCell:[[[ITMultilineTextFieldCell alloc] init] autorelease]];
+    [[tableView tableColumnWithIdentifier:@"image"] setDataCell:[[[NSImageCell alloc] init] autorelease]];
 }
 
 /*************************************************************************/
@@ -297,6 +302,29 @@
 - (void)windowWillMiniaturize:(NSNotification *)note
 {
     [[note object] setMiniwindowImage:[NSImage imageNamed:@"ITStatusItem"]];
+}
+
+/*************************************************************************/
+#pragma mark -
+#pragma mark ITMultilineTextFieldCell SUPPORT
+/*************************************************************************/
+
+- (int)numberOfRowsInTableView:(NSTableView *)aTableView {
+    return 50;
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex {
+    if ([[aTableColumn dataCell] isKindOfClass:[ITMultilineTextFieldCell class]]) {
+        if (rowIndex%2) {
+            return [NSArray arrayWithObjects:@"Foo", @"Bar", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", @"- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex", nil];
+        } else {
+            return [NSArray arrayWithObjects:[[[NSAttributedString alloc] initWithString:@"This is a demo of ITMultilineTextFieldCell" attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:@"Gill Sans" size:48], NSFontAttributeName, [NSColor purpleColor], NSForegroundColorAttributeName, nil]] autorelease], [[[NSAttributedString alloc] initWithString:@"Bar" attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont fontWithName:@"Gadget" size:20], NSFontAttributeName, nil]] autorelease], [[[NSObject alloc] init] autorelease], nil];
+        }
+    } else if ([[aTableColumn dataCell] isKindOfClass:[NSImageCell class]]) {
+        return [NSImage imageNamed:@"NSApplicationIcon"];
+    } else {
+        return @"I like cheese";
+    }
 }
 
 

@@ -35,6 +35,9 @@
     IBOutlet NSTextField        *swShadowSaturation;
     IBOutlet NSSlider           *swEntrySpeedSlider;
     IBOutlet NSSlider           *swExitSpeedSlider;
+    
+    // ITMultilineTextFieldCell Support
+    IBOutlet NSTableView        *tableView;
 }
 
 // ITStatusItem Support

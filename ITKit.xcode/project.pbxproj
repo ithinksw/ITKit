@@ -599,6 +599,34 @@
 			refType = 4;
 			sourceTree = "<group>";
 		};
+		7C4BBADA05F98C9900734027 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ITMultilineTextFieldCell.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C4BBADB05F98C9900734027 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ITMultilineTextFieldCell.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7C4BBADC05F98C9900734027 = {
+			fileRef = 7C4BBADA05F98C9900734027;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7C4BBADD05F98C9900734027 = {
+			fileRef = 7C4BBADB05F98C9900734027;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		7C5B7C93054F6EC9008379B6 = {
 			fileRef = 8DC2EF5B0486A6940098B216;
 			isa = PBXBuildFile;
@@ -1594,6 +1622,8 @@
 				7C992DF8054F5179000B93EA,
 				2AC8319B056D037700A7D7E2,
 				2AC8319C056D037700A7D7E2,
+				7C4BBADA05F98C9900734027,
+				7C4BBADB05F98C9900734027,
 			);
 			isa = PBXGroup;
 			name = Cells;
@@ -2130,6 +2160,7 @@
 				2AC83141056D00F700A7D7E2,
 				2AC8319D056D037700A7D7E2,
 				3710912805C0825900ED0F36,
+				7C4BBADC05F98C9900734027,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2189,6 +2220,7 @@
 				2AC83142056D00F700A7D7E2,
 				2AC8319E056D037700A7D7E2,
 				3710912305C0821000ED0F36,
+				7C4BBADD05F98C9900734027,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
