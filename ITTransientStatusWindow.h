@@ -22,37 +22,37 @@
 @class ITGrayRoundedView;
 
 typedef enum {
-    ITTransientStatusWindowExitOnCommand,
-    ITTransientStatusWindowExitAfterDelay
+	ITTransientStatusWindowExitOnCommand,
+	ITTransientStatusWindowExitAfterDelay
 } ITTransientStatusWindowExitMode;
 
 typedef enum {
-    ITTransientStatusWindowNoBackground,
-    ITTransientStatusWindowRounded,
-    ITTransientStatusWindowSquare,
-    ITTransientStatusWindowMetal,
-    ITTransientStatusWindowMetalUtility,
-    ITTransientStatusWindowAquaUtility
+	ITTransientStatusWindowNoBackground,
+	ITTransientStatusWindowRounded,
+	ITTransientStatusWindowSquare,
+	ITTransientStatusWindowMetal,
+	ITTransientStatusWindowMetalUtility,
+	ITTransientStatusWindowAquaUtility
 } ITTransientStatusWindowBackgroundType;
 
 typedef enum {
-    ITTransientStatusWindowRegular,
-    ITTransientStatusWindowSmall,
-    ITTransientStatusWindowMini
+	ITTransientStatusWindowRegular,
+	ITTransientStatusWindowSmall,
+	ITTransientStatusWindowMini
 } ITTransientStatusWindowSizing;
 
 @interface ITTransientStatusWindow : NSWindow <ITWindowPositioning, ITWindowMotility> {
 	ITWindowVisibilityState _visibilityState;
-    ITTransientStatusWindowExitMode _exitMode;
-    float _exitDelay;
-    ITTransientStatusWindowBackgroundType _backgroundType;
-    ITWindowEffect *_entryEffect;
-    ITWindowEffect *_exitEffect;
-    double _effectProgress;
-    ITVerticalWindowPosition _verticalPosition;
-    ITHorizontalWindowPosition _horizontalPosition;
-    ITTransientStatusWindowSizing _sizing;
-    float _screenPadding;
+	ITTransientStatusWindowExitMode _exitMode;
+	float _exitDelay;
+	ITTransientStatusWindowBackgroundType _backgroundType;
+	ITWindowEffect *_entryEffect;
+	ITWindowEffect *_exitEffect;
+	double _effectProgress;
+	ITVerticalWindowPosition _verticalPosition;
+	ITHorizontalWindowPosition _horizontalPosition;
+	ITTransientStatusWindowSizing _sizing;
+	float _screenPadding;
 	NSScreen *_screen;
 	BOOL _reallyIgnoresEvents;
 	NSTimer *_exitTimer;

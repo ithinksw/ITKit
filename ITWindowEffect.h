@@ -20,10 +20,10 @@
 #define DEFAULT_EFFECT_TIME 0.75
 
 typedef enum {
-    ITWindowHiddenState,
-    ITWindowAppearingState,
-    ITWindowVisibleState,
-    ITWindowVanishingState
+	ITWindowHiddenState,
+	ITWindowAppearingState,
+	ITWindowVisibleState,
+	ITWindowVanishingState
 } ITWindowVisibilityState;
 
 @protocol ITWindowEffect
@@ -48,14 +48,14 @@ typedef enum {
 @end
 
 @interface ITWindowEffect : NSObject <ITWindowEffect> {
-    NSWindow <ITWindowPositioning, ITWindowMotility> *_window;
-    float _effectTime;
-    float _effectSpeed;
-    ITVerticalWindowPosition _verticalPosition;
-    ITHorizontalWindowPosition _horizontalPosition;
-    NSTimer *_effectTimer;
-    BOOL __idle;
-    BOOL __shouldReleaseWhenIdle;
+	NSWindow <ITWindowPositioning, ITWindowMotility> *_window;
+	float _effectTime;
+	float _effectSpeed;
+	ITVerticalWindowPosition _verticalPosition;
+	ITHorizontalWindowPosition _horizontalPosition;
+	NSTimer *_effectTimer;
+	BOOL __idle;
+	BOOL __shouldReleaseWhenIdle;
 }
 
 + (NSArray *)effectClasses;

@@ -1,8 +1,18 @@
-#import <ITKit/ITKit.h>
-#import <Cocoa/Cocoa.h>
+/*
+ *	ITKitShowcase
+ *	Controller.h
+ *
+ *	Copyright (c) 2005 by iThink Software.
+ *	All Rights Reserved.
+ *
+ *	$Id$
+ *
+ */
 
-@interface Controller : NSObject
-{
+#import <Cocoa/Cocoa.h>
+#import <ITKit/ITKit.h>
+
+@interface Controller : NSObject {
     IBOutlet NSWindow *window;
     
     // ITStatusItem Support

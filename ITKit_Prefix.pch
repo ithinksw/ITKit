@@ -3,6 +3,7 @@
 //
 
 #ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-    #import <AppKit/AppKit.h>
+	#import <Foundation/Foundation.h>
+	#import <ITFoundation/ITFoundation.h>
+	#import <AppKit/AppKit.h>
 #endif

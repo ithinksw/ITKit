@@ -79,9 +79,9 @@
 		};
 		0867D691FE84028FC02AAC07 = {
 			children = (
-				7C992F8B054F539B000B93EA,
 				08FB77AEFE84172EC02AAC07,
 				7C992F90054F53D9000B93EA,
+				7CEA438C07D77CFD00CACD9D,
 				32C88DFF0371C24200C91783,
 				089C1665FE841158C02AAC07,
 				7C99307F054F6982000B93EA,
@@ -153,14 +153,14 @@
 		};
 		08FB77AEFE84172EC02AAC07 = {
 			children = (
-				7C992F93054F53F2000B93EA,
 				7C992F96054F53F7000B93EA,
-				7C992F9B054F547C000B93EA,
-				7C993057054F6832000B93EA,
+				7C992F93054F53F2000B93EA,
 				2AAF7B22056C3536009B9225,
+				7C993057054F6832000B93EA,
+				7CEA438407D77C8300CACD9D,
+				7CEA43C507D77EFC00CACD9D,
+				7C992F9B054F547C000B93EA,
 				37B7F65C0754F8440089C005,
-				7C992DED054F5179000B93EA,
-				7C992DEE054F5179000B93EA,
 			);
 			isa = PBXGroup;
 			name = Classes;
@@ -180,8 +180,9 @@
 		1058C7B0FEA5585E11CA2CBB = {
 			children = (
 				1058C7B1FEA5585E11CA2CBB,
-				7CC84BE0054F6CA2001DC704,
 				7CC84BE4054F6CAA001DC704,
+				7CC84BE0054F6CA2001DC704,
+				7CEA446B07D7806900CACD9D,
 			);
 			isa = PBXGroup;
 			name = "Linked Frameworks";
@@ -345,14 +346,9 @@
 		};
 		2AAF7B22056C3536009B9225 = {
 			children = (
-				7C992DC9054F5179000B93EA,
-				7C992DCA054F5179000B93EA,
-				7C992DEF054F5179000B93EA,
-				7C992DF0054F5179000B93EA,
-				7C992DF1054F5179000B93EA,
-				7C992DF2054F5179000B93EA,
-				7C992DF3054F5179000B93EA,
-				7C992DF4054F5179000B93EA,
+				7CEA438107D77BA700CACD9D,
+				7CEA438007D77B9700CACD9D,
+				7CEA437F07D77B8F00CACD9D,
 			);
 			isa = PBXGroup;
 			name = Views;
@@ -451,6 +447,7 @@
 //324
 		32C88DFF0371C24200C91783 = {
 			children = (
+				7C992DE4054F5179000B93EA,
 				32DBCF5E0370ADEE00C91783,
 			);
 			isa = PBXGroup;
@@ -601,7 +598,7 @@
 				37B7F66E0754F87A0089C005,
 			);
 			isa = PBXGroup;
-			name = SplashScreen;
+			name = ITSplashScreen;
 			refType = 4;
 			sourceTree = "<group>";
 		};
@@ -1647,8 +1644,8 @@
 		7C992F85054F5389000B93EA = {
 			buildActionMask = 2147483647;
 			files = (
-				7C5B7C93054F6EC9008379B6,
 				2AC82794056C3AA000A7D7E2,
+				7CEA439307D77D8000CACD9D,
 			);
 			isa = PBXFrameworksBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1659,6 +1656,7 @@
 				7C992F83054F5389000B93EA,
 				7C992F84054F5389000B93EA,
 				7C992F85054F5389000B93EA,
+				7CEA439207D77D7200CACD9D,
 			);
 			buildRules = (
 			);
@@ -1721,23 +1719,12 @@
 			refType = 3;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		7C992F8B054F539B000B93EA = {
-			children = (
-				7C992DE4054F5179000B93EA,
-				7C992DD3054F5179000B93EA,
-			);
-			isa = PBXGroup;
-			name = Headers;
-			path = "";
-			refType = 4;
-			sourceTree = "<group>";
-		};
 		7C992F90054F53D9000B93EA = {
 			children = (
-				7C992DCF054F5179000B93EA,
-				7C992DD0054F5179000B93EA,
 				7C992DD1054F5179000B93EA,
 				7C992DD2054F5179000B93EA,
+				7C992DCF054F5179000B93EA,
+				7C992DD0054F5179000B93EA,
 			);
 			isa = PBXGroup;
 			name = Categories;
@@ -1747,12 +1734,9 @@
 		};
 		7C992F93054F53F2000B93EA = {
 			children = (
-				7C992DCB054F5179000B93EA,
-				7C992DCC054F5179000B93EA,
-				7C992DF5054F5179000B93EA,
-				7C992DF6054F5179000B93EA,
-				2AC8313F056D00F700A7D7E2,
-				2AC83140056D00F700A7D7E2,
+				7CEA437107D77A9B00CACD9D,
+				7CEA437607D77AA400CACD9D,
+				7CEA437907D77AD700CACD9D,
 			);
 			isa = PBXGroup;
 			name = Controls;
@@ -1761,14 +1745,10 @@
 		};
 		7C992F96054F53F7000B93EA = {
 			children = (
-				7C992DCD054F5179000B93EA,
-				7C992DCE054F5179000B93EA,
-				7C992DF7054F5179000B93EA,
-				7C992DF8054F5179000B93EA,
-				2AC8319B056D037700A7D7E2,
-				2AC8319C056D037700A7D7E2,
-				7C4BBADA05F98C9900734027,
-				7C4BBADB05F98C9900734027,
+				7CEA437C07D77B3600CACD9D,
+				7CEA437B07D77B2C00CACD9D,
+				7CEA437E07D77B4500CACD9D,
+				7CEA437D07D77B3D00CACD9D,
 			);
 			isa = PBXGroup;
 			name = Cells;
@@ -1790,20 +1770,16 @@
 				7C992DE3054F5179000B93EA,
 			);
 			isa = PBXGroup;
-			name = "Hot Keys";
+			name = ITHotKey;
+			path = "";
 			refType = 4;
 			sourceTree = "<group>";
 		};
 		7C993057054F6832000B93EA = {
 			children = (
-				7C992DF9054F5179000B93EA,
-				7C992DFA054F5179000B93EA,
-				3710911905C07F6D00ED0F36,
-				3710911A05C07F6D00ED0F36,
-				7C992DD8054F5179000B93EA,
-				7C992DD9054F5179000B93EA,
 				7C992DFD054F5179000B93EA,
 				7C99305B054F687D000B93EA,
+				7CEA438207D77C2800CACD9D,
 			);
 			isa = PBXGroup;
 			name = Windows;
@@ -1832,7 +1808,7 @@
 				3747E3F906950A0D001ACA46,
 			);
 			isa = PBXGroup;
-			name = Effects;
+			name = ITWindowEffects;
 			path = "";
 			refType = 4;
 			sourceTree = "<group>";
@@ -2086,6 +2062,212 @@
 			settings = {
 			};
 		};
+		7CEA437107D77A9B00CACD9D = {
+			children = (
+				7C992DCB054F5179000B93EA,
+				7C992DCC054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITButton;
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA437607D77AA400CACD9D = {
+			children = (
+				7C992DF5054F5179000B93EA,
+				7C992DF6054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITTextField;
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA437907D77AD700CACD9D = {
+			children = (
+				2AC8313F056D00F700A7D7E2,
+				2AC83140056D00F700A7D7E2,
+			);
+			isa = PBXGroup;
+			name = ITImageView;
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA437B07D77B2C00CACD9D = {
+			children = (
+				7C992DF7054F5179000B93EA,
+				7C992DF8054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITTextFieldCell;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA437C07D77B3600CACD9D = {
+			children = (
+				7C992DCD054F5179000B93EA,
+				7C992DCE054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITButtonCell;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA437D07D77B3D00CACD9D = {
+			children = (
+				2AC8319B056D037700A7D7E2,
+				2AC8319C056D037700A7D7E2,
+			);
+			isa = PBXGroup;
+			name = ITImageCell;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA437E07D77B4500CACD9D = {
+			children = (
+				7C4BBADA05F98C9900734027,
+				7C4BBADB05F98C9900734027,
+			);
+			isa = PBXGroup;
+			name = ITMultilineTextFieldCell;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA437F07D77B8F00CACD9D = {
+			children = (
+				7C992DC9054F5179000B93EA,
+				7C992DCA054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITBevelView;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA438007D77B9700CACD9D = {
+			children = (
+				7C992DF1054F5179000B93EA,
+				7C992DF2054F5179000B93EA,
+				7C992DEF054F5179000B93EA,
+				7C992DF0054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITTableView;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA438107D77BA700CACD9D = {
+			children = (
+				7C992DF3054F5179000B93EA,
+				7C992DF4054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITTabView;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA438207D77C2800CACD9D = {
+			children = (
+				7C992DF9054F5179000B93EA,
+				7C992DFA054F5179000B93EA,
+				3710911905C07F6D00ED0F36,
+				3710911A05C07F6D00ED0F36,
+				7C992DD8054F5179000B93EA,
+				7C992DD9054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITTransientStatusWindow;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA438407D77C8300CACD9D = {
+			children = (
+				7C992DED054F5179000B93EA,
+				7C992DEE054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = ITStatusItem;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA438C07D77CFD00CACD9D = {
+			children = (
+				7C992DD3054F5179000B93EA,
+			);
+			isa = PBXGroup;
+			name = Headers;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA439207D77D7200CACD9D = {
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7C5B7C93054F6EC9008379B6,
+			);
+			isa = PBXCopyFilesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CEA439307D77D8000CACD9D = {
+			fileRef = 8DC2EF5B0486A6940098B216;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7CEA43C507D77EFC00CACD9D = {
+			children = (
+				7CEA43C807D77F1600CACD9D,
+				7CEA43C907D77F1600CACD9D,
+			);
+			isa = PBXGroup;
+			name = ITLoginItem;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA43C807D77F1600CACD9D = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = ITLoginItem.h;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA43C907D77F1600CACD9D = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = ITLoginItem.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		7CEA43CA07D77F1600CACD9D = {
+			fileRef = 7CEA43C807D77F1600CACD9D;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7CEA43CB07D77F1600CACD9D = {
+			fileRef = 7CEA43C907D77F1600CACD9D;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7CEA446B07D7806900CACD9D = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = ITFoundation.framework;
+			path = ../ITFoundation/build/ITFoundation.framework;
+			refType = 2;
+			sourceTree = SOURCE_ROOT;
+		};
+		7CEA446C07D7806900CACD9D = {
+			fileRef = 7CEA446B07D7806900CACD9D;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 //7C0
 //7C1
 //7C2
@@ -2109,7 +2291,7 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = ../ITFoundation/build;
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_TRIGRAPHS = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -2180,6 +2362,7 @@
 				37B7F6730754F87A0089C005,
 				37B7F6740754F87A0089C005,
 				37B7F6780754F87A0089C005,
+				7CEA43CA07D77F1600CACD9D,
 			);
 			isa = PBXHeadersBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2245,6 +2428,7 @@
 				37B7F6720754F87A0089C005,
 				37B7F6750754F87A0089C005,
 				37B7F6760754F87A0089C005,
+				7CEA43CB07D77F1600CACD9D,
 			);
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2255,6 +2439,7 @@
 				8DC2EF570486A6940098B216,
 				7CC84BE1054F6CA2001DC704,
 				7CC84BE5054F6CAA001DC704,
+				7CEA446C07D7806900CACD9D,
 			);
 			isa = PBXFrameworksBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;

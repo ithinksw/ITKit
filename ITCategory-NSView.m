@@ -3,7 +3,7 @@
 @implementation NSView (ITKitCategory)
 
 - (void)removeAllSubviews {
-    [[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+	[[self subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
 - (void)removeSubview:(NSView *)subview {

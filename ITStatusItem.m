@@ -27,13 +27,13 @@ static BOOL _ITStatusItemShouldKillShadow = NO;
 }
 
 - (id)_initInStatusBar:(NSStatusBar *)statusBar withLength:(float)length withPriority:(int)priority {
-    if ((self = [super _initInStatusBar:statusBar withLength:length withPriority:priority])) {
+	if ((self = [super _initInStatusBar:statusBar withLength:length withPriority:priority])) {
 		if (_ITStatusItemShouldKillShadow) {
 			[[(NSButton *)[self _button] cell] setType:NSNullCellType];
 		}
-        [self setHighlightMode:YES];
-    }
-    return self;
+	    [self setHighlightMode:YES];
+	}
+	return self;
 }
 
 - (NSImage *)alternateImage {
@@ -48,7 +48,7 @@ static BOOL _ITStatusItemShouldKillShadow = NO;
 		[(id <_ITStatusItemNSStatusItemPantherCompatability>)super setAlternateImage:image];
 		return;
 	}
-    [(NSButton *)[self _button] setAlternateImage:image];
+	[(NSButton *)[self _button] setAlternateImage:image];
 }
 
 @end

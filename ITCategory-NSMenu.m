@@ -15,42 +15,42 @@ extern MenuRef _NSGetCarbonMenu(NSMenu *menu);
 @implementation NSMenu (ITKitCategory)
 
 - (void)indentItem:(id <NSMenuItem>)item {
-    [self indentItem:item toLevel:1];
+	[self indentItem:item toLevel:1];
 }
 
 - (void)indentItemAtIndex:(int)index {
-    [self indentItemAtIndex:index toLevel:1];
+	[self indentItemAtIndex:index toLevel:1];
 }
 
 - (void)indentItem:(id <NSMenuItem>)item toLevel:(int)indentLevel {
-    [self indentItemAtIndex:[self indexOfItem:item] toLevel:indentLevel];
+	[self indentItemAtIndex:[self indexOfItem:item] toLevel:indentLevel];
 }
 
 - (void)indentItemAtIndex:(int)index toLevel:(int)indentLevel {
 	id <NSMenuItem> theItem = [self itemAtIndex:index];
-    if ([theItem respondsToSelector:@selector(setIndentationLevel:)]) {
-        [(id <_ITKitCategoryNSMenuItemPantherCompatability>)theItem setIndentationLevel:indentLevel];
-    } else {
-        MenuRef carbonMenu = [self menuRef];
-        if (carbonMenu) {
-            SetMenuItemIndent(carbonMenu, index + 1, indentLevel);
-        }
-    }
+	if ([theItem respondsToSelector:@selector(setIndentationLevel:)]) {
+	    [(id <_ITKitCategoryNSMenuItemPantherCompatability>)theItem setIndentationLevel:indentLevel];
+	} else {
+	    MenuRef carbonMenu = [self menuRef];
+	    if (carbonMenu) {
+	        SetMenuItemIndent(carbonMenu, index + 1, indentLevel);
+	    }
+	}
 }
 
 - (MenuRef)menuRef {
-    MenuRef carbonMenu;
-    int w00t, m00f;
-    
-    if ([self respondsToSelector:@selector(_menuImpl)]) {
-        (void)[self _menuImpl];
-    } else {
-        return nil;
-    }
-    
-    _NSGetMenuItemForCommandKeyEvent(self, NULL, &w00t, &m00f); 
-    carbonMenu = _NSGetCarbonMenu(self);
-    return carbonMenu;
+	MenuRef carbonMenu;
+	int w00t, m00f;
+	
+	if ([self respondsToSelector:@selector(_menuImpl)]) {
+	    (void)[self _menuImpl];
+	} else {
+	    return nil;
+	}
+	
+	_NSGetMenuItemForCommandKeyEvent(self, NULL, &w00t, &m00f); 
+	carbonMenu = _NSGetCarbonMenu(self);
+	return carbonMenu;
 }
 
 - (void)removeAllItems {
