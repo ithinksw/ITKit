@@ -59,7 +59,7 @@ typedef enum {
 	NSView *_contentSubView;		
 }
 
-+ (id)sharedWindow;
++ (ITTransientStatusWindow *)sharedWindow;
 
 - (id)initWithContentView:(NSView *)contentView exitMode:(ITTransientStatusWindowExitMode)exitMode backgroundType:(ITTransientStatusWindowBackgroundType)backgroundType;
 
