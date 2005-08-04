@@ -1,0 +1,19 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = ITAboutBox; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_appIcon" = NSImageView; 
+                "_appName" = NSTextField; 
+                "_companySite" = NSTextField; 
+                "_copyright" = NSTextField; 
+                "_window" = NSWindow; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = ITURLTextField; LANGUAGE = ObjC; SUPERCLASS = NSTextField; }
+    ); 
+    IBVersion = 1; 
+}

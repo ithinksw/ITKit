@@ -43,5 +43,8 @@
 
 #import <ITKit/ITSplashScreen.h>
 
+#import <ITKit/ITAboutBox.h>
+#import <ITKit/ITURLTextField.h>
+
 #import <ITKit/ITCategory-NSView.h>
 #import <ITKit/ITCategory-NSMenu.h>
