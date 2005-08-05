@@ -14,7 +14,7 @@
 {
 	IBOutlet NSImageView *_appIcon;
 	IBOutlet NSTextField *_appName;
-	IBOutlet ITURLTextField *_companySite;
+	IBOutlet NSTextField *_companySite;
 	IBOutlet NSTextField *_copyright;
 	IBOutlet NSWindow *_window;
 }

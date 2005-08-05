@@ -7,7 +7,6 @@
 //
 
 #import "ITAboutBox.h"
-#import "ITURLTextField.h"
 
 static ITAboutBox *_sharedController;
 
@@ -35,7 +34,7 @@ static ITAboutBox *_sharedController;
 	
 	[_appName setStringValue:[[NSBundle mainBundle] localizedStringForKey:@"CFBundleShortVersionString" value:@"" table:@"InfoPlist"]];
 	[_companySite setStringValue:@"http://www.ithinksw.com/"];
-	[_companySite setURL:[NSURL URLWithString:@"http://www.ithinksw.com/"]];
+	
 	[_copyright setStringValue:[[NSBundle mainBundle] localizedStringForKey:@"NSHumanReadableCopyright" value:@"" table:@"InfoPlist"]];
 }
 
