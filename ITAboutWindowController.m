@@ -1,21 +1,13 @@
-//
-//  ITAboutBox.m
-//  ITKit
-//
-//  Created by Kent Sutherland on 8/4/05.
-//  Copyright 2005 __MyCompanyName__. All rights reserved.
-//
+#import "ITAboutWindowController.h"
 
-#import "ITAboutBox.h"
+static ITAboutWindowController *_sharedController;
 
-static ITAboutBox *_sharedController;
+@implementation ITAboutWindowController
 
-@implementation ITAboutBox
-
-+ (ITAboutBox *)sharedController
++ (ITAboutWindowController *)sharedController
 {
 	if (!_sharedController) {
-		_sharedController = [[ITAboutBox alloc] init];
+		_sharedController = [[ITAboutWindowController alloc] init];
 	}
 	return _sharedController;
 }
@@ -23,12 +15,12 @@ static ITAboutBox *_sharedController;
 - (id)init
 {
 	if ( (self = [super init]) ) {
-		[NSBundle loadNibNamed:@"AboutBox" owner:self];
+		[NSBundle loadNibNamed:@"ITAboutWindow" owner:self];
 	}
 	return self;
 }
 
-- (void)setupAboutBox
+- (void)setupAboutWindow
 {
 	[_appIcon setImage:[[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"]]] autorelease]];
 	
@@ -38,9 +30,9 @@ static ITAboutBox *_sharedController;
 	[_copyright setStringValue:[[NSBundle mainBundle] localizedStringForKey:@"NSHumanReadableCopyright" value:@"" table:@"InfoPlist"]];
 }
 
-- (void)showAboutBox
+- (void)showAboutWindow
 {
-	[self setupAboutBox];
+	[self setupAboutWindow];
 	
 	[_window center];
 	[NSApp activateIgnoringOtherApps:YES];

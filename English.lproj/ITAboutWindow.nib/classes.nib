@@ -2,7 +2,7 @@
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {
-            CLASS = ITAboutBox; 
+            CLASS = ITAboutWindowController; 
             LANGUAGE = ObjC; 
             OUTLETS = {
                 "_appIcon" = NSImageView; 
