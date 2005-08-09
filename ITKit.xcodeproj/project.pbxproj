@@ -29,7 +29,7 @@
 		37B7F6750754F87A0089C005 /* ITSplashWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7F66E0754F87A0089C005 /* ITSplashWindow.m */; };
 		37B7F6760754F87A0089C005 /* ITSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7F66F0754F87A0089C005 /* ITSplashScreen.m */; };
 		37B7F6780754F87A0089C005 /* ITSplashScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B7F6710754F87A0089C005 /* ITSplashScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7C02300B08A8488B00DDBD03 /* ITAboutWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C02300908A8488B00DDBD03 /* ITAboutWindowController.h */; };
+		7C02300B08A8488B00DDBD03 /* ITAboutWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C02300908A8488B00DDBD03 /* ITAboutWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C02300C08A8488B00DDBD03 /* ITAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C02300A08A8488B00DDBD03 /* ITAboutWindowController.m */; };
 		7C02301D08A84A1E00DDBD03 /* ITAboutWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 7C02301B08A84A1E00DDBD03 /* ITAboutWindow.nib */; };
 		7C105BDC07D787C0002DE061 /* ITFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDC146C07D7878800B64193 /* ITFoundation.framework */; };
