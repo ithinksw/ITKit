@@ -148,21 +148,21 @@
 		};
 		7C105BE707D787D0002DE061 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7CDC144907D7869C00B64193 /* ITFoundation.xcode */;
+			containerPortal = 7CDC144907D7869C00B64193 /* ITFoundation.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = ITFoundation;
 		};
 		7C105BE907D787D8002DE061 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7CDC144907D7869C00B64193 /* ITFoundation.xcode */;
+			containerPortal = 7CDC144907D7869C00B64193 /* ITFoundation.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = ITFoundation;
 		};
 		7CDC146F07D7878D00B64193 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7CDC144907D7869C00B64193 /* ITFoundation.xcode */;
+			containerPortal = 7CDC144907D7869C00B64193 /* ITFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = ITFoundation;
@@ -293,7 +293,7 @@
 		7C99312F054F6A03000B93EA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CC84BE0054F6CA2001DC704 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		7CC84BE4054F6CAA001DC704 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		7CDC144907D7869C00B64193 /* ITFoundation.xcode */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ITFoundation.xcode; path = ../ITFoundation/ITFoundation.xcode; sourceTree = SOURCE_ROOT; };
+		7CDC144907D7869C00B64193 /* ITFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ITFoundation.xcodeproj; path = ../ITFoundation/ITFoundation.xcodeproj; sourceTree = SOURCE_ROOT; };
 		7CEA43C807D77F1600CACD9D /* ITLoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITLoginItem.h; sourceTree = "<group>"; };
 		7CEA43C907D77F1600CACD9D /* ITLoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITLoginItem.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				7CDC144907D7869C00B64193 /* ITFoundation.xcode */,
+				7CDC144907D7869C00B64193 /* ITFoundation.xcodeproj */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
@@ -942,7 +942,7 @@
 			projectReferences = (
 				{
 					ProductGroup = 7CDC146B07D7878800B64193 /* Products */;
-					ProjectRef = 7CDC144907D7869C00B64193 /* ITFoundation.xcode */;
+					ProjectRef = 7CDC144907D7869C00B64193 /* ITFoundation.xcodeproj */;
 				},
 			);
 			targets = (
@@ -1057,12 +1057,12 @@
 		};
 		7C105BE807D787D0002DE061 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "ITFoundation (from ITFoundation.xcode)";
+			name = "ITFoundation (from ITFoundation.xcodeproj)";
 			targetProxy = 7C105BE707D787D0002DE061 /* PBXContainerItemProxy */;
 		};
 		7C105BEA07D787D8002DE061 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "ITFoundation (from ITFoundation.xcode)";
+			name = "ITFoundation (from ITFoundation.xcodeproj)";
 			targetProxy = 7C105BE907D787D8002DE061 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
