@@ -14,13 +14,22 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ITStatusItem : NSStatusItem {
+@class ITStatusItem;
 
+@protocol ITStatusItemMenuProvider
+- (NSMenu *)menuForStatusItem:(ITStatusItem *)statusItem;
+@end
+
+@interface ITStatusItem : NSStatusItem {
+	id <ITStatusItemMenuProvider> _menuProvider;
 }
 
 - (id)initWithStatusBar:(NSStatusBar *)statusBar withLength:(float)length;
 
 - (NSImage *)alternateImage;
 - (void)setAlternateImage:(NSImage *)image;
+
+- (id <ITStatusItemMenuProvider>)menuProvider;
+- (void)setMenuProvider:(id <ITStatusItemMenuProvider>)provider;
 
 @end

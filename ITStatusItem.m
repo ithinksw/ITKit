@@ -51,4 +51,21 @@ static BOOL _ITStatusItemShouldKillShadow = NO;
 	[(NSButton *)[self _button] setAlternateImage:image];
 }
 
+- (id <ITStatusItemMenuProvider>)menuProvider {
+	return _menuProvider;
+}
+
+- (void)setMenuProvider:(id <ITStatusItemMenuProvider>)provider {
+	[_menuProvider autorelease];
+	_menuProvider = [provider retain];
+}
+
+- (NSMenu *)menu {
+	if (_menuProvider) {
+		return [_menuProvider menuForStatusItem:self];
+	} else {
+		return [super menu];
+	}
+}
+
 @end
