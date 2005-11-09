@@ -1,5 +1,51 @@
 #import "ITStatusItem.h"
 
+@interface ITStatusItemMenuProxy : NSProxy {
+	id <ITStatusItemMenuProvider> menuProvider;
+	ITStatusItem *statusItem;
+}
+
+- (id)initWithMenuProvider:(id <ITStatusItemMenuProvider>)provider statusItem:(ITStatusItem *)item;
+
+@end
+
+@implementation ITStatusItemMenuProxy
+
++ (BOOL)respondsToSelector:(SEL)aSelector {
+	if (![super respondsToSelector:aSelector]) {
+		return [NSMenu respondsToSelector:aSelector];
+	}
+	return YES;
+}
+
+- (id)initWithMenuProvider:(id <ITStatusItemMenuProvider>)provider statusItem:(ITStatusItem *)item {
+	menuProvider = [provider retain];
+	statusItem = [item retain];
+	return self;
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+	NSMenu *temporaryMenu = [[menuProvider menuForStatusItem:statusItem] retain];
+	[anInvocation setTarget:temporaryMenu];
+	[anInvocation invoke];
+	[temporaryMenu release];
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+	NSMenu *temporaryMenu = [[menuProvider menuForStatusItem:statusItem] retain];
+	NSMethodSignature *signature = [temporaryMenu methodSignatureForSelector:aSelector];
+	[temporaryMenu release];
+	return signature;
+}
+
+- (void)dealloc {
+	[statusItem release];
+	[menuProvider release];
+	[super dealloc];
+}
+
+@end
+
 @class NSStatusBarButton;
 
 @interface NSStatusItem (ITStatusItemHacks)
@@ -58,13 +104,10 @@ static BOOL _ITStatusItemShouldKillShadow = NO;
 - (void)setMenuProvider:(id <ITStatusItemMenuProvider>)provider {
 	[_menuProvider autorelease];
 	_menuProvider = [provider retain];
-}
-
-- (NSMenu *)menu {
-	if (_menuProvider) {
-		return [_menuProvider menuForStatusItem:self];
+	if (provider) {
+		[self setMenu:[[ITStatusItemMenuProxy alloc] initWithMenuProvider:_menuProvider statusItem:self]];
 	} else {
-		return [super menu];
+		[self setMenu:nil];
 	}
 }
 
