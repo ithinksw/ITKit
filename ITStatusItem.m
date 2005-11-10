@@ -1,8 +1,11 @@
 #import "ITStatusItem.h"
+#import <CoreServices/CoreServices.h>
 
 @interface ITStatusItemMenuProxy : NSProxy {
 	id <ITStatusItemMenuProvider> menuProvider;
 	ITStatusItem *statusItem;
+	AbsoluteTime cachedTime;
+	NSMenu *menu;
 }
 
 - (id)initWithMenuProvider:(id <ITStatusItemMenuProvider>)provider statusItem:(ITStatusItem *)item;
@@ -21,24 +24,30 @@
 - (id)initWithMenuProvider:(id <ITStatusItemMenuProvider>)provider statusItem:(ITStatusItem *)item {
 	menuProvider = [provider retain];
 	statusItem = [item retain];
+	cachedTime = UpTime();
+	menu = nil;
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-	NSMenu *temporaryMenu = [[menuProvider menuForStatusItem:statusItem] retain];
-	[anInvocation setTarget:temporaryMenu];
+	AbsoluteTime diff = SubAbsoluteFromAbsolute(UpTime(),cachedTime);
+	
+	if (!menu || diff.lo > 1000000) {
+		[menu release];
+		menu = [[menuProvider menuForStatusItem:statusItem] retain];
+		cachedTime = UpTime();
+	}
+	
+	[anInvocation setTarget:menu];
 	[anInvocation invoke];
-	[temporaryMenu release];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-	NSMenu *temporaryMenu = [[menuProvider menuForStatusItem:statusItem] retain];
-	NSMethodSignature *signature = [temporaryMenu methodSignatureForSelector:aSelector];
-	[temporaryMenu release];
-	return signature;
+	return [NSMenu instanceMethodSignatureForSelector:aSelector];
 }
 
 - (void)dealloc {
+	[menu release];
 	[statusItem release];
 	[menuProvider release];
 	[super dealloc];
@@ -51,6 +60,11 @@
 @interface NSStatusItem (ITStatusItemHacks)
 - (id)_initInStatusBar:(NSStatusBar *)statusBar withLength:(float)length withPriority:(int)priority;
 - (NSStatusBarButton *)_button;
+@end
+
+@protocol _ITStatusItemNSStatusBarButtonMethods
+- (NSMenu *)statusMenu;
+- (void)setStatusMenu:(NSMenu *)menu;
 @end
 
 @protocol _ITStatusItemNSStatusItemPantherCompatability
@@ -74,6 +88,8 @@ static BOOL _ITStatusItemShouldKillShadow = NO;
 
 - (id)_initInStatusBar:(NSStatusBar *)statusBar withLength:(float)length withPriority:(int)priority {
 	if ((self = [super _initInStatusBar:statusBar withLength:length withPriority:priority])) {
+		_menuProvider = nil;
+		_menuProxy = nil;
 		if (_ITStatusItemShouldKillShadow) {
 			[[(NSButton *)[self _button] cell] setType:NSNullCellType];
 		}
@@ -102,13 +118,20 @@ static BOOL _ITStatusItemShouldKillShadow = NO;
 }
 
 - (void)setMenuProvider:(id <ITStatusItemMenuProvider>)provider {
-	[_menuProvider autorelease];
-	_menuProvider = [provider retain];
-	if (provider) {
-		[self setMenu:[[ITStatusItemMenuProxy alloc] initWithMenuProvider:_menuProvider statusItem:self]];
+	[_menuProxy autorelease];
+	_menuProxy = nil;
+	_menuProvider = provider;
+	if (_menuProvider) {
+		_menuProxy = [[ITStatusItemMenuProxy alloc] initWithMenuProvider:_menuProvider statusItem:self];
+		[(id <_ITStatusItemNSStatusBarButtonMethods>)[self _button] setStatusMenu:_menuProxy];
 	} else {
-		[self setMenu:nil];
+		[self setMenu:[self menu]];
 	}
+}
+
+- (void)dealloc {
+	[_menuProxy release];
+	[super dealloc];
 }
 
 @end

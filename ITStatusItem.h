@@ -22,6 +22,7 @@
 
 @interface ITStatusItem : NSStatusItem {
 	id <ITStatusItemMenuProvider> _menuProvider;
+	NSMenu *_menuProxy;
 }
 
 - (id)initWithStatusBar:(NSStatusBar *)statusBar withLength:(float)length;
