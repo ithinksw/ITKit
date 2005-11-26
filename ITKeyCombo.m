@@ -90,7 +90,7 @@
 	static long modToChar[4][2] = {
 		{ cmdKey, 0x23180000 },
 		{ optionKey, 0x23250000 },
-		{ controlKey, 0x005E0000 },
+		{ controlKey, 0x23030000 },
 		{ shiftKey, 0x21e70000 }
 	};
 	
