@@ -1138,7 +1138,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7C022FE808A8465D00DDBD03 /* Development */ = {
+		7C022FE808A8465D00DDBD03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -1161,6 +1161,7 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Dynamic;
+				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				OPTIMIZATION_CFLAGS = "-O0";
 				OTHER_LDFLAGS = (
@@ -1177,9 +1178,9 @@
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};
-			name = Development;
+			name = Debug;
 		};
-		7C022FE908A8465D00DDBD03 /* Deployment */ = {
+		7C022FE908A8465D00DDBD03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
@@ -1199,6 +1200,7 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Dynamic;
+				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
@@ -1214,7 +1216,7 @@
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = NO;
 			};
-			name = Deployment;
+			name = Release;
 		};
 		7C022FEA08A8465D00DDBD03 /* Default */ = {
 			isa = XCBuildConfiguration;
@@ -1234,6 +1236,7 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Dynamic;
+				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				OTHER_LDFLAGS = (
 					"-seg1addr",
@@ -1250,7 +1253,7 @@
 			};
 			name = Default;
 		};
-		7C022FEC08A8465D00DDBD03 /* Development */ = {
+		7C022FEC08A8465D00DDBD03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -1280,9 +1283,9 @@
 				WARNING_CFLAGS = "-Wmost";
 				ZERO_LINK = YES;
 			};
-			name = Development;
+			name = Debug;
 		};
-		7C022FED08A8465D00DDBD03 /* Deployment */ = {
+		7C022FED08A8465D00DDBD03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
@@ -1307,7 +1310,7 @@
 				WARNING_CFLAGS = "-Wmost";
 				ZERO_LINK = NO;
 			};
-			name = Deployment;
+			name = Release;
 		};
 		7C022FEE08A8465D00DDBD03 /* Default */ = {
 			isa = XCBuildConfiguration;
@@ -1333,21 +1336,21 @@
 			};
 			name = Default;
 		};
-		7C022FF008A8465D00DDBD03 /* Development */ = {
+		7C022FF008A8465D00DDBD03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
 			};
-			name = Development;
+			name = Debug;
 		};
-		7C022FF108A8465D00DDBD03 /* Deployment */ = {
+		7C022FF108A8465D00DDBD03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
 				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
 			};
-			name = Deployment;
+			name = Release;
 		};
 		7C022FF208A8465D00DDBD03 /* Default */ = {
 			isa = XCBuildConfiguration;
@@ -1363,8 +1366,8 @@
 		7C022FE708A8465D00DDBD03 /* Build configuration list for PBXNativeTarget "ITKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C022FE808A8465D00DDBD03 /* Development */,
-				7C022FE908A8465D00DDBD03 /* Deployment */,
+				7C022FE808A8465D00DDBD03 /* Debug */,
+				7C022FE908A8465D00DDBD03 /* Release */,
 				7C022FEA08A8465D00DDBD03 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1373,8 +1376,8 @@
 		7C022FEB08A8465D00DDBD03 /* Build configuration list for PBXNativeTarget "ITKitShowcase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C022FEC08A8465D00DDBD03 /* Development */,
-				7C022FED08A8465D00DDBD03 /* Deployment */,
+				7C022FEC08A8465D00DDBD03 /* Debug */,
+				7C022FED08A8465D00DDBD03 /* Release */,
 				7C022FEE08A8465D00DDBD03 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1383,8 +1386,8 @@
 		7C022FEF08A8465D00DDBD03 /* Build configuration list for PBXProject "ITKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C022FF008A8465D00DDBD03 /* Development */,
-				7C022FF108A8465D00DDBD03 /* Deployment */,
+				7C022FF008A8465D00DDBD03 /* Debug */,
+				7C022FF108A8465D00DDBD03 /* Release */,
 				7C022FF208A8465D00DDBD03 /* Default */,
 			);
 			defaultConfigurationIsVisible = 0;
