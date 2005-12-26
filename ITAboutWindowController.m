@@ -24,7 +24,7 @@ static ITAboutWindowController *_sharedController;
 {
 	[_appIcon setImage:[[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForImageResource:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIconFile"]]] autorelease]];
 	
-	[_appName setStringValue:[[NSBundle mainBundle] localizedStringForKey:@"CFBundleShortVersionString" value:@"" table:@"InfoPlist"]];
+	[_appName setStringValue:[NSString stringWithFormat:@"%@ %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"], [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]]];
 	[_companySite setStringValue:@"http://www.ithinksw.com/"];
 	
 	[_copyright setStringValue:[[NSBundle mainBundle] localizedStringForKey:@"NSHumanReadableCopyright" value:@"" table:@"InfoPlist"]];
