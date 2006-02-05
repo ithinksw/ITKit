@@ -15,6 +15,8 @@
 		2AC83142056D00F700A7D7E2 /* ITImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC83140056D00F700A7D7E2 /* ITImageView.m */; };
 		2AC8319D056D037700A7D7E2 /* ITImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AC8319B056D037700A7D7E2 /* ITImageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AC8319E056D037700A7D7E2 /* ITImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8319C056D037700A7D7E2 /* ITImageCell.m */; };
+		370C98540995CC7E008C3200 /* ITCoreImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 370C98520995CC7E008C3200 /* ITCoreImageView.h */; };
+		370C98550995CC7E008C3200 /* ITCoreImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370C98530995CC7E008C3200 /* ITCoreImageView.m */; };
 		3710912305C0821000ED0F36 /* ITIconAndTextStatusWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3710911A05C07F6D00ED0F36 /* ITIconAndTextStatusWindow.m */; };
 		3710912805C0825900ED0F36 /* ITIconAndTextStatusWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3710911905C07F6D00ED0F36 /* ITIconAndTextStatusWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		372C5814068FE72F00CEF54A /* ITZoomWindowEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 372C5812068FE72F00CEF54A /* ITZoomWindowEffect.m */; };
@@ -29,6 +31,9 @@
 		37B7F6750754F87A0089C005 /* ITSplashWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7F66E0754F87A0089C005 /* ITSplashWindow.m */; };
 		37B7F6760754F87A0089C005 /* ITSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7F66F0754F87A0089C005 /* ITSplashScreen.m */; };
 		37B7F6780754F87A0089C005 /* ITSplashScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B7F6710754F87A0089C005 /* ITSplashScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37FA493F094DE2650078A329 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FA493E094DE2650078A329 /* QuartzCore.framework */; };
+		37FA494D094DE28B0078A329 /* ITCoreImageWindowEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 37FA494B094DE28B0078A329 /* ITCoreImageWindowEffect.h */; };
+		37FA494E094DE28B0078A329 /* ITCoreImageWindowEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FA494C094DE28B0078A329 /* ITCoreImageWindowEffect.m */; };
 		7C02300B08A8488B00DDBD03 /* ITAboutWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C02300908A8488B00DDBD03 /* ITAboutWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C02300C08A8488B00DDBD03 /* ITAboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C02300A08A8488B00DDBD03 /* ITAboutWindowController.m */; };
 		7C02301D08A84A1E00DDBD03 /* ITAboutWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 7C02301B08A84A1E00DDBD03 /* ITAboutWindow.nib */; };
@@ -199,6 +204,8 @@
 		2AC8319B056D037700A7D7E2 /* ITImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITImageCell.h; sourceTree = "<group>"; };
 		2AC8319C056D037700A7D7E2 /* ITImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITImageCell.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* ITKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITKit_Prefix.pch; sourceTree = "<group>"; };
+		370C98520995CC7E008C3200 /* ITCoreImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITCoreImageView.h; sourceTree = "<group>"; };
+		370C98530995CC7E008C3200 /* ITCoreImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITCoreImageView.m; sourceTree = "<group>"; };
 		3710911905C07F6D00ED0F36 /* ITIconAndTextStatusWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITIconAndTextStatusWindow.h; sourceTree = "<group>"; };
 		3710911A05C07F6D00ED0F36 /* ITIconAndTextStatusWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITIconAndTextStatusWindow.m; sourceTree = "<group>"; };
 		372C5812068FE72F00CEF54A /* ITZoomWindowEffect.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ITZoomWindowEffect.m; sourceTree = "<group>"; };
@@ -213,6 +220,9 @@
 		37B7F66E0754F87A0089C005 /* ITSplashWindow.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ITSplashWindow.m; sourceTree = "<group>"; };
 		37B7F66F0754F87A0089C005 /* ITSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ITSplashScreen.m; sourceTree = "<group>"; };
 		37B7F6710754F87A0089C005 /* ITSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ITSplashScreen.h; sourceTree = "<group>"; };
+		37FA493E094DE2650078A329 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		37FA494B094DE28B0078A329 /* ITCoreImageWindowEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITCoreImageWindowEffect.h; sourceTree = "<group>"; };
+		37FA494C094DE28B0078A329 /* ITCoreImageWindowEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITCoreImageWindowEffect.m; sourceTree = "<group>"; };
 		7C02300908A8488B00DDBD03 /* ITAboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITAboutWindowController.h; sourceTree = "<group>"; };
 		7C02300A08A8488B00DDBD03 /* ITAboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITAboutWindowController.m; sourceTree = "<group>"; };
 		7C02301C08A84A1E00DDBD03 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ITAboutWindow.nib; sourceTree = SOURCE_ROOT; };
@@ -319,6 +329,7 @@
 				7CC84BE1054F6CA2001DC704 /* ApplicationServices.framework in Frameworks */,
 				7CC84BE5054F6CAA001DC704 /* Carbon.framework in Frameworks */,
 				7C105BDC07D787C0002DE061 /* ITFoundation.framework in Frameworks */,
+				37FA493F094DE2650078A329 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +403,7 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37FA493E094DE2650078A329 /* QuartzCore.framework */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 				7CC84BE4054F6CAA001DC704 /* Carbon.framework */,
 				7CC84BE0054F6CA2001DC704 /* ApplicationServices.framework */,
@@ -563,6 +575,10 @@
 				37B3906A06923D1200E828B9 /* ITSpinWindowEffect.m */,
 				3747E3F806950A0D001ACA46 /* ITSpinAndZoomWindowEffect.h */,
 				3747E3F906950A0D001ACA46 /* ITSpinAndZoomWindowEffect.m */,
+				37FA494B094DE28B0078A329 /* ITCoreImageWindowEffect.h */,
+				37FA494C094DE28B0078A329 /* ITCoreImageWindowEffect.m */,
+				370C98520995CC7E008C3200 /* ITCoreImageView.h */,
+				370C98530995CC7E008C3200 /* ITCoreImageView.m */,
 			);
 			name = ITWindowEffects;
 			sourceTree = "<group>";
@@ -797,6 +813,8 @@
 				37B7F6780754F87A0089C005 /* ITSplashScreen.h in Headers */,
 				7CEA43CA07D77F1600CACD9D /* ITLoginItem.h in Headers */,
 				7C02300B08A8488B00DDBD03 /* ITAboutWindowController.h in Headers */,
+				37FA494D094DE28B0078A329 /* ITCoreImageWindowEffect.h in Headers */,
+				370C98540995CC7E008C3200 /* ITCoreImageView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,6 +1062,8 @@
 				37B7F6760754F87A0089C005 /* ITSplashScreen.m in Sources */,
 				7CEA43CB07D77F1600CACD9D /* ITLoginItem.m in Sources */,
 				7C02300C08A8488B00DDBD03 /* ITAboutWindowController.m in Sources */,
+				37FA494E094DE28B0078A329 /* ITCoreImageWindowEffect.m in Sources */,
+				370C98550995CC7E008C3200 /* ITCoreImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1169,6 +1189,7 @@
 					0x19000000,
 				);
 				PRODUCT_NAME = ITKit;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1207,6 +1228,7 @@
 					0x19000000,
 				);
 				PRODUCT_NAME = ITKit;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -1243,6 +1265,7 @@
 					0x19000000,
 				);
 				PRODUCT_NAME = ITKit;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = (
 					"-Wmost",

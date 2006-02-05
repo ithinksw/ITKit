@@ -15,6 +15,7 @@
         NSClassFromString(@"ITZoomWindowEffect"),
         NSClassFromString(@"ITSpinWindowEffect"),
         NSClassFromString(@"ITSpinAndZoomWindowEffect"),
+		NSClassFromString(@"ITCoreImageWindowEffect"),
         nil];
         
     return classes;
