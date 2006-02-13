@@ -36,6 +36,7 @@
 	NSWindow *_effectWindow;
 	CIFilter *_effectFilter;
 	CICGSFilter *_windowFilter;
+	BOOL _ripple;
 }
 
 @end

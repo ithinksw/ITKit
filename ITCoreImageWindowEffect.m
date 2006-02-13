@@ -192,9 +192,11 @@
 	NSRect rippleRect = [_window frame];
 	NSRect screenRect = [[_window screen] frame];
 	
+	_ripple = YES;
+	
     rippleRect.origin.y = - (NSMaxY(rippleRect) - screenRect.size.height);
 	
-	_effectWindow = [[NSWindow alloc] initWithContentRect:NSInsetRect([_window frame], -200, -200) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
+	_effectWindow = [[NSWindow alloc] initWithContentRect:_ripple ? NSInsetRect([_window frame], -200, -200) : [_window frame] styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
 	[_effectWindow setBackgroundColor:[NSColor clearColor]];
 	[_effectWindow setAlphaValue:1.0];
 	[_effectWindow setOpaque:NO];
@@ -205,12 +207,18 @@
 	[_effectWindow orderFrontRegardless];
     [_window orderWindow:NSWindowAbove relativeTo:[_effectWindow windowNumber]];
 	
-	_effectFilter = [[CIFilter filterWithName:@"CIShapedWaterRipple"] retain];
-    [_effectFilter setDefaults];
-    [_effectFilter setValue:[NSNumber numberWithFloat:50.0] forKey:@"inputCornerRadius"];
-    [_effectFilter setValue:[CIVector vectorWithX:rippleRect.origin.x Y:rippleRect.origin.y] forKey:@"inputPoint0"];
-    [_effectFilter setValue:[CIVector vectorWithX:(rippleRect.origin.x + rippleRect.size.width) Y:(rippleRect.origin.y + rippleRect.size.height)] forKey:@"inputPoint1"];
-    [_effectFilter setValue:[NSNumber numberWithFloat:0.0] forKey:@"inputPhase"];
+	if (_ripple) {
+		_effectFilter = [[CIFilter filterWithName:@"CIShapedWaterRipple"] retain];
+		[_effectFilter setDefaults];
+		[_effectFilter setValue:[NSNumber numberWithFloat:50.0] forKey:@"inputCornerRadius"];
+		[_effectFilter setValue:[CIVector vectorWithX:rippleRect.origin.x Y:rippleRect.origin.y] forKey:@"inputPoint0"];
+		[_effectFilter setValue:[CIVector vectorWithX:(rippleRect.origin.x + rippleRect.size.width) Y:(rippleRect.origin.y + rippleRect.size.height)] forKey:@"inputPoint1"];
+		[_effectFilter setValue:[NSNumber numberWithFloat:0.0] forKey:@"inputPhase"];
+	} else {
+		_effectFilter = [[CIFilter filterWithName:@"CIZoomBlur"] retain];
+		[_effectFilter setDefaults];
+		[_effectFilter setValue:[CIVector vectorWithX:(rippleRect.origin.x + rippleRect.size.width / 2) Y:(rippleRect.origin.y + rippleRect.size.height / 2)] forKey:@"inputCenter"];
+	}
 	
 	_windowFilter = [[CICGSFilter filterWithFilter:_effectFilter connectionID:[NSApp contextID]] retain];
 	[_windowFilter addToWindow:(CGSWindowID)[_effectWindow windowNumber] flags:1];
@@ -232,7 +240,11 @@
 	
 	while (time < (startTime + 2.5) && (time >= startTime)) {
 		oldFilter = _windowFilter;
-		[_effectFilter setValue:[NSNumber numberWithFloat:160*(time - startTime)] forKey:@"inputPhase"];
+		if (_ripple) {
+			[_effectFilter setValue:[NSNumber numberWithFloat:160*(time - startTime)] forKey:@"inputPhase"];
+		} else {
+			[_effectFilter setValue:[NSNumber numberWithFloat:5 * (time - startTime)] forKey:@"inputAmount"];
+		}
         _windowFilter = [[CICGSFilter filterWithFilter:_effectFilter connectionID:[NSApp contextID]] retain];
         [_windowFilter addToWindow:windowNumber flags:1];
 		[oldFilter removeFromWindow:windowNumber];
