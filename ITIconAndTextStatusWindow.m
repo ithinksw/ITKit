@@ -86,7 +86,7 @@
     float        maxHeight     = ( screenHeight - (SW_BORDER * 2) );
     float        excessWidth   = 0.0;
     float        excessHeight  = 0.0;
-    NSPoint      windowOrigin;
+    NSPoint      windowOrigin = NSZeroPoint;
     ITImageView *imageView;
     BOOL         shouldAnimate = ( ! (([self visibilityState] == ITWindowAppearingState) ||
                                       ([self visibilityState] == ITWindowVanishingState)) );

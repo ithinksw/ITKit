@@ -14,6 +14,8 @@
 - (void)setupEffect;
 @end
 
+static BOOL _running = NO;
+
 @implementation ITCoreImageWindowEffect
 
 + (NSString *)effectName
@@ -96,6 +98,7 @@
     [self setWindowVisibility:ITWindowVisibleState];
 
     __idle = YES;
+	
     if ( __shouldReleaseWhenIdle ) {
         [self release];
     }
@@ -119,10 +122,10 @@
 
 - (void)performVanish
 {
-    __idle = NO;
+	__idle = NO;
 	
-    [self setWindowVisibility:ITWindowVanishingState];
-    [self performVanishFromProgress:1.0 effectTime:_effectTime];
+	[self setWindowVisibility:ITWindowVanishingState];
+	[self performVanishFromProgress:1.0 effectTime:_effectTime];
 }
 
 - (void)performVanishFromProgress:(float)progress effectTime:(float)time
@@ -166,7 +169,7 @@
     [self setWindowVisibility:ITWindowHiddenState];
 
     __idle = YES;
-    
+	
     if ( __shouldReleaseWhenIdle ) {
         [self release];
     }
@@ -192,6 +195,12 @@
 	NSRect rippleRect = [_window frame];
 	NSRect screenRect = [[_window screen] frame];
 	
+	if (_running) {
+		//Short-circuit to avoid layering effects and crashing
+		return;
+	}
+	
+	_running = YES;
 	_ripple = YES;
 	
     rippleRect.origin.y = - (NSMaxY(rippleRect) - screenRect.size.height);
@@ -259,6 +268,8 @@
 	[[_effectWindow contentView] release];
     [_effectWindow release];
     [pool release];
+	
+	_running = NO;
 }
 
 @end

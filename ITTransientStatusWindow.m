@@ -120,14 +120,25 @@ static ITTransientStatusWindow *staticWindow = nil;
 
 - (void)setIgnoresMouseEvents:(BOOL)flag
 {
-    CGSValueObj   	 key;
-    CGSValueObj   	 ignore;
+    //CGSValueObj   	 key;
+    //CGSValueObj   	 ignore;
+	CGSWindowTag tags;
 
-    key = CGSCreateCString("IgnoreForEvents");
+    /*key = CGSCreateCString("IgnoreForEvents");
     ignore = CGSCreateBoolean( (flag ? kCGSTrue : kCGSFalse) );
     CGSSetWindowProperty([NSApp contextID], (CGSWindowID)[self windowNumber], key, ignore);
     CGSReleaseObj(key);
-    CGSReleaseObj(ignore);
+    CGSReleaseObj(ignore);*/
+	
+	CGSGetWindowTags([NSApp contextID], (CGSWindowID)[self windowNumber], &tags, 32);
+
+	if (flag) {
+		tags = tags | CGSTagTransparent;
+	} else {
+		tags = tags & CGSTagTransparent;
+	}
+
+	CGSSetWindowTags([NSApp contextID], (CGSWindowID)[self windowNumber], &tags, 32);
 
     _reallyIgnoresEvents = flag;
 }
