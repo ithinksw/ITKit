@@ -20,7 +20,7 @@ static BOOL _running = NO;
 
 + (NSString *)effectName
 {
-    return @"Core Image - Ripple";
+    return @"Ripple";
 }
 
 + (NSDictionary *)supportedPositions

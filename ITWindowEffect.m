@@ -1,12 +1,14 @@
 #import "ITWindowEffect.h"
 #import "ITTransientStatusWindow.h"
-
+#import <OpenGL/gl.h>
+#import <OpenGL/glu.h>
+#import <OpenGL/glext.h>
 
 @implementation ITWindowEffect
 
 + (NSArray *)effectClasses
 {
-    NSArray *classes = [NSArray arrayWithObjects:
+    NSMutableArray *classes = [NSArray arrayWithObjects:
         NSClassFromString(@"ITCutWindowEffect"),
         NSClassFromString(@"ITDissolveWindowEffect"),
         NSClassFromString(@"ITSlideHorizontallyWindowEffect"),
@@ -15,9 +17,18 @@
         NSClassFromString(@"ITZoomWindowEffect"),
         NSClassFromString(@"ITSpinWindowEffect"),
         NSClassFromString(@"ITSpinAndZoomWindowEffect"),
-		NSClassFromString(@"ITCoreImageWindowEffect"),
         nil];
-        
+	
+	NSOpenGLView *view = [[NSOpenGLView alloc] initWithFrame:NSMakeRect(0, 0, 1, 1) pixelFormat:[NSOpenGLView defaultPixelFormat]];
+	if ([view openGLContext]) {
+		NSString *string = [NSString stringWithCString:glGetString(GL_EXTENSIONS)];
+		NSRange result = [string rangeOfString:@"ARB_fragment_program"];
+		if (result.location != NSNotFound) {
+			[classes addObject:NSClassFromString(@"ITCoreImageWindowEffect")];
+		}
+	}
+	[view release];
+	
     return classes;
 }
 

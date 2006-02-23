@@ -31,6 +31,7 @@
 		37B7F6750754F87A0089C005 /* ITSplashWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7F66E0754F87A0089C005 /* ITSplashWindow.m */; };
 		37B7F6760754F87A0089C005 /* ITSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7F66F0754F87A0089C005 /* ITSplashScreen.m */; };
 		37B7F6780754F87A0089C005 /* ITSplashScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B7F6710754F87A0089C005 /* ITSplashScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37D4862009AE7C8300B68439 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D4861F09AE7C8300B68439 /* OpenGL.framework */; };
 		37FA493F094DE2650078A329 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37FA493E094DE2650078A329 /* QuartzCore.framework */; };
 		37FA494D094DE28B0078A329 /* ITCoreImageWindowEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 37FA494B094DE28B0078A329 /* ITCoreImageWindowEffect.h */; };
 		37FA494E094DE28B0078A329 /* ITCoreImageWindowEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 37FA494C094DE28B0078A329 /* ITCoreImageWindowEffect.m */; };
@@ -220,6 +221,7 @@
 		37B7F66E0754F87A0089C005 /* ITSplashWindow.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ITSplashWindow.m; sourceTree = "<group>"; };
 		37B7F66F0754F87A0089C005 /* ITSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ITSplashScreen.m; sourceTree = "<group>"; };
 		37B7F6710754F87A0089C005 /* ITSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ITSplashScreen.h; sourceTree = "<group>"; };
+		37D4861F09AE7C8300B68439 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		37FA493E094DE2650078A329 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		37FA494B094DE28B0078A329 /* ITCoreImageWindowEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITCoreImageWindowEffect.h; sourceTree = "<group>"; };
 		37FA494C094DE28B0078A329 /* ITCoreImageWindowEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITCoreImageWindowEffect.m; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				7CC84BE5054F6CAA001DC704 /* Carbon.framework in Frameworks */,
 				7C105BDC07D787C0002DE061 /* ITFoundation.framework in Frameworks */,
 				37FA493F094DE2650078A329 /* QuartzCore.framework in Frameworks */,
+				37D4862009AE7C8300B68439 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +406,7 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37D4861F09AE7C8300B68439 /* OpenGL.framework */,
 				37FA493E094DE2650078A329 /* QuartzCore.framework */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 				7CC84BE4054F6CAA001DC704 /* Carbon.framework */,
