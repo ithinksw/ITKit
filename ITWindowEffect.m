@@ -8,7 +8,7 @@
 
 + (NSArray *)effectClasses
 {
-    NSMutableArray *classes = [NSArray arrayWithObjects:
+    NSMutableArray *classes = [[NSArray arrayWithObjects:
         NSClassFromString(@"ITCutWindowEffect"),
         NSClassFromString(@"ITDissolveWindowEffect"),
         NSClassFromString(@"ITSlideHorizontallyWindowEffect"),
@@ -17,7 +17,7 @@
         NSClassFromString(@"ITZoomWindowEffect"),
         NSClassFromString(@"ITSpinWindowEffect"),
         NSClassFromString(@"ITSpinAndZoomWindowEffect"),
-        nil];
+        nil] mutableCopy];
 	
 	NSOpenGLView *view = [[NSOpenGLView alloc] initWithFrame:NSMakeRect(0, 0, 1, 1) pixelFormat:[NSOpenGLView defaultPixelFormat]];
 	if ([view openGLContext]) {
@@ -29,7 +29,7 @@
 	}
 	[view release];
 	
-    return classes;
+    return [classes autorelease];
 }
 
 - (id)initWithWindow:(NSWindow *)window
