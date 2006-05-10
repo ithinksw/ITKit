@@ -113,7 +113,7 @@ static ITTransientStatusWindow *staticWindow = nil;
 #pragma mark INSTANCE METHODS
 /*************************************************************************/
 
-- (BOOL)ignoresMouseEvents
+/*- (BOOL)ignoresMouseEvents
 {
     return _reallyIgnoresEvents;
 }
@@ -124,11 +124,11 @@ static ITTransientStatusWindow *staticWindow = nil;
     //CGSValueObj   	 ignore;
 	CGSWindowTag tags;
 
-    /*key = CGSCreateCString("IgnoreForEvents");
+    key = CGSCreateCString("IgnoreForEvents");
     ignore = CGSCreateBoolean( (flag ? kCGSTrue : kCGSFalse) );
     CGSSetWindowProperty([NSApp contextID], (CGSWindowID)[self windowNumber], key, ignore);
     CGSReleaseObj(key);
-    CGSReleaseObj(ignore);*/
+    CGSReleaseObj(ignore);
 	
 	CGSGetWindowTags([NSApp contextID], (CGSWindowID)[self windowNumber], &tags, 32);
 
@@ -137,11 +137,11 @@ static ITTransientStatusWindow *staticWindow = nil;
 	} else {
 		tags = tags & CGSTagTransparent;
 	}
-
+NSLog(@"ignore? %i", flag);
 	CGSSetWindowTags([NSApp contextID], (CGSWindowID)[self windowNumber], &tags, 32);
 
     _reallyIgnoresEvents = flag;
-}
+}*/
 
 /*
 
