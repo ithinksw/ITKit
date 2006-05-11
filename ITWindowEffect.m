@@ -19,15 +19,18 @@
         NSClassFromString(@"ITSpinAndZoomWindowEffect"),
         nil] mutableCopy];
 	
-	NSOpenGLView *view = [[NSOpenGLView alloc] initWithFrame:NSMakeRect(0, 0, 1, 1) pixelFormat:[NSOpenGLView defaultPixelFormat]];
-	if ([view openGLContext]) {
-		NSString *string = [NSString stringWithCString:glGetString(GL_EXTENSIONS)];
-		NSRange result = [string rangeOfString:@"ARB_fragment_program"];
-		if (result.location != NSNotFound) {
-			[classes addObject:NSClassFromString(@"ITCoreImageWindowEffect")];
+	long version;
+	if ((Gestalt(gestaltSystemVersion, &version) == noErr) && (version >= 4160) && (version < 4166)) {
+		NSOpenGLView *view = [[NSOpenGLView alloc] initWithFrame:NSMakeRect(0, 0, 1, 1) pixelFormat:[NSOpenGLView defaultPixelFormat]];
+		if ([view openGLContext]) {
+			NSString *string = [NSString stringWithCString:glGetString(GL_EXTENSIONS)];
+			NSRange result = [string rangeOfString:@"ARB_fragment_program"];
+			if (result.location != NSNotFound) {
+				[classes addObject:NSClassFromString(@"ITCoreImageWindowEffect")];
+			}
 		}
+		[view release];
 	}
-	[view release];
 	
     return [classes autorelease];
 }
