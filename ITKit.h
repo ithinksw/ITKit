@@ -4,7 +4,7 @@
  *
  *	iThink Software's custom extensions to Apple's Cocoa framework.
  *
- *	Copyright (c) 2005 by iThink Software.
+ *	Copyright (c) 2008 by iThink Software.
  *	All Rights Reserved.
  *
  *	$Id$
@@ -12,6 +12,8 @@
  */
 
 #import <Cocoa/Cocoa.h>
+
+#import <ITKit/ITApplicationController.h>
 
 #import <ITKit/ITButtonCell.h>
 #import <ITKit/ITTextFieldCell.h>
@@ -45,5 +47,6 @@
 
 #import <ITKit/ITAboutWindowController.h>
 
+#import <ITKit/ITCategory-NSApplication.h>
 #import <ITKit/ITCategory-NSView.h>
 #import <ITKit/ITCategory-NSMenu.h>

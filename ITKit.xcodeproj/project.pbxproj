@@ -116,33 +116,11 @@
 		8DC2EF510486A6940098B216 /* ITKit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF5E0370ADEE00C91783 /* ITKit_Prefix.pch */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		FAD6912F0E7BD0E800EC3B64 /* ITApplicationController.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD6912D0E7BD0E800EC3B64 /* ITApplicationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAD691300E7BD0E800EC3B64 /* ITApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD6912E0E7BD0E800EC3B64 /* ITApplicationController.m */; };
+		FAD6927F0E7C601800EC3B64 /* ITCategory-NSApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD6927D0E7C601800EC3B64 /* ITCategory-NSApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAD692800E7C601800EC3B64 /* ITCategory-NSApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD6927E0E7C601800EC3B64 /* ITCategory-NSApplication.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildStyle section */
-		014CEA440018CDF011CA2923 /* Development */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				DEBUGGING_SYMBOLS = YES;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				OPTIMIZATION_CFLAGS = "-O0";
-				ZERO_LINK = YES;
-			};
-			name = Development;
-		};
-		014CEA450018CDF011CA2923 /* Deployment */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				ZERO_LINK = NO;
-			};
-			name = Deployment;
-		};
-/* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
 		2AC8297F056C451900A7D7E2 /* PBXContainerItemProxy */ = {
@@ -230,7 +208,7 @@
 		7C02301C08A84A1E00DDBD03 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ITAboutWindow.nib; sourceTree = SOURCE_ROOT; };
 		7C4BBADA05F98C9900734027 /* ITMultilineTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMultilineTextFieldCell.h; sourceTree = "<group>"; };
 		7C4BBADB05F98C9900734027 /* ITMultilineTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMultilineTextFieldCell.m; sourceTree = "<group>"; };
-		7C6E5BF607D7774500A5F91F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C6E5BF607D7774500A5F91F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C6E5BF707D7776F00A5F91F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7C6E5BF807D7778300A5F91F /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7C6E5BF907D7778700A5F91F /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = German.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -310,6 +288,10 @@
 		7CEA43C907D77F1600CACD9D /* ITLoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITLoginItem.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* ITKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ITKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD6912D0E7BD0E800EC3B64 /* ITApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITApplicationController.h; sourceTree = "<group>"; };
+		FAD6912E0E7BD0E800EC3B64 /* ITApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITApplicationController.m; sourceTree = "<group>"; };
+		FAD6927D0E7C601800EC3B64 /* ITCategory-NSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ITCategory-NSApplication.h"; sourceTree = "<group>"; };
+		FAD6927E0E7C601800EC3B64 /* ITCategory-NSApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ITCategory-NSApplication.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +381,7 @@
 				7C992F9B054F547C000B93EA /* ITHotKey */,
 				37B7F65C0754F8440089C005 /* ITSplashScreen */,
 				7C02300808A8486A00DDBD03 /* ITAboutWindowController */,
+				FAD9C0340E83CC5D00E110AF /* ITApplicationController */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -502,10 +485,12 @@
 		7C992F90054F53D9000B93EA /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				7C992DD1054F5179000B93EA /* ITCategory-NSView.h */,
-				7C992DD2054F5179000B93EA /* ITCategory-NSView.m */,
+				FAD6927D0E7C601800EC3B64 /* ITCategory-NSApplication.h */,
+				FAD6927E0E7C601800EC3B64 /* ITCategory-NSApplication.m */,
 				7C992DCF054F5179000B93EA /* ITCategory-NSMenu.h */,
 				7C992DD0054F5179000B93EA /* ITCategory-NSMenu.m */,
+				7C992DD1054F5179000B93EA /* ITCategory-NSView.h */,
+				7C992DD2054F5179000B93EA /* ITCategory-NSView.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -762,6 +747,15 @@
 			name = ITLoginItem;
 			sourceTree = "<group>";
 		};
+		FAD9C0340E83CC5D00E110AF /* ITApplicationController */ = {
+			isa = PBXGroup;
+			children = (
+				FAD6912D0E7BD0E800EC3B64 /* ITApplicationController.h */,
+				FAD6912E0E7BD0E800EC3B64 /* ITApplicationController.m */,
+			);
+			name = ITApplicationController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -819,6 +813,8 @@
 				7C02300B08A8488B00DDBD03 /* ITAboutWindowController.h in Headers */,
 				37FA494D094DE28B0078A329 /* ITCoreImageWindowEffect.h in Headers */,
 				370C98540995CC7E008C3200 /* ITCoreImageView.h in Headers */,
+				FAD6912F0E7BD0E800EC3B64 /* ITApplicationController.h in Headers */,
+				FAD6927F0E7C601800EC3B64 /* ITCategory-NSApplication.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,26 +833,6 @@
 			);
 			buildRules = (
 			);
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				INFOPLIST_FILE = Showcase/Info.plist;
-				INSTALL_PATH = "$(USER_APPS_DIR)";
-				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ITKitShowcase;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = "-Wmost";
-			};
 			dependencies = (
 				7C105BEA07D787D8002DE061 /* PBXTargetDependency */,
 				2AC82980056C451900A7D7E2 /* PBXTargetDependency */,
@@ -864,33 +840,6 @@
 			name = ITKitShowcase;
 			productName = ITKitShowcase;
 			productReference = 7C992F87054F5389000B93EA /* ITKitShowcase.app */;
-			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
-<plist version=\"1.0\">
-<dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
-	<key>CFBundleExecutable</key>
-	<string>ITKitShowcase</string>
-	<key>CFBundleGetInfoString</key>
-	<string></string>
-	<key>CFBundleIconFile</key>
-	<string></string>
-	<key>CFBundleIdentifier</key>
-	<string>com.MySoftwareCompany.ITKitShowcase</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string></string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.0d1</string>
-</dict>
-</plist>
-";
 			productType = "com.apple.product-type.application";
 		};
 		8DC2EF4F0486A6940098B216 /* ITKit */ = {
@@ -904,36 +853,6 @@
 			);
 			buildRules = (
 			);
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = ITKit_Prefix.pch;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Dynamic;
-				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				OTHER_LDFLAGS = (
-					"-seg1addr",
-					0x19000000,
-				);
-				PRODUCT_NAME = ITKit;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = framework;
-			};
 			dependencies = (
 				7C105BE807D787D0002DE061 /* PBXTargetDependency */,
 			);
@@ -949,14 +868,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 7C022FEF08A8465D00DDBD03 /* Build configuration list for PBXProject "ITKit" */;
-			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				SDKROOT = /Developer/SDKs/MacOSX10.2.8.sdk;
-			};
-			buildStyles = (
-				014CEA440018CDF011CA2923 /* Development */,
-				014CEA450018CDF011CA2923 /* Deployment */,
-			);
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 0867D691FE84028FC02AAC07 /* ITKit */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
@@ -967,6 +879,7 @@
 					ProjectRef = 7CDC144907D7869C00B64193 /* ITFoundation.xcodeproj */;
 				},
 			);
+			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* ITKit */,
 				7C992F86054F5389000B93EA /* ITKitShowcase */,
@@ -1068,6 +981,8 @@
 				7C02300C08A8488B00DDBD03 /* ITAboutWindowController.m in Sources */,
 				37FA494E094DE28B0078A329 /* ITCoreImageWindowEffect.m in Sources */,
 				370C98550995CC7E008C3200 /* ITCoreImageView.m in Sources */,
+				FAD691300E7BD0E800EC3B64 /* ITApplicationController.m in Sources */,
+				FAD692800E7C601800EC3B64 /* ITCategory-NSApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1187,7 +1102,6 @@
 				LIBRARY_STYLE = Dynamic;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				OPTIMIZATION_CFLAGS = "-O0";
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0x19000000,
@@ -1296,7 +1210,6 @@
 				INFOPLIST_FILE = Showcase/Info.plist;
 				INSTALL_PATH = "$(USER_APPS_DIR)";
 				MACOSX_DEPLOYMENT_TARGET = 10.2;
-				OPTIMIZATION_CFLAGS = "-O0";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
