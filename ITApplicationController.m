@@ -1,17 +1,6 @@
 #import "ITApplicationController.h"
 #import "ITCategory-NSApplication.h"
 
-@protocol _ITKitITApplicationControllerFSInterpreterResultCompatibility <NSObject>
-- (NSRange)errorRange;
-- (NSString *)errorMessage;
-- (BOOL)isOK;
-@end
-
-@protocol _ITKitITApplicationControllerFSInterpreterCompatibility <NSObject>
-- (void)setObject:(id)object forIdentifier:(NSString *)identifier;
-- (id <_ITKitITApplicationControllerFSInterpreterResultCompatibility>)execute:(NSString *)command;
-@end
-
 @implementation ITApplicationController
 
 - (id)init {
@@ -56,30 +45,6 @@
 			}
 			if (pluginInstance) {
 				[_plugins addObject:[pluginInstance autorelease]]; // autoreleasing so that when we reload plugins, and the _plugins array is released, the accompanying previously-loaded plugins die with it.
-			}
-		}
-	}
-	
-	Class fsinterpreterClass;
-	if (fsinterpreterClass = NSClassFromString(@"FSInterpreter")) {
-		NSArray *fscriptPaths = [NSBundle pathsForResourcesOfType:@"fscriptplugin" inDirectory:[[NSBundle mainBundle] builtInPlugInsPath]];
-		NSEnumerator *fscriptPathEnumerator = [fscriptPaths objectEnumerator];
-		id fscriptPath;
-		
-		while (fscriptPath = [fscriptPathEnumerator nextObject]) {
-			NSString *fscriptSource = [NSString stringWithContentsOfFile:fscriptPath];
-			if (fscriptSource) {
-				id fscriptInterpreter = [(id <_ITKitITApplicationControllerFSInterpreterCompatibility>)[fsinterpreterClass alloc] init];
-				id result;
-				[fscriptInterpreter setObject:self forIdentifier:@"applicationController"];
-				[fscriptInterpreter setObject:fscriptInterpreter forIdentifier:@"hostInterpreter"];
-				result = [fscriptInterpreter execute:fscriptSource];
-				if (![result isOK]) {
-					NSRunAlertPanel(@"F-Script Plugin Error",[NSString stringWithFormat:@"Plugin: %@\nRange: %@\nMessage:%@", fscriptPath, NSStringFromRange([result errorRange]), [result errorMessage]],@"Dismiss",nil,nil);
-					[fscriptInterpreter release];
-				} else {
-					[_plugins addObject:[fscriptInterpreter autorelease]];
-				}
 			}
 		}
 	}
