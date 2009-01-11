@@ -5,10 +5,7 @@
  *	Custom NSButtonCell subclass that provides a stylized bezel style for use
  *		with ITStatusWindows.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

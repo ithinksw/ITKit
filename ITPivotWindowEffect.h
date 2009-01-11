@@ -4,10 +4,7 @@
  *
  *	Effect subclass which pivots (rotates) a window into position on the screen.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

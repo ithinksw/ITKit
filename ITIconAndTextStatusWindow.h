@@ -4,10 +4,7 @@
  *
  *	ITTransientStatusWindow subclass to show an icon and text.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

@@ -4,10 +4,7 @@
  *
  *	Effect subclass which performs a Core Image ripple effect on a window.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

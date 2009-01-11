@@ -4,10 +4,7 @@
  *
  *	Protocol and abstract superclass for performing effects on windows.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

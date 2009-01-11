@@ -5,10 +5,7 @@
  *	NSView subclass which draws a bevel of specified thickness, and resizes its
  *		first subview to fill the remaining space.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software.
  *
  */
 

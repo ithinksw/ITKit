@@ -4,10 +4,7 @@
  *
  *	NSTabView subclass which allows dragging (reordering) of tab view items.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

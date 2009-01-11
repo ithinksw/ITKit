@@ -4,10 +4,7 @@
  *
  *	iThink Software's custom extensions to Apple's Cocoa framework.
  *
- *	Copyright (c) 2008 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2008 iThink Software
  *
  */
 

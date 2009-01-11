@@ -6,10 +6,7 @@
  *		cornerView and provides easy to use accessors to the features
  *		provided by ITTableCornerView when it is being used.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

@@ -6,10 +6,7 @@
  *		providing support for versions of Cocoa that don't have the NSShadow
  *		class which was introduced in Mac OS X 10.3 (Panther).
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

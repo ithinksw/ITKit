@@ -5,10 +5,7 @@
  *	Custom NSCell subclass that draws multiple lines of text using standard
  *		UI guidelines for such a presentation.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

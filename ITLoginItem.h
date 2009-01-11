@@ -5,10 +5,7 @@
  *	Functions for adding applications to the user's list of applications that
  *		are automatically launched on login.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

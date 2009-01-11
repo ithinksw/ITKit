@@ -292,6 +292,8 @@
 		FAD6912E0E7BD0E800EC3B64 /* ITApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITApplicationController.m; sourceTree = "<group>"; };
 		FAD6927D0E7C601800EC3B64 /* ITCategory-NSApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ITCategory-NSApplication.h"; sourceTree = "<group>"; };
 		FAD6927E0E7C601800EC3B64 /* ITCategory-NSApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ITCategory-NSApplication.m"; sourceTree = "<group>"; };
+		FAF724F00F19EC1800D0F190 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		FAF724F10F19EC1800D0F190 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +367,8 @@
 				7C02301A08A8496100DDBD03 /* About Window */,
 				7C992E3E054F5246000B93EA /* Graphics */,
 				2A30D89A056B3B5C0087AE54 /* Documentation */,
+				FAF724F00F19EC1800D0F190 /* COPYING */,
+				FAF724F10F19EC1800D0F190 /* LICENSE */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

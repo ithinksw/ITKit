@@ -7,10 +7,7 @@
  *		class which was introduced in Mac OS X 10.3 (Panther), and also
  *		provides smooth scaling.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 

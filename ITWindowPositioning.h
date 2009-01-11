@@ -4,10 +4,7 @@
  *
  *	Protocol which defines methods for window positioning presets.
  *
- *	Copyright (c) 2005 by iThink Software.
- *	All Rights Reserved.
- *
- *	$Id$
+ *	Copyright (c) 2005 iThink Software
  *
  */
 
