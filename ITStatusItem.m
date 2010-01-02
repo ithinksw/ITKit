@@ -100,14 +100,14 @@ static BOOL _ITStatusItemShouldKillShadow = NO;
 
 - (NSImage *)alternateImage {
 	if ([super respondsToSelector:@selector(alternateImage)]) {
-		return [(id <_ITStatusItemNSStatusItemPantherCompatability>)super alternateImage];
+		return [super alternateImage];
 	}
 	return [(NSButton *)[self _button] alternateImage];
 }
 
 - (void)setAlternateImage:(NSImage*)image {
 	if ([super respondsToSelector:@selector(setAlternateImage:)]) {
-		[(id <_ITStatusItemNSStatusItemPantherCompatability>)super setAlternateImage:image];
+		[super setAlternateImage:image];
 		return;
 	}
 	[(NSButton *)[self _button] setAlternateImage:image];

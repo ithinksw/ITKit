@@ -197,6 +197,8 @@
     NSPoint translation;
     NSRect winFrame = [_window frame];
     
+    Zoom = MAX(Zoom, 0.000001);
+    
     translation.x = (winFrame.size.width / 2.0);
     translation.y = (winFrame.size.height / 2.0);
     transform = CGAffineTransformMakeTranslation(translation.x, translation.y);
