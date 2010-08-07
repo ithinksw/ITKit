@@ -1,18 +1,16 @@
 #import "ITTextFieldCell.h"
-#import "ITCoreGraphicsHacks.h"
 #import <ApplicationServices/ApplicationServices.h>
+#import <ITFoundation/ITFoundation.h>
 
 @implementation ITTextFieldCell
 
 - (id)initTextCell:(NSString *)string {
 	if ((self = [super initTextCell:string])) {
 		castsShadow = NO;
-		shadowElevation = 45.0;
 		shadowAzimuth = 90.0;
-		shadowAmbient = 0.15;
+		shadowAmbient = 0.0;
 		shadowHeight = 1.00;
 		shadowRadius = 4.00;
-		shadowSaturation = 1.0;
 	}
 	return self;
 }
@@ -20,34 +18,28 @@
 - (id)initWithCoder:(NSCoder *)coder {
 	if ((self = [super initWithCoder:coder])) {		
 		castsShadow = NO;
-		shadowElevation = 45.0;
 		shadowAzimuth = 90.0;
-		shadowAmbient = 0.15;
+		shadowAmbient = 0.0; // Unlike ITImageCell, even an alpha component of 1.0 is ligher than the old private API's results. There's not much we can do about it as we can't go "blacker" than black.
 		shadowHeight = 1.00;
 		shadowRadius = 4.00;
-		shadowSaturation = 1.0;
 	}
 	return self;
 }
 
 - (void)drawWithFrame:(NSRect)rect inView:(NSView *)controlView {
-	CGSGenericObj style = nil;
-	CGShadowStyle shadow;
+	NSShadow *shadow;
 	
-	if ( castsShadow ) { 
-		// Create the shadow style to use for drawing the string
-		shadow.version = 0;
-		shadow.elevation = shadowElevation;
-		shadow.azimuth = shadowAzimuth;
-		shadow.ambient = shadowAmbient;
-		shadow.height = shadowHeight;
-		shadow.radius = shadowRadius;
-		shadow.saturation = shadowSaturation;
-		style = CGStyleCreateShadow(&shadow);
+	if (castsShadow) {
+		CGFloat height = ((2.0*tan((M_PI/360.0)*(shadowAzimuth-180.0)))*shadowHeight)/(1.0+pow(tan((M_PI/360.0)*(shadowAzimuth-180.0)),2.0));
+		CGFloat width = sqrt(pow(shadowHeight, 2.0)-pow(height, 2.0));
 		
-		// Set the context for drawing the string
+		shadow = [[NSShadow alloc] init];
+		[shadow setShadowColor:[[NSColor blackColor] colorWithAlphaComponent:(1.0 - shadowAmbient)]];
+		[shadow setShadowOffset:NSMakeSize(width, height)];
+		[shadow setShadowBlurRadius:shadowRadius];
+		
 		[NSGraphicsContext saveGraphicsState];
-		CGContextSetStyle([[NSGraphicsContext currentContext] graphicsPort], style);
+		[shadow set];
 	}
 	
 	// Draw the string
@@ -56,7 +48,7 @@
 	if (castsShadow) { 
 		// Restore the old context
 		[NSGraphicsContext restoreGraphicsState];
-		CGStyleRelease(style);
+		[shadow release];
 	}
 }
 
@@ -70,12 +62,11 @@
 }
 
 - (float)shadowElevation {
-	return shadowElevation;
+	return 45.0;
 }
 
 - (void)setShadowElevation:(float)newElevation {
-	shadowElevation = newElevation;
-	[[self controlView] setNeedsDisplay:YES];
+	ITDebugLog(@"setShadowElevation: on ITTextFieldCell objects does nothing.");
 }
 
 - (float)shadowAzimuth {
@@ -115,12 +106,11 @@
 }
 
 - (float)shadowSaturation {
-	return shadowSaturation;
+	return 1.0;
 }
 
 - (void)setShadowSaturation:(float)newSaturation {
-	shadowSaturation = newSaturation;
-	[[self controlView] setNeedsDisplay:YES];
+	ITDebugLog(@"setShadowSaturation: on ITTextFieldCell objects does nothing.");
 }
 
 @end

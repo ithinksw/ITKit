@@ -1,6 +1,6 @@
 #import "ITImageCell.h"
-#import "ITCoreGraphicsHacks.h"
 #import <ApplicationServices/ApplicationServices.h>
+#import <ITFoundation/ITFoundation.h>
 
 @implementation ITImageCell
 
@@ -8,12 +8,10 @@
 	if ((self = [super initImageCell:image])) {
 		_scalesSmoothly = YES;
 		castsShadow = NO;
-		shadowElevation = 45.0;
 		shadowAzimuth = 90.0;
 		shadowAmbient = 0.15;
 		shadowHeight = 1.00;
 		shadowRadius = 4.00;
-		shadowSaturation = 1.0;
 	}
 	return self;
 }
@@ -22,51 +20,46 @@
 	if ((self = [super init])) {
 		_scalesSmoothly = YES;
 		castsShadow = NO;
-		shadowElevation = 45.0;
 		shadowAzimuth = 90.0;
-		shadowAmbient = 0.15;
+		shadowAmbient = 0.15; // In my tests, an alpha component of 0.85 perfectly duplicates the old private API's results, resulting in identical shadows. Therefore, the ambient can remain 0.15.
 		shadowHeight = 1.00;
 		shadowRadius = 4.00;
-		shadowSaturation = 1.0;
 	}
 	return self;
 }
 
 - (void)drawWithFrame:(NSRect)rect inView:(NSView *)controlView {
-	CGSGenericObj style = nil;
-	CGShadowStyle shadow;
+	NSShadow *shadow;
 	
 	if (_scalesSmoothly || castsShadow) {
 		[NSGraphicsContext saveGraphicsState];
 	}
 	
 	if (_scalesSmoothly) {
-		// CGContextSetInterpolationQuality([[NSGraphicsContext currentContext] graphicsPort], kCGInterpolationHigh);
 		[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
 		[[NSGraphicsContext currentContext] setShouldAntialias:YES];
 	}
 	
 	if (castsShadow) {
-		// Create the shadow style to use for drawing the string
-		shadow.version = 0;
-		shadow.elevation = shadowElevation;
-		shadow.azimuth = shadowAzimuth;
-		shadow.ambient = shadowAmbient;
-		shadow.height = shadowHeight;
-		shadow.radius = shadowRadius;
-		shadow.saturation = shadowSaturation;
-		style = CGStyleCreateShadow(&shadow);
-		CGContextSetStyle([[NSGraphicsContext currentContext] graphicsPort], style);
+		CGFloat height = ((2.0*tan((M_PI/360.0)*(shadowAzimuth-180.0)))*shadowHeight)/(1.0+pow(tan((M_PI/360.0)*(shadowAzimuth-180.0)),2.0));
+		CGFloat width = sqrt(pow(shadowHeight, 2.0)-pow(height, 2.0));
+		
+		shadow = [[NSShadow alloc] init];
+		[shadow setShadowColor:[[NSColor blackColor] colorWithAlphaComponent:(1.0 - shadowAmbient)]]; 
+		[shadow setShadowOffset:NSMakeSize(width, height)];
+		[shadow setShadowBlurRadius:shadowRadius];
+		
+		[shadow set];
 	}
 	
 	[super drawWithFrame:rect inView:controlView];
 	
-	if (castsShadow) {
-		CGStyleRelease(style);
-	}
-	
 	if (_scalesSmoothly || castsShadow) {
 		[NSGraphicsContext restoreGraphicsState];
+	}
+	
+	if (castsShadow) {
+		[shadow release];
 	}
 }
 
@@ -89,12 +82,11 @@
 }
 
 - (float)shadowElevation {
-	return shadowElevation;
+	return 45.0;
 }
 
 - (void)setShadowElevation:(float)newElevation {
-	shadowElevation = newElevation;
-	[[self controlView] setNeedsDisplay:YES];
+	ITDebugLog(@"setShadowElevation: on ITImageCell objects does nothing.");
 }
 
 - (float)shadowAzimuth {
@@ -134,12 +126,11 @@
 }
 
 - (float)shadowSaturation {
-	return shadowSaturation;
+	return 1.0;
 }
 
 - (void)setShadowSaturation:(float)newSaturation {
-	shadowSaturation = newSaturation;
-	[[self controlView] setNeedsDisplay:YES];
+	ITDebugLog(@"setShadowSaturation: on ITImageCell objects does nothing.");
 }
 
 @end

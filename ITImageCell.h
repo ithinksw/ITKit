@@ -2,12 +2,9 @@
  *	ITKit
  *	ITImageCell.h
  *
- *	Custom NSImageCell subclass that casts a shadow using CoreGraphics,
- *		providing support for versions of Cocoa that don't have the NSShadow
- *		class which was introduced in Mac OS X 10.3 (Panther), and also
- *		provides smooth scaling.
+ *	Custom NSImageCell subclass that casts a shadow and provides smooth scaling.
  *
- *	Copyright (c) 2005 iThink Software
+ *	Copyright (c) 2010 iThink Software
  *
  */
 
@@ -16,12 +13,10 @@
 @interface ITImageCell : NSImageCell {
 	BOOL _scalesSmoothly;
 	BOOL castsShadow;
-	float shadowElevation;
 	float shadowAzimuth;
 	float shadowAmbient;
 	float shadowHeight;
 	float shadowRadius;
-	float shadowSaturation;
 }
 
 - (BOOL)scalesSmoothly;
@@ -30,8 +25,8 @@
 - (BOOL)castsShadow;
 - (void)setCastsShadow:(BOOL)newSetting;
 
-- (float)shadowElevation; /* Light source elevation in degrees. Defaults to 45.0 */
-- (void)setShadowElevation:(float)newElevation;
+- (float)shadowElevation; /* Light source elevation in degrees. Always 45.0 */
+- (void)setShadowElevation:(float)newElevation; /* NOOP */
 
 - (float)shadowAzimuth; /* Light source azimuth in degrees. Defaults to 90.0 */
 - (void)setShadowAzimuth:(float)newAzimuth;
@@ -45,7 +40,7 @@
 - (float)shadowRadius; /* Blur radius. Defaults to 4.0 */
 - (void)setShadowRadius:(float)newRadius;
 
-- (float)shadowSaturation; /* Maximum saturation. Defaults to 1.0 */
-- (void)setShadowSaturation:(float)newSaturation;
+- (float)shadowSaturation; /* Maximum saturation. Always 1.0 */
+- (void)setShadowSaturation:(float)newSaturation; /* NOOP */
 
 @end
